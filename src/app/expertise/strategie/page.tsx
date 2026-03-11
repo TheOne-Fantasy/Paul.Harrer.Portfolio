@@ -1,8 +1,16 @@
+'use client';
+import { useState, useMemo } from 'react';
 import styles from '../../page.module.css';
-import data from '../../../data.json';
+import allData from '../../../data.json';
 
 export default function StrategyPage() {
-  const expertise = data.expertises.find(e => e.id === 1);
+  const [lang, setLang] = useState<'fr' | 'en'>('fr');
+  
+  // @ts-ignore
+  const data = allData[lang];
+  const common = allData.common;
+  const expertise = data.expertises.find((e: any) => e.id === 1);
+  const mediaExp = common.expertises_media.find((m: any) => m.id === 1);
   const projects = expertise?.projects || [];
 
   return (
@@ -14,13 +22,18 @@ export default function StrategyPage() {
             <div className={styles.logo}><a href="/">PAUL HARRER</a></div>
           </div>
           <div className={styles.navLinks}>
-            <a href="/expertise/strategie" style={{color: '#ff5c35'}}>Stratégie</a>
+            <a href="/expertise/strategie" style={{color: '#ff5c35'}}>{lang === 'fr' ? 'Stratégie' : 'Strategy'}</a>
             <a href="/expertise/production">Production</a>
             <a href="/expertise/content">Content</a>
           </div>
           <div className={styles.navActions}>
+            <div className={styles.langSwitcher}>
+                <button className={lang === 'fr' ? styles.langActive : ''} onClick={() => setLang('fr')}>FR</button>
+                <span>|</span>
+                <button className={lang === 'en' ? styles.langActive : ''} onClick={() => setLang('en')}>EN</button>
+            </div>
             <a href="/admin" className={styles.adminLink}>Admin</a>
-            <a href="#contact" className={styles.contactCta}>Let&apos;s talk</a>
+            <a href="#contact" className={styles.contactCta}>{lang === 'fr' ? "Parlons-en" : "Let's talk"}</a>
           </div>
         </nav>
       </header>
@@ -34,48 +47,49 @@ export default function StrategyPage() {
       </section>
 
       <section className={styles.expertiseDetailSection}>
-        {projects.map((proj: any, index) => {
-          const hasMedia = !!(proj.linkedinId || proj.instagramId || proj.youtubeId);
+        {projects.map((proj: any, index: number) => {
+          const media = mediaExp?.projects[index] || {};
+          const hasMedia = !!(media.linkedinId || media.instagramId || media.youtubeId);
           return (
             <div key={index} className={`${styles.caseStudyItem} ${!hasMedia ? styles.fullWidth : ''}`}>
               <div className={styles.caseStudyContent}>
                 <div className={styles.projectHeader} style={{marginBottom: '1rem'}}>
-                  {proj.image && <img src={proj.image} alt={proj.name} className={styles.projectLogo} style={{height: '30px'}} />}
+                  {media.image && <img src={media.image} alt={proj.name} className={styles.projectLogo} style={{height: '30px'}} />}
                 </div>
                 <h4>{proj.name}</h4>
                 <p>{proj.detail}</p>
-                {proj.subImage && (
+                {media.subImage && (
                   <div className={styles.subLogoWrapper} style={{marginBottom: '1rem'}}>
-                    <img src={proj.subImage} alt="Secondary Logo" className={styles.subLogo} style={{height: '20px'}} />
+                    <img src={media.subImage} alt="Secondary Logo" className={styles.subLogo} style={{height: '20px'}} />
                   </div>
                 )}
-                {proj.link && (
-                  <a href={proj.link} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>→ Voir le projet en ligne</a>
+                {media.link && (
+                  <a href={media.link} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>→ {lang === 'fr' ? 'Voir le projet en ligne' : 'View project online'}</a>
                 )}
               </div>
 
               {hasMedia && (
                 <div className={styles.caseStudyMedia}>
-                  {proj.linkedinId && (
+                  {media.linkedinId && (
                     <div className={styles.linkedinWrapper}>
                       <iframe
-                        src={`https://www.linkedin.com/embed/feed/update/urn:li:activity:${proj.linkedinId}`}
+                        src={`https://www.linkedin.com/embed/feed/update/urn:li:activity:${media.linkedinId}`}
                         height="550" width="100%" frameBorder="0" allowFullScreen title="LinkedIn Post"
                       ></iframe>
                     </div>
                   )}
-                  {proj.instagramId && (
+                  {media.instagramId && (
                     <div className={styles.instaWrapper}>
                       <iframe
-                        src={`https://www.instagram.com/p/${proj.instagramId}/embed/`}
+                        src={`https://www.instagram.com/p/${media.instagramId}/embed/`}
                         width="100%" height="550" frameBorder="0" scrolling="no" allowTransparency={true}
                       ></iframe>
                     </div>
                   )}
-                  {proj.youtubeId && (
+                  {media.youtubeId && (
                     <div className={styles.videoWrapper}>
                       <iframe 
-                        width="100%" height="auto" src={`https://www.youtube.com/embed/${proj.youtubeId}`}
+                        width="100%" height="auto" src={`https://www.youtube.com/embed/${media.youtubeId}`}
                         title={proj.name} frameBorder="0" allowFullScreen
                       ></iframe>
                     </div>
@@ -88,8 +102,8 @@ export default function StrategyPage() {
       </section>
 
       <footer className={styles.footer}>
-        <p>© 2026 Paul Harrer. Stratégie Digitale.</p>
-        <a href="/" className={styles.backLink}>← Retour à l'accueil</a>
+        <p>© 2026 Paul Harrer. {lang === 'fr' ? 'Stratégie Digitale' : 'Digital Strategy'}.</p>
+        <a href="/" className={styles.backLink}>← {lang === 'fr' ? "Retour à l'accueil" : "Back to home"}</a>
       </footer>
     </main>
   );
