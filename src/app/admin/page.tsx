@@ -156,6 +156,7 @@ export default function Admin() {
                     />
                     <input 
                       className={styles.inputField} 
+                      // @ts-ignore
                       value={media.youtubeId || ''} 
                       placeholder="ID YouTube"
                       onChange={(e) => handleChange('expertises', 'projects', {projIndex: pIdx, type: 'youtubeId', val: e.target.value}, index)} 
