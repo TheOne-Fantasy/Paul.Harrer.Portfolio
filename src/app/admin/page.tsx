@@ -10,7 +10,6 @@ export default function Admin() {
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    // Récupérer la liste des images dans /public
     fetch('/api/images')
       .then(res => res.json())
       .then(setImages);
@@ -18,30 +17,35 @@ export default function Admin() {
 
   const handleChange = (section: string, key: string, value: any, index?: number) => {
     const newData = { ...data };
+    // On édite la version FR par défaut dans ce mode simplifié
     if (section === 'hero') {
       // @ts-ignore
-      newData.hero = { ...newData.hero, [key]: value };
+      newData.fr.hero[key] = value;
     } else if (section === 'bento' && typeof index === 'number') {
       // @ts-ignore
-      newData.bento[index] = { ...newData.bento[index], [key]: value };
+      newData.common.bento[index][key] = value;
     } else if (section === 'about') {
-        if (key === 'text') newData.about.text = value;
-        if (key === 'image') newData.about.image = value;
-        if (key === 'x') newData.about.x = parseInt(value) || 0;
-        if (key === 'y') newData.about.y = parseInt(value) || 0;
+        if (key === 'text') newData.fr.about.text = value;
+        if (key === 'image') newData.common.about_media.image = value;
+        if (key === 'x') newData.common.about_media.x = parseInt(value) || 0;
+        if (key === 'y') newData.common.about_media.y = parseInt(value) || 0;
         if (key === 'stats' && typeof index === 'number') {
-           // On s'assure de garder la structure si on modifie une stat précise
            const statKey = value.type === 'label' ? 'label' : 'value';
            // @ts-ignore
-           newData.about.stats[index][statKey] = value.val;
+           newData.fr.about.stats[index][statKey] = value.val;
         }
     } else if (section === 'expertises' && typeof index === 'number') {
         if (key === 'projects' && typeof value === 'object') {
             // @ts-ignore
-            newData.expertises[index].projects[value.projIndex][value.type] = value.val;
+            newData.fr.expertises[index].projects[value.projIndex][value.type] = value.val;
+            // Si c'est un média (youtubeId, etc), on met à jour le bloc common aussi
+            if (['youtubeId', 'linkedinId', 'instagramId', 'image', 'subImage', 'link'].includes(value.type)) {
+                // @ts-ignore
+                newData.common.expertises_media[index].projects[value.projIndex][value.type] = value.val;
+            }
         } else {
             // @ts-ignore
-            newData.expertises[index][key] = value;
+            newData.fr.expertises[index][key] = value;
         }
     }
     setData(newData);
@@ -61,24 +65,24 @@ export default function Admin() {
   return (
     <div className={styles.admin}>
       <div className={styles.adminHeader}>
-        <h1>⚙️ Back Office Portfolio</h1>
+        <h1>⚙️ Back Office Portfolio (FR)</h1>
         <Link href="/" className={styles.backButton}>← Revenir sur le site</Link>
       </div>
       
       <section className={styles.editSection}>
         <h2>Hero Content</h2>
         <label className={styles.label}>Kicker (Petit titre)</label>
-        <input className={styles.inputField} value={data.hero.kicker} onChange={(e) => handleChange('hero', 'kicker', e.target.value)} />
+        <input className={styles.inputField} value={data.fr.hero.kicker} onChange={(e) => handleChange('hero', 'kicker', e.target.value)} />
         <label className={styles.label}>Titre Principal</label>
-        <input className={styles.inputField} value={data.hero.title} onChange={(e) => handleChange('hero', 'title', e.target.value)} />
+        <input className={styles.inputField} value={data.fr.hero.title} onChange={(e) => handleChange('hero', 'title', e.target.value)} />
         <label className={styles.label}>Sous-titre</label>
-        <textarea className={styles.inputField} rows={3} value={data.hero.subtitle} onChange={(e) => handleChange('hero', 'subtitle', e.target.value)} />
+        <textarea className={styles.inputField} rows={3} value={data.fr.hero.subtitle} onChange={(e) => handleChange('hero', 'subtitle', e.target.value)} />
       </section>
 
       <section className={styles.editSection}>
         <h2>Bento Grid (Images & Recadrage)</h2>
         <div className={styles.gridEdit}>
-          {data.bento.map((item, index) => (
+          {data.common.bento.map((item: any, index: number) => (
             <div key={index} className={styles.bentoEdit}>
               <div 
                 className={styles.miniPreview} 
@@ -116,9 +120,9 @@ export default function Admin() {
       </section>
 
       <section className={styles.editSection}>
-        <h2>Mes Expertises (Cards interactives)</h2>
+        <h2>Mes Expertises (Cards)</h2>
         <div className={styles.expertisesEditGrid}>
-          {data.expertises.map((exp, index) => (
+          {data.fr.expertises.map((exp: any, index: number) => (
             <div key={exp.id} className={styles.expertiseCardEdit}>
               <label className={styles.label}>Titre de l&apos;expertise</label>
               <input 
@@ -134,31 +138,31 @@ export default function Admin() {
                 onChange={(e) => handleChange('expertises', 'description', e.target.value, index)} 
               />
               
-              <label className={styles.label}>Exemples de projets</label>
-              {exp.projects.map((proj, pIdx) => (
-                <div key={pIdx} className={styles.projectRowEdit}>
-                  <input 
-                    className={styles.inputField} 
-                    style={{marginBottom: '0.5rem', fontWeight: 'bold'}}
-                    value={proj.name} 
-                    placeholder="Nom du projet"
-                    onChange={(e) => handleChange('expertises', 'projects', {projIndex: pIdx, type: 'name', val: e.target.value}, index)} 
-                  />
-                  <input 
-                    className={styles.inputField} 
-                    value={proj.detail} 
-                    placeholder="Détail du projet"
-                    onChange={(e) => handleChange('expertises', 'projects', {projIndex: pIdx, type: 'detail', val: e.target.value}, index)} 
-                  />
-                  <input 
-                    className={styles.inputField} 
-                    // @ts-ignore
-                    value={proj.youtubeId || ''} 
-                    placeholder="ID Vidéo YouTube (ex: DZuwGFZNKWY)"
-                    onChange={(e) => handleChange('expertises', 'projects', {projIndex: pIdx, type: 'youtubeId', val: e.target.value}, index)} 
-                  />
-                </div>
-              ))}
+              <label className={styles.label}>Projets</label>
+              {exp.projects.map((proj: any, pIdx: number) => {
+                const media = data.common.expertises_media.find((m: any) => m.id === exp.id)?.projects[pIdx] || {};
+                return (
+                  <div key={pIdx} className={styles.projectRowEdit}>
+                    <input 
+                      className={styles.inputField} 
+                      style={{marginBottom: '0.5rem', fontWeight: 'bold'}}
+                      value={proj.name} 
+                      onChange={(e) => handleChange('expertises', 'projects', {projIndex: pIdx, type: 'name', val: e.target.value}, index)} 
+                    />
+                    <textarea 
+                      className={styles.inputField} 
+                      value={proj.detail} 
+                      onChange={(e) => handleChange('expertises', 'projects', {projIndex: pIdx, type: 'detail', val: e.target.value}, index)} 
+                    />
+                    <input 
+                      className={styles.inputField} 
+                      value={media.youtubeId || ''} 
+                      placeholder="ID YouTube"
+                      onChange={(e) => handleChange('expertises', 'projects', {projIndex: pIdx, type: 'youtubeId', val: e.target.value}, index)} 
+                    />
+                  </div>
+                );
+              })}
             </div>
           ))}
         </div>
@@ -170,14 +174,14 @@ export default function Admin() {
             <div 
               className={styles.miniPreview} 
               style={{ 
-                backgroundImage: `url('${data.about.image}')`, 
-                backgroundPosition: `${data.about.x}% ${data.about.y}%`, 
+                backgroundImage: `url('${data.common.about_media.image}')`, 
+                backgroundPosition: `${data.common.about_media.x}% ${data.common.about_media.y}%`, 
                 backgroundSize: 'cover' 
               }}
             />
             <div className={styles.controls}>
               <label>Photo About</label>
-              <select className={styles.inputField} value={data.about.image} onChange={(e) => handleChange('about', 'image', e.target.value)}>
+              <select className={styles.inputField} value={data.common.about_media.image} onChange={(e) => handleChange('about', 'image', e.target.value)}>
                 {images.map(img => (
                   <option key={img} value={img}>{img.replace('/', '')}</option>
                 ))}
@@ -185,36 +189,26 @@ export default function Admin() {
 
               <div className={styles.rangeRow}>
                 <div className={styles.rangeCol}>
-                  <label>Recadrage X: {data.about.x}%</label>
-                  <input type="range" className={styles.rangeInput} min="0" max="100" value={data.about.x} onChange={(e) => handleChange('about', 'x', e.target.value)} />
+                  <label>Recadrage X: {data.common.about_media.x}%</label>
+                  <input type="range" className={styles.rangeInput} min="0" max="100" value={data.common.about_media.x} onChange={(e) => handleChange('about', 'x', e.target.value)} />
                 </div>
                 <div className={styles.rangeCol}>
-                  <label>Recadrage Y: {data.about.y}%</label>
-                  <input type="range" className={styles.rangeInput} min="0" max="100" value={data.about.y} onChange={(e) => handleChange('about', 'y', e.target.value)} />
+                  <label>Recadrage Y: {data.common.about_media.y}%</label>
+                  <input type="range" className={styles.rangeInput} min="0" max="100" value={data.common.about_media.y} onChange={(e) => handleChange('about', 'y', e.target.value)} />
                 </div>
               </div>
             </div>
         </div>
         
         <label className={styles.label} style={{marginTop: '2rem'}}>Texte de présentation</label>
-        <textarea className={styles.inputField} rows={4} value={data.about.text} onChange={(e) => handleChange('about', 'text', e.target.value)} />
+        <textarea className={styles.inputField} rows={4} value={data.fr.about.text} onChange={(e) => handleChange('about', 'text', e.target.value)} />
         
         <label className={styles.label}>Statistiques</label>
         <div className={styles.statsEditGrid}>
-          {data.about.stats.map((stat, i) => (
+          {data.fr.about.stats.map((stat: any, i: number) => (
             <div key={i} className={styles.statRow}>
-              <input 
-                className={styles.inputField} 
-                style={{marginBottom: 0}}
-                value={stat.value} 
-                onChange={(e) => handleChange('about', 'stats', {type: 'value', val: e.target.value}, i)} 
-              />
-              <input 
-                className={styles.inputField} 
-                style={{marginBottom: 0}}
-                value={stat.label} 
-                onChange={(e) => handleChange('about', 'stats', {type: 'label', val: e.target.value}, i)} 
-              />
+              <input className={styles.inputField} value={stat.value} onChange={(e) => handleChange('about', 'stats', {type: 'value', val: e.target.value}, i)} />
+              <input className={styles.inputField} value={stat.label} onChange={(e) => handleChange('about', 'stats', {type: 'label', val: e.target.value}, i)} />
             </div>
           ))}
         </div>
