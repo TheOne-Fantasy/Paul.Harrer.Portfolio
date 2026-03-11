@@ -147,6 +147,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 2.5 WEB DEVELOPMENT SECTION (DISCRETE LINE) */}
+      <section className={styles.devSection}>
+        <div className={styles.devContainer}>
+          <div className={styles.devHeader}>
+            <span className={styles.devTag}>Web Development</span>
+            <h3>Je conçois & développe des interfaces sur mesure.</h3>
+          </div>
+          <div className={styles.devLinks}>
+            <a href="https://theone-fantasy.com/" target="_blank" rel="noopener noreferrer" className={styles.devCard}>
+              <div className={styles.devCardContent}>
+                <span className={styles.devUrl}>theone-fantasy.com</span>
+                <p>Jeu de Fantasy Cyclisme (+1000 joueurs)</p>
+              </div>
+            </a>
+            <a href="https://ebloch-legal.vercel.app/" target="_blank" rel="noopener noreferrer" className={styles.devCard}>
+              <div className={styles.devCardContent}>
+                <span className={styles.devUrl}>ebloch-legal.vercel.app</span>
+                <p>Cabinet d&apos;avocat E. Bloch</p>
+              </div>
+            </a>
+            <a href="https://filet-mignon-crew.vercel.app/" target="_blank" rel="noopener noreferrer" className={styles.devCard}>
+              <div className={styles.devCardContent}>
+                <span className={styles.devUrl}>filet-mignon-crew.vercel.app</span>
+                <p>Association Filet Mignon Padel</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* 3. ABOUT ACTION */}
       <section className={styles.aboutAction}>
         <div className={styles.aboutGrid}>
