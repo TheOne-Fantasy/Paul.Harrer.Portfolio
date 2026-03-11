@@ -30,7 +30,7 @@ export default function Home() {
           <div className={styles.heroMain}>
             <span className={styles.kicker}>{data.hero.kicker}</span>
             <h1 className={styles.title}>
-              L&apos;expertise du terrain au service de stratégies sociales <span className={styles.accent}>d&apos;envergure.</span>
+              {data.hero.title}
             </h1>
             <p className={styles.subtitle}>{data.hero.subtitle}</p>
           </div>
