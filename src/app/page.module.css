@@ -114,6 +114,10 @@
   color: #aaa;
 }
 
+.contactWrapper {
+  position: relative;
+}
+
 .contactCta {
   background: #111;
   color: #fff;
@@ -122,11 +126,57 @@
   font-weight: 800;
   font-size: 0.85rem;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
   transition: transform 0.3s ease;
 }
 
 .contactCta:hover {
   transform: scale(1.05);
+}
+
+.contactDropdown {
+  position: absolute;
+  top: calc(100% + 1rem);
+  right: 0;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding: 0.8rem;
+  min-width: 220px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  z-index: 1001;
+  animation: slideUp 0.3s ease;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1rem;
+  color: #111;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.dropdownItem:hover {
+  background: #fdf2f0;
+  color: #ff5c35;
+}
+
+.dropdownItem svg {
+  color: #ff5c35;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* HERO */
