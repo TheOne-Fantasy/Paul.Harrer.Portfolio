@@ -507,35 +507,61 @@
     gap: 2rem;
   }
 
+  .devHeader h3 {
+    font-size: 1.2rem;
+  }
+
   .devLinks {
     grid-template-columns: 1fr;
     width: 100%;
+    gap: 1rem;
   }
 
+  /* Correction About Section */
   .aboutAction {
-    border-radius: 32px;
+    border-radius: 24px;
+    padding: 3rem 1rem !important; /* On réduit le padding interne carglobals.css en met déjà sur la section */
   }
 
   .aboutGrid {
     grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .aboutPhoto {
-    height: 350px;
-  }
-
-  .aboutContent p {
-    font-size: 1.1rem;
-  }
-
-  .miniStats {
-    flex-wrap: wrap;
     gap: 2rem;
   }
 
+  .aboutPhoto {
+    height: 300px;
+    border-radius: 20px;
+  }
+
+  .aboutContent h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem;
+  }
+
+  .aboutContent p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .socialGrid {
+    grid-template-columns: 1fr; /* On passe sur une seule colonne pour éviter les chevauchements */
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .miniStats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Plus propre que le flex-wrap sur mobile */
+    gap: 1.5rem;
+  }
+
   .stat strong {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+  }
+
+  .contactSection {
+    padding: 5rem 0 !important;
   }
 
   .contactSocials {
@@ -561,7 +587,7 @@
 
 @media (max-width: 480px) {
   .logo {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   .navAvatar {
@@ -574,21 +600,27 @@
   }
 
   .title {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
   }
 
   .bigMail {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     word-break: break-all;
+    margin-top: 1.5rem;
   }
 
   .stat strong {
-    font-size: 2rem;
+    font-size: 1.6rem;
+  }
+
+  .miniStats {
+    grid-template-columns: 1fr; /* Sur tout petit écran, on empile tout */
+    gap: 1rem;
   }
 }
 
 .footer {
-  padding: 4rem 0;
+  padding: 4rem 1.5rem;
   text-align: center;
   border-top: 1px solid #eee;
   font-size: 0.8rem;

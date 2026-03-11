@@ -33,6 +33,6 @@ section {
 
 @media (max-width: 768px) {
   section {
-    padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+    padding: calc(var(--spacing-unit) * 4) 1.5rem;
   }
 }
