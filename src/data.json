@@ -1,0 +1,134 @@
+{
+  "hero": {
+    "kicker": "Digital Strategist & Creative Producer",
+    "title": "L'expertise terrain au service de vos stratégies digitales.",
+    "subtitle": "10 ans à piloter des audiences (700k+), réaliser des émissions (+2000) et concevoir des stratégies sociales impactantes. Une mission : l'impact."
+  },
+  "bento": [
+    {
+      "id": 2,
+      "label": "NBA / Wembanyama",
+      "image": "/Capture d’écran 2026-03-11 à 12.04.06.png",
+      "x": 50,
+      "y": 5
+    },
+    {
+      "id": 3,
+      "label": "Hosting / Cycling expertise",
+      "image": "/Capture d’écran 2026-03-11 à 12.35.05.png",
+      "x": 50,
+      "y": 50
+    },
+    {
+      "id": 4,
+      "label": "Social Media Strategy",
+      "image": "/Capture d’écran 2026-03-11 à 12.34.17.png",
+      "x": 50,
+      "y": 50
+    },
+    {
+      "id": 5,
+      "label": "Creative Producer",
+      "image": "/Capture d’écran 2026-03-11 à 12.34.43.png",
+      "x": 50,
+      "y": 50
+    }
+  ],
+  "expertises": [
+    {
+      "id": 1,
+      "title": "Digital Strategy",
+      "description": "Sourcing créateurs, coaching éditorial et performance sociale. Expert Oh My Goal & Winamax.",
+      "projects": [
+        {
+          "name": "Blue Foxes - Oh My Goal",
+          "detail": "Stratégie éditoriale et sourcing créateurs pour booster l'engagement du média Oh My Goal.",
+          "link": "https://www.linkedin.com/posts/paul-harrer-b8759982_3-jours-cest-le-temps-quil-a-fallu-pour-activity-7428054884848934912-Ljgn",
+          "image": "/blue_foxes_logo.jpeg",
+          "linkedinId": "7428054884848934912"
+        },
+        {
+          "name": "Cylindrique Consulting",
+          "detail": "Storytelling & Transformation de marque via formats viraux et SEO.\n\nMission majeure : CFJJB.",
+          "image": "/Logo-Cylindrique.jpeg",
+          "subImage": "/Logo-CFJJB.png"
+        },
+        {
+          "name": "First Team - Strategy",
+          "detail": "Architecture digitale (+700K abonnés) et optimisation de la monétisation des audiences.",
+          "link": "https://www.instagram.com/p/CoxY6espxHX/?hl=fr",
+          "image": "/firstteam101_logo.jpeg",
+          "instagramId": "CoxY6espxHX"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Creative Production",
+      "description": "Producteur, réalisateur et responsable technique : multi-cam, live, captation audio, extérieur, interviews.",
+      "projects": [
+        {
+          "name": "Réalisation & Régie",
+          "detail": "Réalisation de +2000 émissions (NBA, F1, rugby). Supervision studio, régie, multicam et direct.",
+          "image": "/firstteam101_logo.jpeg",
+          "youtubeId": "DZuwGFZNKWY"
+        },
+        {
+          "name": "Production Extérieure",
+          "detail": "Captation et réalisation de formats dynamiques hors studio pour First Team.",
+          "youtubeId": "XClB8WCHz2Q"
+        },
+        {
+          "name": "Interviews & Formats Longs",
+          "detail": "Gestion technique et éditoriale d'entretiens premium.",
+          "youtubeId": "eutokTzXWBk"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Content Creator",
+      "description": "Expertise éditoriale, incarnation et animation. De la co-fondation de médias spécialisés au consulting omnisport.",
+      "projects": [
+        {
+          "name": "Cycling expertise - L'Echappée",
+          "detail": "Co-fondateur et host de L’Echappée, 1er talk digital cyclisme en France.",
+          "image": "/Logo-Echappee.png",
+          "youtubeId": "gBDeZCXNuIw"
+        },
+        {
+          "name": "Consultant Multisports",
+          "detail": "Consultant NBA, F1 et omnisport pour Winamax TV.",
+          "image": "/winamax_logo.jpeg",
+          "youtubeId": "2wefUwOdr88"
+        },
+        {
+          "name": "Production de Vlog",
+          "detail": "Réalisation et incarnation de formats immersifs et storytelling.",
+          "image": "/firstteam101_logo.jpeg",
+          "youtubeId": "w5dXFuLqQzI"
+        }
+      ]
+    }
+  ],
+  "about": {
+    "text": "Expert en stratégies éditoriales et performance sociale. Je construis des expériences digitales fortes, de la conception à la réalisation technique.",
+    "image": "/Capture d’écran 2026-03-11 à 12.47.22.png",
+    "x": 50,
+    "y": 50,
+    "stats": [
+      {
+        "label": "Vidéos",
+        "value": "2000+"
+      },
+      {
+        "label": "Abonnés",
+        "value": "700k+"
+      },
+      {
+        "label": "Expertise",
+        "value": "10 ans"
+      }
+    ]
+  }
+}
