@@ -17,7 +17,7 @@ export default function Home() {
         <nav className={styles.nav}>
           <div className={styles.logoGroup}>
             <img src="/Photo-Profil.jpg" alt="Paul Harrer" className={styles.navAvatar} />
-            <div className={styles.logo}>PAUL HARRER</div>
+            <div className={styles.logo}><a href="/">PAUL HARRER</a></div>
           </div>
           <div className={styles.navLinks}>
             <a href="/expertise/strategie">{lang === 'fr' ? 'Stratégie' : 'Strategy'}</a>
