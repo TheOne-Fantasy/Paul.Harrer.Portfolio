@@ -1,134 +1,266 @@
 {
-  "hero": {
-    "kicker": "Digital Strategist & Creative Producer",
-    "title": "L'expertise terrain au service de vos stratégies digitales.",
-    "subtitle": "10 ans à piloter des audiences (700k+), réaliser des émissions (+2000) et concevoir des stratégies sociales impactantes. Une mission : l'impact."
-  },
-  "bento": [
-    {
-      "id": 2,
-      "label": "NBA / Wembanyama",
-      "image": "/Capture d’écran 2026-03-11 à 12.04.06.png",
-      "x": 50,
-      "y": 5
+  "fr": {
+    "hero": {
+      "kicker": "Digital Strategist & Creative Producer",
+      "title": "L'expertise terrain au service de vos stratégies digitales.",
+      "subtitle": "10 ans à piloter des audiences (700k+), réaliser des émissions (+2000) et concevoir des stratégies sociales impactantes. Une mission : l'impact."
     },
-    {
-      "id": 3,
-      "label": "Hosting / Cycling expertise",
-      "image": "/Capture d’écran 2026-03-11 à 12.35.05.png",
-      "x": 50,
-      "y": 50
-    },
-    {
-      "id": 4,
-      "label": "Social Media Strategy",
-      "image": "/Capture d’écran 2026-03-11 à 12.34.17.png",
-      "x": 50,
-      "y": 50
-    },
-    {
-      "id": 5,
-      "label": "Creative Producer",
-      "image": "/Capture d’écran 2026-03-11 à 12.34.43.png",
-      "x": 50,
-      "y": 50
-    }
-  ],
-  "expertises": [
-    {
-      "id": 1,
-      "title": "Digital Strategy",
-      "description": "Sourcing créateurs, coaching éditorial et performance sociale. Expert Oh My Goal & Winamax.",
-      "projects": [
-        {
-          "name": "Blue Foxes - Oh My Goal",
-          "detail": "Stratégie éditoriale et sourcing créateurs pour booster l'engagement du média Oh My Goal.",
-          "link": "https://www.linkedin.com/posts/paul-harrer-b8759982_3-jours-cest-le-temps-quil-a-fallu-pour-activity-7428054884848934912-Ljgn",
-          "image": "/blue_foxes_logo.jpeg",
-          "linkedinId": "7428054884848934912"
-        },
-        {
-          "name": "Cylindrique Consulting",
-          "detail": "Storytelling & Transformation de marque via formats viraux et SEO.\n\nMission majeure : CFJJB.",
-          "image": "/Logo-Cylindrique.jpeg",
-          "subImage": "/Logo-CFJJB.png"
-        },
-        {
-          "name": "First Team - Strategy",
-          "detail": "Architecture digitale (+700K abonnés) et optimisation de la monétisation des audiences.",
-          "link": "https://www.instagram.com/p/CoxY6espxHX/?hl=fr",
-          "image": "/firstteam101_logo.jpeg",
-          "instagramId": "CoxY6espxHX"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Creative Production",
-      "description": "Producteur, réalisateur et responsable technique : multi-cam, live, captation audio, extérieur, interviews.",
-      "projects": [
-        {
-          "name": "Réalisation & Régie",
-          "detail": "Réalisation de +2000 émissions (NBA, F1, rugby). Supervision studio, régie, multicam et direct.",
-          "image": "/firstteam101_logo.jpeg",
-          "youtubeId": "DZuwGFZNKWY"
-        },
-        {
-          "name": "Production Extérieure",
-          "detail": "Captation et réalisation de formats dynamiques hors studio pour First Team.",
-          "youtubeId": "XClB8WCHz2Q"
-        },
-        {
-          "name": "Interviews & Formats Longs",
-          "detail": "Gestion technique et éditoriale d'entretiens premium.",
-          "youtubeId": "eutokTzXWBk"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "title": "Content Creator",
-      "description": "Expertise éditoriale, incarnation et animation. De la co-fondation de médias spécialisés au consulting omnisport.",
-      "projects": [
-        {
-          "name": "Cycling expertise - L'Echappée",
-          "detail": "Co-fondateur et host de L’Echappée, 1er talk digital cyclisme en France.",
-          "image": "/Logo-Echappee.png",
-          "youtubeId": "gBDeZCXNuIw"
-        },
-        {
-          "name": "Consultant Multisports",
-          "detail": "Consultant NBA, F1 et omnisport pour Winamax TV.",
-          "image": "/winamax_logo.jpeg",
-          "youtubeId": "2wefUwOdr88"
-        },
-        {
-          "name": "Production de Vlog",
-          "detail": "Réalisation et incarnation de formats immersifs et storytelling.",
-          "image": "/firstteam101_logo.jpeg",
-          "youtubeId": "w5dXFuLqQzI"
-        }
-      ]
-    }
-  ],
-  "about": {
-    "text": "Expert en stratégies éditoriales et performance sociale. Je construis des expériences digitales fortes, de la conception à la réalisation technique.",
-    "image": "/Capture d’écran 2026-03-11 à 12.47.22.png",
-    "x": 50,
-    "y": 50,
-    "stats": [
+    "expertises": [
       {
-        "label": "Vidéos",
-        "value": "2000+"
+        "id": 1,
+        "title": "Digital Strategy",
+        "description": "Sourcing créateurs, coaching éditorial et performance sociale. Expert Oh My Goal & Winamax.",
+        "projects": [
+          {
+            "name": "Blue Foxes - Oh My Goal",
+            "detail": "Stratégie éditoriale et sourcing créateurs pour booster l'engagement du média Oh My Goal."
+          },
+          {
+            "name": "Cylindrique Consulting",
+            "detail": "Storytelling & Transformation de marque via formats viraux et SEO.\n\nMission majeure : CFJJB."
+          },
+          {
+            "name": "First Team - Strategy",
+            "detail": "Architecture digitale (+700K abonnés) et optimisation de la monétisation des audiences."
+          }
+        ]
       },
       {
-        "label": "Abonnés",
-        "value": "700k+"
+        "id": 2,
+        "title": "Creative Production",
+        "description": "Producteur, réalisateur et responsable technique : multi-cam, live, captation audio, extérieur, interviews.",
+        "projects": [
+          {
+            "name": "Réalisation & Régie",
+            "detail": "Réalisation de +2000 émissions (NBA, F1, rugby). Supervision studio, régie, multicam et direct."
+          },
+          {
+            "name": "Production Extérieure",
+            "detail": "Captation et réalisation de formats dynamiques hors studio pour First Team."
+          },
+          {
+            "name": "Interviews & Formats Longs",
+            "detail": "Gestion technique et éditoriale d'entretiens premium."
+          }
+        ]
       },
       {
-        "label": "Expertise",
-        "value": "10 ans"
+        "id": 3,
+        "title": "Content Creator",
+        "description": "Expertise éditoriale, incarnation et animation. De la co-fondation de médias spécialisés au consulting omnisport.",
+        "projects": [
+          {
+            "name": "Cycling expertise - L'Echappée",
+            "detail": "Co-fondateur et host de L’Echappée, 1er talk digital cyclisme en France."
+          },
+          {
+            "name": "Consultant Multisports",
+            "detail": "Consultant NBA, F1 et omnisport pour Winamax TV."
+          },
+          {
+            "name": "Production de Vlog",
+            "detail": "Réalisation et incarnation de formats immersifs et storytelling."
+          }
+        ]
       }
-    ]
+    ],
+    "about": {
+      "title": "A propos",
+      "text": "Expert en stratégies éditoriales et performance sociale. Je construis des expériences digitales fortes, de la conception à la réalisation technique.",
+      "cv": "Télécharger mon CV (PDF)",
+      "stats": [
+        { "label": "Vidéos", "value": "2000+" },
+        { "label": "Abonnés", "value": "700k+" },
+        { "label": "Expertise", "value": "10 ans" }
+      ]
+    },
+    "dev": {
+      "title": "Je conçois & développe des interfaces sur mesure.",
+      "projects": [
+        { "name": "Jeu de Fantasy Cyclisme (+1000 joueurs)" },
+        { "name": "Cabinet d'avocat E. Bloch" },
+        { "name": "Association Filet Mignon Padel" }
+      ]
+    },
+    "contact": {
+      "title": "Une idée ? Un projet ? Parlons-en."
+    }
+  },
+  "en": {
+    "hero": {
+      "kicker": "Digital Strategist & Creative Producer",
+      "title": "Field expertise at the service of your digital strategies.",
+      "subtitle": "10 years managing audiences (700k+), producing shows (+2000) and designing impactful social strategies. One mission: impact."
+    },
+    "expertises": [
+      {
+        "id": 1,
+        "title": "Digital Strategy",
+        "description": "Creator sourcing, editorial coaching and social performance. Expert for Oh My Goal & Winamax.",
+        "projects": [
+          {
+            "name": "Blue Foxes - Oh My Goal",
+            "detail": "Editorial strategy and creator sourcing to boost engagement for Oh My Goal media."
+          },
+          {
+            "name": "Cylindrique Consulting",
+            "detail": "Storytelling & Brand transformation through viral formats and SEO.\n\nMajor mission: CFJJB."
+          },
+          {
+            "name": "First Team - Strategy",
+            "detail": "Digital architecture (+700K subscribers) and audience monetization optimization."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Creative Production",
+        "description": "Producer, director and technical lead: multi-cam, live, audio capture, field production, interviews.",
+        "projects": [
+          {
+            "name": "Directing & Gallery",
+            "detail": "Directed +2000 shows (NBA, F1, rugby). Studio supervision, gallery, multicam and live broadcasting."
+          },
+          {
+            "name": "Field Production",
+            "detail": "Capture and production of dynamic formats outside the studio for First Team."
+          },
+          {
+            "name": "Interviews & Long Form",
+            "detail": "Technical and editorial management of premium interviews."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Content Creator",
+        "description": "Editorial expertise, on-screen talent and hosting. From co-founding specialized media to multisport consulting.",
+        "projects": [
+          {
+            "name": "Cycling expertise - L'Echappée",
+            "detail": "Co-founder and host of L’Echappée, the #1 digital cycling talk show in France."
+          },
+          {
+            "name": "Multisport Consultant",
+            "detail": "NBA, F1 and multisport consultant for Winamax TV."
+          },
+          {
+            "name": "Vlog Production",
+            "detail": "Directing and hosting immersive formats and storytelling."
+          }
+        ]
+      }
+    ],
+    "about": {
+      "title": "About",
+      "text": "Expert in editorial strategies and social performance. I build strong digital experiences, from conception to technical execution.",
+      "cv": "Download my CV (PDF)",
+      "stats": [
+        { "label": "Videos", "value": "2000+" },
+        { "label": "Subscribers", "value": "700k+" },
+        { "label": "Experience", "value": "10 years" }
+      ]
+    },
+    "dev": {
+      "title": "I design & develop custom interfaces.",
+      "projects": [
+        { "name": "Cycling Fantasy Game (+1000 players)" },
+        { "name": "E. Bloch Law Firm" },
+        { "name": "Filet Mignon Padel Association" }
+      ]
+    },
+    "contact": {
+      "title": "An idea? A project? Let's talk."
+    }
+  },
+  "common": {
+    "bento": [
+      {
+        "id": 2,
+        "label": "NBA / Wembanyama",
+        "image": "/Capture d’écran 2026-03-11 à 12.04.06.png",
+        "x": 50,
+        "y": 5
+      },
+      {
+        "id": 3,
+        "label": "Hosting / Cycling expertise",
+        "image": "/Capture d’écran 2026-03-11 à 12.35.05.png",
+        "x": 50,
+        "y": 50
+      },
+      {
+        "id": 4,
+        "label": "Social Media Strategy",
+        "image": "/Capture d’écran 2026-03-11 à 12.34.17.png",
+        "x": 50,
+        "y": 50
+      },
+      {
+        "id": 5,
+        "label": "Creative Producer",
+        "image": "/Capture d’écran 2026-03-11 à 12.34.43.png",
+        "x": 50,
+        "y": 50
+      }
+    ],
+    "expertises_media": [
+      {
+        "id": 1,
+        "projects": [
+          {
+            "link": "https://www.linkedin.com/posts/paul-harrer-b8759982_3-jours-cest-le-temps-quil-a-fallu-pour-activity-7428054884848934912-Ljgn",
+            "image": "/blue_foxes_logo.jpeg",
+            "linkedinId": "7428054884848934912"
+          },
+          {
+            "image": "/Logo-Cylindrique.jpeg",
+            "subImage": "/Logo-CFJJB.png"
+          },
+          {
+            "link": "https://www.instagram.com/p/CoxY6espxHX/?hl=fr",
+            "image": "/firstteam101_logo.jpeg",
+            "instagramId": "CoxY6espxHX"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "projects": [
+          {
+            "image": "/firstteam101_logo.jpeg",
+            "youtubeId": "DZuwGFZNKWY"
+          },
+          {
+            "youtubeId": "XClB8WCHz2Q"
+          },
+          {
+            "youtubeId": "eutokTzXWBk"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "projects": [
+          {
+            "image": "/Logo-Echappee.png",
+            "youtubeId": "gBDeZCXNuIw"
+          },
+          {
+            "image": "/winamax_logo.jpeg",
+            "youtubeId": "2wefUwOdr88"
+          },
+          {
+            "image": "/firstteam101_logo.jpeg",
+            "youtubeId": "w5dXFuLqQzI"
+          }
+        ]
+      }
+    ],
+    "about_media": {
+      "image": "/Capture d’écran 2026-03-11 à 12.47.22.png",
+      "x": 50,
+      "y": 50
+    }
   }
 }

@@ -1,9 +1,16 @@
 'use client';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import styles from './page.module.css'
-import data from '../data.json'
+import allData from '../data.json'
 
 export default function Home() {
+  const [lang, setLang] = useState<'fr' | 'en'>('fr');
+  
+  // Accès simplifié aux données selon la langue
+  // @ts-ignore
+  const data = useMemo(() => allData[lang], [lang]);
+  const common = allData.common;
+
   return (
     <main className={styles.main}>
       <header className={styles.header}>
@@ -13,18 +20,29 @@ export default function Home() {
             <div className={styles.logo}>PAUL HARRER</div>
           </div>
           <div className={styles.navLinks}>
-            <a href="/expertise/strategie">Stratégie</a>
+            <a href="/expertise/strategie">{lang === 'fr' ? 'Stratégie' : 'Strategy'}</a>
             <a href="/expertise/production">Production</a>
             <a href="/expertise/content">Content</a>
           </div>
           <div className={styles.navActions}>
+            <div className={styles.langSwitcher}>
+                <button 
+                    className={lang === 'fr' ? styles.langActive : ''} 
+                    onClick={() => setLang('fr')}
+                >FR</button>
+                <span>|</span>
+                <button 
+                    className={lang === 'en' ? styles.langActive : ''} 
+                    onClick={() => setLang('en')}
+                >EN</button>
+            </div>
             <a href="/admin" className={styles.adminLink}>Admin</a>
-            <a href="#contact" className={styles.contactCta}>Let&apos;s talk</a>
+            <a href="#contact" className={styles.contactCta}>{lang === 'fr' ? "Parlons-en" : "Let's talk"}</a>
           </div>
         </nav>
       </header>
 
-      {/* 1. HERO : Cadrage dynamique via data.json */}
+      {/* 1. HERO */}
       <section className={styles.hero}>
         <div className={styles.heroGrid}>
           <div className={styles.heroMain}>
@@ -36,7 +54,7 @@ export default function Home() {
           </div>
           
           <div className={styles.bentoPhotos}>
-            {data.bento.map((item, index) => (
+            {common.bento.map((item: any, index: number) => (
               <div 
                 key={item.id} 
                 className={styles[`bentoItem${index + 1}`]}
@@ -57,14 +75,19 @@ export default function Home() {
       <section className={styles.capabilities} id="work">
         <div className={styles.expertisesContainer}>
           <div className={styles.bentoHeader}>
-            <h2 className={styles.sectionTitle}>Portfolio & Expertises</h2>
-            <p className={styles.bentoSubtitle}>Un aperçu de 10 ans de stratégie, production et création de contenu.</p>
+            <h2 className={styles.sectionTitle}>{lang === 'fr' ? 'Portfolio & Expertises' : 'Portfolio & Expertise'}</h2>
+            <p className={styles.bentoSubtitle}>{lang === 'fr' ? 'Un aperçu de 10 ans de stratégie, production et création de contenu.' : 'A glimpse into 10 years of strategy, production, and content creation.'}</p>
           </div>
 
           <div className={styles.projectsBentoGrid}>
-            {data.expertises.flatMap(exp => 
-              exp.projects.map((proj: any, idx) => ({ ...proj, category: exp.title, categoryId: exp.id }))
-            ).map((proj, index) => (
+            {data.expertises.flatMap((exp: any) => 
+              exp.projects.map((proj: any, idx: number) => {
+                // Récupérer le média commun correspondant
+                const mediaExp = common.expertises_media.find((m: any) => m.id === exp.id);
+                const media = mediaExp ? mediaExp.projects[idx] : {};
+                return { ...proj, ...media, category: exp.title, categoryId: exp.id };
+              })
+            ).map((proj: any, index: number) => (
               <div 
                 key={index} 
                 className={`${styles.projectCard} ${proj.youtubeId || proj.instagramId || proj.linkedinId ? styles.largeCard : styles.smallCard}`}
@@ -137,7 +160,7 @@ export default function Home() {
                       rel="noopener noreferrer" 
                       className={styles.projectLink}
                     >
-                      → Voir le projet
+                      → {lang === 'fr' ? 'Voir le projet' : 'View project'}
                     </a>
                   </div>
                 )}
@@ -147,30 +170,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2.5 WEB DEVELOPMENT SECTION (DISCRETE LINE) */}
+      {/* 2.5 WEB DEVELOPMENT SECTION */}
       <section className={styles.devSection}>
         <div className={styles.devContainer}>
           <div className={styles.devHeader}>
             <span className={styles.devTag}>Web Development</span>
-            <h3>Je conçois & développe des interfaces sur mesure.</h3>
+            <h3>{data.dev.title}</h3>
           </div>
           <div className={styles.devLinks}>
             <a href="https://theone-fantasy.com/" target="_blank" rel="noopener noreferrer" className={styles.devCard}>
               <div className={styles.devCardContent}>
                 <span className={styles.devUrl}>theone-fantasy.com</span>
-                <p>Jeu de Fantasy Cyclisme (+1000 joueurs)</p>
+                <p>{data.dev.projects[0].name}</p>
               </div>
             </a>
             <a href="https://ebloch-legal.vercel.app/" target="_blank" rel="noopener noreferrer" className={styles.devCard}>
               <div className={styles.devCardContent}>
                 <span className={styles.devUrl}>ebloch-legal.vercel.app</span>
-                <p>Cabinet d&apos;avocat E. Bloch</p>
+                <p>{data.dev.projects[1].name}</p>
               </div>
             </a>
             <a href="https://filet-mignon-crew.vercel.app/" target="_blank" rel="noopener noreferrer" className={styles.devCard}>
               <div className={styles.devCardContent}>
                 <span className={styles.devUrl}>filet-mignon-crew.vercel.app</span>
-                <p>Association Filet Mignon Padel</p>
+                <p>{data.dev.projects[2].name}</p>
               </div>
             </a>
           </div>
@@ -183,13 +206,13 @@ export default function Home() {
           <div 
             className={styles.aboutPhoto}
             style={{ 
-              backgroundImage: `url('${data.about.image}')`, 
+              backgroundImage: `url('${common.about_media.image}')`, 
               backgroundSize: 'cover', 
-              backgroundPosition: `${data.about.x}% ${data.about.y}%` 
+              backgroundPosition: `${common.about_media.x}% ${common.about_media.y}%` 
             }}
           ></div>
           <div className={styles.aboutContent}>
-            <h2 className={styles.sectionTitle} style={{textAlign: 'left'}}>A propos</h2>
+            <h2 className={styles.sectionTitle} style={{textAlign: 'left'}}>{data.about.title}</h2>
             <p>{data.about.text}</p>
             
             <div className={styles.socialGrid}>
@@ -213,12 +236,12 @@ export default function Home() {
 
             <div className={styles.aboutActions}>
               <a href="/CV-PaulHarrer-VC.pdf" target="_blank" className={styles.cvButton}>
-                Télécharger mon CV (PDF)
+                {data.about.cv}
               </a>
             </div>
 
             <div className={styles.miniStats}>
-               {data.about.stats.map((stat, i) => (
+               {data.about.stats.map((stat: any, i: number) => (
                  <div key={i} className={styles.stat}>
                    <strong>{stat.value}</strong> {stat.label}
                  </div>
@@ -231,7 +254,7 @@ export default function Home() {
       {/* 4. CONTACT */}
       <section className={styles.contactSection} id="contact">
         <span className={styles.kicker} style={{textAlign: 'center', display: 'block', margin: '0 auto 2rem auto'}}>Contact</span>
-        <h2 className={styles.title} style={{textAlign: 'center'}}>Une idée ? Un projet ? <br/> <span className={styles.accent}>Parlons-en.</span></h2>
+        <h2 className={styles.title} style={{textAlign: 'center'}}>{data.contact.title.split('Parlons-en')[0]} <br/> <span className={styles.accent}>{data.contact.title.includes('Parlons-en') ? 'Parlons-en.' : "Let's talk."}</span></h2>
         <a href="mailto:paulharrer@hotmail.com" className={styles.bigMail}>
           paulharrer@hotmail.com
         </a>

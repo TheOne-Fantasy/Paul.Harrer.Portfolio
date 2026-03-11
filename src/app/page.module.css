@@ -74,6 +74,34 @@
   align-items: center;
 }
 
+.langSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #ccc;
+}
+
+.langSwitcher button {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  transition: all 0.3s ease;
+  font-weight: 800;
+}
+
+.langSwitcher button:hover {
+  color: #ff5c35;
+}
+
+.langActive {
+  color: #111 !important;
+}
+
 .adminLink {
   font-size: 0.7rem;
   font-weight: 800;
