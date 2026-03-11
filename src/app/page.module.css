@@ -452,207 +452,139 @@
   line-height: 1.3;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .navLinks {
+    display: none; /* Masquer les liens au centre sur mobile pour plus de clarté */
+  }
+
+  .navActions {
+    gap: 1rem;
+  }
+
+  .contactCta {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.75rem;
+  }
+
+  .hero {
+    padding: 6rem 0 2rem 0;
+  }
+
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .title {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .bentoPhotos {
+    height: 400px;
+  }
+
+  .capabilities {
+    border-radius: 32px;
+  }
+
+  .projectsBentoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .largeCard {
+    grid-row: auto;
+  }
+
   .devContainer {
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
   }
+
   .devLinks {
     grid-template-columns: 1fr;
     width: 100%;
   }
+
+  .aboutAction {
+    border-radius: 32px;
+  }
+
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .aboutPhoto {
+    height: 350px;
+  }
+
+  .aboutContent p {
+    font-size: 1.1rem;
+  }
+
+  .miniStats {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .stat strong {
+    font-size: 2.5rem;
+  }
+
+  .contactSocials {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .caseStudyItem {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding-top: 2rem !important;
+  }
+
+  .caseStudyContent h4 {
+    font-size: 1.5rem;
+  }
+
+  .instaWrapper iframe, .linkedinWrapper iframe {
+    height: 450px !important;
+  }
 }
 
-/* ABOUT ACTION */
-.aboutAction {
-  background: #111;
-  color: #fff;
-  border-radius: 64px;
-}
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1rem;
+  }
+  
+  .navAvatar {
+    width: 32px;
+    height: 32px;
+  }
 
-.aboutGrid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 5rem;
-  align-items: center;
-}
+  .adminLink {
+    display: none; /* Trop petit pour mobile, on le cache */
+  }
 
-.aboutPhoto {
-  height: 600px;
-  background-image: url('/Capture d\’écran 2026-03-11 à 12.47.22.png'); /* BTS / Action */
-  background-size: cover;
-  background-position: center;
-  border-radius: 40px;
-}
+  .title {
+    font-size: 2.2rem;
+  }
 
-.aboutContent p {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  color: #aaa;
-}
+  .bigMail {
+    font-size: 1.2rem;
+    word-break: break-all;
+  }
 
-.socialGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.socialLink {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: all 0.3s ease;
-  padding: 0.5rem 0;
-}
-
-.socialLink svg {
-  color: #ff5c35;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
-
-.socialLink span {
-  font-size: 1rem;
-  color: #aaa;
-}
-
-.socialLink:hover span {
-  color: #fff;
-}
-
-.socialLink:hover svg {
-  transform: scale(1.2);
-}
-
-.aboutActions {
-  margin-bottom: 3rem;
-}
-
-.cvButton {
-  display: inline-block;
-  background: transparent;
-  color: #fff;
-  border: 1.5px solid #fff;
-  padding: 1rem 2rem;
-  border-radius: 100px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.cvButton:hover {
-  background: #fff;
-  color: #111;
-}
-
-.miniStats {
-  display: flex;
-  gap: 4rem;
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-}
-
-.stat strong {
-  font-size: 3rem;
-  letter-spacing: -0.05em;
-  color: #fff;
-}
-
-/* WORK */
-.workGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1.5rem;
-}
-
-.workCard {
-  background: #fff;
-  padding: 3rem;
-  border-radius: 40px;
-  border: 1.5px solid #eee;
-  transition: all 0.3s ease;
-}
-
-.workCard:hover {
-  border-color: var(--accent);
-  transform: scale(1.02);
-}
-
-.workBadge {
-  font-size: 0.7rem;
-  font-weight: 800;
-  background: #fdf2f0;
-  color: var(--accent);
-  padding: 0.4rem 1rem;
-  border-radius: 100px;
-  display: inline-block;
-  margin-bottom: 1.5rem;
-}
-
-.workCard h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.workLink {
-  display: inline-block;
-  margin-top: 1.5rem;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--accent);
-}
-
-/* CONTACT */
-.contactSection {
-  text-align: center;
-  padding: 10rem 0;
-}
-
-.bigMail {
-  display: block;
-  font-size: clamp(2rem, 8vw, 5rem);
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  margin-top: 2rem;
-  color: #111;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  line-height: 1;
-}
-
-.bigMail:hover {
-  color: #ff5c35;
-}
-
-.contactSocials {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  margin-top: 3rem;
-}
-
-.contactSocials a {
-  color: #666;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition: all 0.3s ease;
-}
-
-.contactSocials a:hover {
-  color: #ff5c35;
-  transform: translateY(-2px);
+  .stat strong {
+    font-size: 2rem;
+  }
 }
 
 .footer {
