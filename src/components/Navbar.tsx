@@ -80,8 +80,6 @@ export default function Navbar({ activeExpertise }: NavbarProps) {
               >EN</button>
           </div>
           
-          <a href="/admin" className={styles.adminLink}>Admin</a>
-          
           <div className={styles.contactWrapper} ref={dropdownRef}>
             <button 
               className={styles.contactCta}
