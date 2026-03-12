@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import styles from '../../page.module.css';
 import allData from '../../../data.json';
+import Navbar from '../../../components/Navbar';
 
 export default function ContentPage() {
   const [lang, setLang] = useState<'fr' | 'en'>('fr');
@@ -15,73 +16,61 @@ export default function ContentPage() {
 
   return (
     <main className={styles.main}>
-      <header className={styles.header}>
-        <nav className={styles.nav}>
-          <div className={styles.logoGroup}>
-            <img src="/Photo-Profil.jpg" alt="Paul Harrer" className={styles.navAvatar} />
-            <div className={styles.logo}><a href="/">PAUL HARRER</a></div>
-          </div>
-          <div className={styles.navLinks}>
-            <a href="/expertise/strategie">Stratégie</a>
-            <a href="/expertise/production">Production</a>
-            <a href="/expertise/content" style={{color: '#ff5c35'}}>{lang === 'fr' ? 'Content' : 'Content'}</a>
-          </div>
-          <div className={styles.navActions}>
-            <div className={styles.langSwitcher}>
-                <button className={lang === 'fr' ? styles.langActive : ''} onClick={() => setLang('fr')}>FR</button>
-                <span>|</span>
-                <button className={lang === 'en' ? styles.langActive : ''} onClick={() => setLang('en')}>EN</button>
-            </div>
-            <a href="/admin" className={styles.adminLink}>Admin</a>
-            <a href="#contact" className={styles.contactCta}>{lang === 'fr' ? "Parlons-en" : "Let's talk"}</a>
-          </div>
-        </nav>
-      </header>
+      <Navbar lang={lang} setLang={setLang} activeExpertise="content" />
 
-      <section className={styles.hero} style={{minHeight: '30vh', paddingTop: '10rem'}}>
+      <section className={styles.hero} style={{minHeight: '40vh', alignItems: 'flex-end', paddingBottom: '4rem'}}>
         <div className={styles.heroMain}>
           <span className={styles.kicker}>Expertise 03</span>
-          <h1 className={styles.title}>{expertise?.title}</h1>
+          <h1 className={styles.title} style={{fontSize: 'clamp(2.5rem, 5vw, 4rem)'}}>{expertise?.title}</h1>
           <p className={styles.subtitle} style={{maxWidth: '800px'}}>{expertise?.description}</p>
         </div>
       </section>
 
-      <section className={styles.expertiseDetailSection}>
-        {projects.map((proj: any, index: number) => {
-          const media = mediaExp?.projects[index] || {};
-          // @ts-ignore
-          const hasMedia = !!media.youtubeId;
-          return (
-            <div key={index} className={`${styles.caseStudyItem} ${!hasMedia ? styles.fullWidth : ''}`}>
-              <div className={styles.caseStudyContent}>
-                <div className={styles.projectHeader} style={{marginBottom: '1rem'}}>
-                  {/* @ts-ignore */}
-                  {media.image && <img src={media.image} alt={proj.name} className={styles.projectLogo} style={{height: '30px'}} />}
-                </div>
-                <h4>{proj.name}</h4>
-                <p>{proj.detail}</p>
-              </div>
+      <section className={styles.capabilities} style={{background: 'var(--background)', borderRadius: 0}}>
+        <div className={styles.expertisesContainer}>
+          <div className={styles.projectsBentoGrid}>
+            {projects.map((proj: any, index: number) => {
+              const media = mediaExp?.projects[index] || {};
+              const hasMedia = !!media.youtubeId;
+              
+              return (
+                <div key={index} className={`${styles.projectCard} ${hasMedia ? styles.largeCard : ''}`}>
+                  <div className={styles.cardHeader}>
+                    <div className={styles.projectHeader}>
+                      {media.image && <img src={media.image} alt={proj.name} className={styles.projectLogo} />}
+                      <span className={styles.categoryTag} style={{background: '#f0fff4', color: '#10b981'}}>
+                        Content Creation {index + 1}
+                      </span>
+                    </div>
+                  </div>
 
-              {hasMedia && (
-                <div className={styles.caseStudyMedia}>
-                  <div className={styles.videoWrapper}>
-                    <iframe 
-                      width="100%" height="auto" src={`https://www.youtube.com/embed/${
-                        // @ts-ignore
-                        media.youtubeId}`}
-                      title={proj.name} frameBorder="0" allowFullScreen
-                    ></iframe>
+                  <div className={styles.cardBody}>
+                    <h4>{proj.name}</h4>
+                    <p>{proj.detail}</p>
+                    
+                    {hasMedia && (
+                      <div className={styles.caseStudyMedia} style={{marginTop: '1.5rem'}}>
+                        <div className={styles.videoWrapper}>
+                          <iframe 
+                            width="100%" height="auto" src={`https://www.youtube.com/embed/${media.youtubeId}`}
+                            title={proj.name} frameBorder="0" allowFullScreen
+                          ></iframe>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
-              )}
-            </div>
-          );
-        })}
+              );
+            })}
+          </div>
+        </div>
       </section>
 
       <footer className={styles.footer}>
-        <p>© 2026 Paul Harrer. {lang === 'fr' ? 'Création de Contenu' : 'Content Creation'}.</p>
-        <a href="/" className={styles.backLink}>← {lang === 'fr' ? "Retour à l'accueil" : "Back to home"}</a>
+        <div style={{maxWidth: '1400px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 2rem'}}>
+          <p>© 2026 Paul Harrer. {lang === 'fr' ? 'Création de Contenu' : 'Content Creation'}.</p>
+          <a href="/" className={styles.projectLink} style={{marginTop: 0}}>← {lang === 'fr' ? "Retour à l'accueil" : "Back to home"}</a>
+        </div>
       </footer>
     </main>
   );
