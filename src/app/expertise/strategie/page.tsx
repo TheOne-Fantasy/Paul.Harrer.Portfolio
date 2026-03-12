@@ -31,6 +31,7 @@ export default function StrategyPage() {
           <div className={styles.projectsBentoGrid}>
             {projects.map((proj: any, index: number) => {
               const media = mediaExp?.projects[index] || {};
+              // @ts-ignore
               const hasMedia = !!(media.linkedinId || media.instagramId || media.youtubeId);
               
               return (
