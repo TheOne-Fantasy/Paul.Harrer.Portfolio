@@ -30,8 +30,7 @@ export default function ProductionPage() {
         <div className={styles.expertisesContainer}>
           <div className={styles.projectsBentoGrid}>
             {projects.map((proj: any, index: number) => {
-              const media = mediaExp?.projects[index] || {};
-              // @ts-ignore
+              const media: any = mediaExp?.projects[index] || {};
               const hasMedia = !!media.youtubeId;
               
               return (
