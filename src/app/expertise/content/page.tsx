@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styles from '../../page.module.css';
 import allData from '../../../data.json';
 import Navbar from '../../../components/Navbar';
+import Image from 'next/image';
 
 export default function ContentPage() {
   const [lang, setLang] = useState<'fr' | 'en'>('fr');
@@ -44,7 +45,16 @@ export default function ContentPage() {
               return (
                 <div key={index} className={`${styles.projectCard} ${hasMedia ? styles.largeCard : ''}`}>
                   <div className={styles.cardHeader}>
-                    {media.image && <img src={media.image} alt={proj.name} className={styles.projectLogo} />}
+                    {media.image && (
+                      <div style={{ position: 'relative', height: '28px', width: '80px' }}>
+                        <Image 
+                          src={media.image} 
+                          alt={proj.name} 
+                          fill
+                          style={{ objectFit: 'contain', objectPosition: 'left' }}
+                        />
+                      </div>
+                    )}
                   </div>
 
                   <div className={styles.cardBody}>

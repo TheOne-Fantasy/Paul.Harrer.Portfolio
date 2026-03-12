@@ -609,37 +609,38 @@
 
 @media (max-width: 768px) {
   .header {
-    padding: 0.8rem 1rem; /* Reduced padding on mobile */
+    padding: 0.6rem 1rem; /* Even tighter padding on mobile */
   }
 
   .nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   
+  .avatarWrapper {
+    width: 36px; /* Slightly smaller avatar on mobile */
+    height: 36px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
   .navLinks {
     display: none;
   }
 
   .logo {
-    display: none; /* Hide name "PAUL HARRER" on mobile to save space */
+    display: none;
   }
 
   .navActions {
-    gap: 0.8rem; /* Reduced gap */
-  }
-
-  .adminLink {
-    display: none; /* Hide Admin link on mobile */
-  }
-
-  .langSwitcher {
-    margin-right: 0.5rem;
+    gap: 0.6rem; /* Even tighter gap */
   }
 
   .contactCta {
-    padding: 0.6rem 1.2rem; /* Smaller CTA on mobile */
-    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
   }
 
   .hero {

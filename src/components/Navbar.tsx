@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import styles from '../app/page.module.css';
+import Image from 'next/image';
 
 interface NavbarProps {
   lang: 'fr' | 'en';
@@ -15,7 +16,16 @@ export default function Navbar({ lang, setLang, activeExpertise }: NavbarProps) 
     <header className={styles.header}>
       <nav className={styles.nav}>
         <div className={styles.logoGroup}>
-          <img src="/Photo-Profil.jpg" alt="Paul Harrer" className={styles.navAvatar} />
+          <div className={styles.avatarWrapper}>
+            <Image 
+              src="/Photo-Profil.jpg" 
+              alt="Paul Harrer" 
+              width={40} 
+              height={40} 
+              className={styles.navAvatar}
+              priority
+            />
+          </div>
           <div className={styles.logo}><a href="/">PAUL HARRER</a></div>
         </div>
         <div className={styles.navLinks}>

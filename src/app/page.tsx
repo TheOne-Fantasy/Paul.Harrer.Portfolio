@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react';
 import styles from './page.module.css'
 import allData from '../data.json'
 import Navbar from '../components/Navbar';
+import Image from 'next/image';
 
 export default function Home() {
   const [lang, setLang] = useState<'fr' | 'en'>('fr');
@@ -32,13 +33,20 @@ export default function Home() {
               <div 
                 key={item.id} 
                 className={styles[`bentoItem${index + 1}`]}
-                style={{ 
-                  backgroundImage: `url('${item.image}')`, 
-                  backgroundSize: 'cover', 
-                  backgroundPosition: `${item.x}% ${item.y}%` 
-                }}
+                style={{ position: 'relative', overflow: 'hidden' }}
               >
-                <div className={styles.photoPlaceholder}>{item.label}</div>
+                <Image 
+                  src={item.image} 
+                  alt={item.label} 
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  style={{ 
+                    objectFit: 'cover', 
+                    objectPosition: `${item.x}% ${item.y}%` 
+                  }}
+                  priority={index < 2}
+                />
+                <div className={styles.photoPlaceholder} style={{position: 'relative', zIndex: 1}}>{item.label}</div>
               </div>
             ))}
           </div>
@@ -71,7 +79,14 @@ export default function Home() {
                     {proj.category}
                   </span>
                   {proj.image && (
-                    <img src={proj.image} alt={proj.name} className={styles.projectLogo} />
+                    <div style={{ position: 'relative', height: '28px', width: '80px' }}>
+                      <Image 
+                        src={proj.image} 
+                        alt={proj.name} 
+                        fill
+                        style={{ objectFit: 'contain', objectPosition: 'right' }}
+                      />
+                    </div>
                   )}
                 </div>
 
@@ -80,8 +95,13 @@ export default function Home() {
                   <p>{proj.detail}</p>
                   
                   {proj.subImage && (
-                    <div className={styles.subLogoWrapper}>
-                      <img src={proj.subImage} alt="Secondary Logo" className={styles.subLogo} />
+                    <div className={styles.subLogoWrapper} style={{ position: 'relative', height: '20px', width: '60px', marginTop: '1rem' }}>
+                      <Image 
+                        src={proj.subImage} 
+                        alt="Secondary Logo" 
+                        fill
+                        style={{ objectFit: 'contain', objectPosition: 'left' }}
+                      />
                     </div>
                   )}
 
@@ -179,12 +199,19 @@ export default function Home() {
         <div className={styles.aboutGrid}>
           <div 
             className={styles.aboutPhoto}
-            style={{ 
-              backgroundImage: `url('${common.about_media.image}')`, 
-              backgroundSize: 'cover', 
-              backgroundPosition: `${common.about_media.x}% ${common.about_media.y}%` 
-            }}
-          ></div>
+            style={{ position: 'relative', overflow: 'hidden' }}
+          >
+            <Image 
+              src={common.about_media.image} 
+              alt="About Paul Harrer" 
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ 
+                objectFit: 'cover', 
+                objectPosition: `${common.about_media.x}% ${common.about_media.y}%` 
+              }}
+            />
+          </div>
           <div className={styles.aboutContent}>
             <h2 className={styles.sectionTitle} style={{textAlign: 'left'}}>{data.about.title}</h2>
             <p>{data.about.text}</p>

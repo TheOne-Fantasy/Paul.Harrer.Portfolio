@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styles from '../../page.module.css';
 import allData from '../../../data.json';
 import Navbar from '../../../components/Navbar';
+import Image from 'next/image';
 
 export default function StrategyPage() {
   const [lang, setLang] = useState<'fr' | 'en'>('fr');
@@ -18,7 +19,7 @@ export default function StrategyPage() {
     <main className={styles.main}>
       <Navbar lang={lang} setLang={setLang} activeExpertise="strategie" />
 
-      {/* Hero Section - Alignée sur l'accueil */}
+      {/* Hero Section */}
       <section className={styles.hero} style={{paddingTop: '12rem', minHeight: 'auto'}}>
         <div className={styles.heroMain}>
           <span className={styles.kicker}>Expertise 01</span>
@@ -27,7 +28,7 @@ export default function StrategyPage() {
         </div>
       </section>
 
-      {/* Projects Section - Grille classique sur fond beige */}
+      {/* Projects Section */}
       <section className={styles.capabilities} id="projects">
         <div className={styles.expertisesContainer}>
           <div className={styles.bentoHeader} style={{textAlign: 'left', marginBottom: '3rem'}}>
@@ -42,7 +43,16 @@ export default function StrategyPage() {
               return (
                 <div key={index} className={`${styles.projectCard} ${hasMedia ? styles.largeCard : ''}`}>
                   <div className={styles.cardHeader}>
-                    {media.image && <img src={media.image} alt={proj.name} className={styles.projectLogo} />}
+                    {media.image && (
+                      <div style={{ position: 'relative', height: '28px', width: '80px' }}>
+                        <Image 
+                          src={media.image} 
+                          alt={proj.name} 
+                          fill
+                          style={{ objectFit: 'contain', objectPosition: 'left' }}
+                        />
+                      </div>
+                    )}
                   </div>
 
                   <div className={styles.cardBody}>
@@ -50,8 +60,13 @@ export default function StrategyPage() {
                     <p>{proj.detail}</p>
                     
                     {media.subImage && (
-                      <div className={styles.subLogoWrapper}>
-                        <img src={media.subImage} alt="Secondary Logo" className={styles.subLogo} />
+                      <div style={{ position: 'relative', height: '20px', width: '60px', marginTop: '1rem', marginBottom: '1rem' }}>
+                        <Image 
+                          src={media.subImage} 
+                          alt="Secondary Logo" 
+                          fill
+                          style={{ objectFit: 'contain', objectPosition: 'left' }}
+                        />
                       </div>
                     )}
 
