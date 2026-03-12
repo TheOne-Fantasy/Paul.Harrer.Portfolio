@@ -1,23 +1,26 @@
 'use client';
-import { useState } from 'react';
+import { useMemo } from 'react';
 import styles from '../../page.module.css';
-import allData from '../../../data.json';
+import allDataRaw from '../../../data.json';
 import Navbar from '../../../components/Navbar';
 import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
+import { PortfolioData, LocalizedData, CommonData, ExpertiseData, ProjectData, ProjectMedia } from '@/types/portfolio';
+
+const allData = allDataRaw as PortfolioData;
 
 export default function ProductionPage() {
-  const [lang, setLang] = useState<'fr' | 'en'>('fr');
+  const { lang } = useLanguage();
   
-  // @ts-ignore
-  const data = allData[lang];
-  const common = allData.common;
-  const expertise = data.expertises.find((e: any) => e.id === 2);
-  const mediaExp = common.expertises_media.find((m: any) => m.id === 2);
+  const data: LocalizedData = useMemo(() => allData[lang], [lang]);
+  const common: CommonData = allData.common;
+  const expertise = data.expertises.find((e: ExpertiseData) => e.id === 2);
+  const mediaExp = common.expertises_media.find((m) => m.id === 2);
   const projects = expertise?.projects || [];
 
   return (
     <main className={styles.main}>
-      <Navbar lang={lang} setLang={setLang} activeExpertise="production" />
+      <Navbar activeExpertise="production" />
 
       {/* Hero Section */}
       <section className={styles.hero} style={{paddingTop: '12rem', minHeight: 'auto'}}>

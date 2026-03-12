@@ -1,11 +1,14 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import initialData from '../../data.json';
+import initialDataRaw from '../../data.json';
 import styles from './admin.module.css';
+import { PortfolioData, LocalizedData, CommonData, BentoItem, ExpertiseData, StatData } from '@/types/portfolio';
+
+const initialData = initialDataRaw as PortfolioData;
 
 export default function Admin() {
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState<PortfolioData>(initialData);
   const [images, setImages] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
 
@@ -19,11 +22,11 @@ export default function Admin() {
     const newData = { ...data };
     // On édite la version FR par défaut dans ce mode simplifié
     if (section === 'hero') {
-      // @ts-ignore
-      newData.fr.hero[key] = value;
+      const heroKey = key as keyof LocalizedData['hero'];
+      newData.fr.hero[heroKey] = value;
     } else if (section === 'bento' && typeof index === 'number') {
-      // @ts-ignore
-      newData.common.bento[index][key] = value;
+      const bentoKey = key as keyof BentoItem;
+      (newData.common.bento[index] as any)[bentoKey] = value;
     } else if (section === 'about') {
         if (key === 'text') newData.fr.about.text = value;
         if (key === 'image') newData.common.about_media.image = value;
@@ -31,21 +34,19 @@ export default function Admin() {
         if (key === 'y') newData.common.about_media.y = parseInt(value) || 0;
         if (key === 'stats' && typeof index === 'number') {
            const statKey = value.type === 'label' ? 'label' : 'value';
-           // @ts-ignore
-           newData.fr.about.stats[index][statKey] = value.val;
+           newData.fr.about.stats[index][statKey as keyof StatData] = value.val;
         }
     } else if (section === 'expertises' && typeof index === 'number') {
         if (key === 'projects' && typeof value === 'object') {
-            // @ts-ignore
-            newData.fr.expertises[index].projects[value.projIndex][value.type] = value.val;
+            const projKey = value.type as keyof ExpertiseData['projects'][0];
+            (newData.fr.expertises[index].projects[value.projIndex] as any)[projKey] = value.val;
             // Si c'est un média (youtubeId, etc), on met à jour le bloc common aussi
             if (['youtubeId', 'linkedinId', 'instagramId', 'image', 'subImage', 'link'].includes(value.type)) {
-                // @ts-ignore
-                newData.common.expertises_media[index].projects[value.projIndex][value.type] = value.val;
+                (newData.common.expertises_media[index].projects[value.projIndex] as any)[value.type] = value.val;
             }
         } else {
-            // @ts-ignore
-            newData.fr.expertises[index][key] = value;
+            const expKey = key as keyof ExpertiseData;
+            (newData.fr.expertises[index] as any)[expKey] = value;
         }
     }
     setData(newData);

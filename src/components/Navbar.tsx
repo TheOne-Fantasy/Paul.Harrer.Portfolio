@@ -2,29 +2,21 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from '../app/page.module.css';
 import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
+import { Language } from '@/types/portfolio';
 
 interface NavbarProps {
-  lang: 'fr' | 'en';
-  setLang: (lang: 'fr' | 'en') => void;
   activeExpertise?: string;
 }
 
-export default function Navbar({ lang, setLang, activeExpertise }: NavbarProps) {
+export default function Navbar({ activeExpertise }: NavbarProps) {
+  const { lang, setLang } = useLanguage();
   const [showContact, setShowContact] = useState(false);
   const [copied, setCopy] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // 1. Persistance de la langue
-  useEffect(() => {
-    const savedLang = localStorage.getItem('pref-lang') as 'fr' | 'en';
-    if (savedLang && savedLang !== lang) {
-      setLang(savedLang);
-    }
-  }, []);
-
-  const handleLangChange = (newLang: 'fr' | 'en') => {
+  const handleLangChange = (newLang: Language) => {
     setLang(newLang);
-    localStorage.setItem('pref-lang', newLang);
   };
 
   // 2. Fermeture au clic extérieur

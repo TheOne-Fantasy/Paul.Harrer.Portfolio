@@ -1,12 +1,16 @@
 'use client';
-import { useState, useMemo, useEffect } from 'react';
+import { useMemo, useEffect } from 'react';
 import styles from './page.module.css'
-import allData from '../data.json'
+import allDataRaw from '../data.json'
 import Navbar from '../components/Navbar';
 import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
+import { PortfolioData, LocalizedData, CommonData, BentoItem, ExpertiseData, ProjectData, ProjectMedia } from '@/types/portfolio';
+
+const allData = allDataRaw as PortfolioData;
 
 export default function Home() {
-  const [lang, setLang] = useState<'fr' | 'en'>('fr');
+  const { lang } = useLanguage();
   
   // Animation au scroll
   useEffect(() => {
@@ -25,13 +29,12 @@ export default function Home() {
   }, []);
 
   // Accès simplifié aux données selon la langue
-  // @ts-ignore
-  const data = useMemo(() => allData[lang], [lang]);
-  const common = allData.common;
+  const data: LocalizedData = useMemo(() => allData[lang], [lang]);
+  const common: CommonData = allData.common;
 
   return (
     <main className={styles.main}>
-      <Navbar lang={lang} setLang={setLang} />
+      <Navbar />
 
       {/* 1. HERO */}
       <section className={`${styles.hero} ${styles.reveal} ${styles.revealVisible}`}>
@@ -45,7 +48,7 @@ export default function Home() {
           </div>
           
           <div className={styles.bentoPhotos}>
-            {common.bento.map((item: any, index: number) => (
+            {common.bento.map((item: BentoItem, index: number) => (
               <div 
                 key={item.id} 
                 className={`${styles[`bentoItem${index + 1}`]} ${styles.reveal}`}
@@ -78,10 +81,10 @@ export default function Home() {
           </div>
 
           <div className={styles.projectsBentoGrid}>
-            {data.expertises.flatMap((exp: any) => 
-              exp.projects.map((proj: any, idx: number) => {
-                const mediaExp = common.expertises_media.find((m: any) => m.id === exp.id);
-                const media = mediaExp ? mediaExp.projects[idx] : {};
+            {data.expertises.flatMap((exp: ExpertiseData) => 
+              exp.projects.map((proj: ProjectData, idx: number) => {
+                const mediaExp = common.expertises_media.find((m) => m.id === exp.id);
+                const media: ProjectMedia = mediaExp ? mediaExp.projects[idx] : {};
                 return { ...proj, ...media, category: exp.title, categoryId: exp.id };
               })
             ).map((proj: any, index: number) => (
@@ -188,24 +191,14 @@ export default function Home() {
             <h3>{data.dev.title}</h3>
           </div>
           <div className={styles.devLinks}>
-            <a href="https://theone-fantasy.com/" target="_blank" rel="noopener noreferrer" className={styles.devCard}>
-              <div className={styles.devCardContent}>
-                <span className={styles.devUrl}>theone-fantasy.com</span>
-                <p>{data.dev.projects[0].name}</p>
-              </div>
-            </a>
-            <a href="https://ebloch-legal.vercel.app/" target="_blank" rel="noopener noreferrer" className={styles.devCard}>
-              <div className={styles.devCardContent}>
-                <span className={styles.devUrl}>ebloch-legal.vercel.app</span>
-                <p>{data.dev.projects[1].name}</p>
-              </div>
-            </a>
-            <a href="https://filet-mignon-crew.vercel.app/" target="_blank" rel="noopener noreferrer" className={styles.devCard}>
-              <div className={styles.devCardContent}>
-                <span className={styles.devUrl}>filet-mignon-crew.vercel.app</span>
-                <p>{data.dev.projects[2].name}</p>
-              </div>
-            </a>
+            {data.dev.projects.map((p, idx) => (
+               <a key={idx} href={idx === 0 ? "https://theone-fantasy.com/" : idx === 1 ? "https://ebloch-legal.vercel.app/" : "https://filet-mignon-crew.vercel.app/"} target="_blank" rel="noopener noreferrer" className={styles.devCard}>
+                <div className={styles.devCardContent}>
+                  <span className={styles.devUrl}>{idx === 0 ? "theone-fantasy.com" : idx === 1 ? "ebloch-legal.vercel.app" : "filet-mignon-crew.vercel.app"}</span>
+                  <p>{p.name}</p>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -258,7 +251,7 @@ export default function Home() {
             </div>
 
             <div className={styles.miniStats}>
-               {data.about.stats.map((stat: any, i: number) => (
+               {data.about.stats.map((stat, i) => (
                  <div key={i} className={styles.stat}>
                    <strong>{stat.value}</strong> {stat.label}
                  </div>
