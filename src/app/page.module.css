@@ -580,6 +580,16 @@
   border-radius: 100px;
   font-weight: 700;
   text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cvButton:hover {
+  background: #fff;
+  color: #111;
+}
+
+.aboutActions {
+  margin-bottom: 5rem; /* Increased space before stats */
 }
 
 .miniStats {
