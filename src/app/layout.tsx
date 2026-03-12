@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://paul-harrer.vercel.app'),
   title: "Paul Harrer | Digital Strategist & Creative Producer",
   description: "10 ans d'expertise en stratégies sociales (+700k abonnés) et production créative (+2000 émissions).",
   openGraph: {
@@ -38,7 +40,9 @@ export default function RootLayout({
     <html lang="fr">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <LanguageProvider>
-          {children}
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
         </LanguageProvider>
       </body>
     </html>

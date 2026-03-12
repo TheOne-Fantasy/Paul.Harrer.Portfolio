@@ -368,9 +368,15 @@
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 20px rgba(0,0,0,0.01);
   height: fit-content;
+}
+
+.projectCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  border-color: rgba(255, 92, 53, 0.2);
 }
 
 .largeCard {
@@ -455,6 +461,11 @@
   font-weight: 800;
   color: #ff5c35;
   text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.projectLink:hover {
+  transform: translateX(5px);
 }
 
 .subLogoWrapper {
@@ -518,7 +529,14 @@
   border: 1px solid #eee;
   padding: 1.5rem;
   border-radius: 20px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.devCard:hover {
+  transform: translateY(-5px);
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-color: #ff5c35;
 }
 
 .devUrl {
@@ -555,6 +573,11 @@
   background-size: cover;
   background-position: center;
   border-radius: 40px;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aboutPhoto:hover {
+  transform: scale(1.02);
 }
 
 .aboutContent p {
