@@ -1,5 +1,5 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import styles from './page.module.css'
 import allData from '../data.json'
 import Navbar from '../components/Navbar';
@@ -8,6 +8,22 @@ import Image from 'next/image';
 export default function Home() {
   const [lang, setLang] = useState<'fr' | 'en'>('fr');
   
+  // Animation au scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles.revealVisible);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const elements = document.querySelectorAll(`.${styles.reveal}`);
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   // Accès simplifié aux données selon la langue
   // @ts-ignore
   const data = useMemo(() => allData[lang], [lang]);
@@ -18,7 +34,7 @@ export default function Home() {
       <Navbar lang={lang} setLang={setLang} />
 
       {/* 1. HERO */}
-      <section className={styles.hero}>
+      <section className={`${styles.hero} ${styles.reveal} ${styles.revealVisible}`}>
         <div className={styles.heroGrid}>
           <div className={styles.heroMain}>
             <span className={styles.kicker}>{data.hero.kicker}</span>
@@ -32,8 +48,8 @@ export default function Home() {
             {common.bento.map((item: any, index: number) => (
               <div 
                 key={item.id} 
-                className={styles[`bentoItem${index + 1}`]}
-                style={{ position: 'relative', overflow: 'hidden' }}
+                className={`${styles[`bentoItem${index + 1}`]} ${styles.reveal}`}
+                style={{ position: 'relative', overflow: 'hidden', transitionDelay: `${index * 0.1}s` }}
               >
                 <Image 
                   src={item.image} 
@@ -54,7 +70,7 @@ export default function Home() {
       </section>
 
       {/* 2. BENTO GRID DYNAMIQUE DES PROJETS */}
-      <section className={styles.capabilities} id="work">
+      <section className={`${styles.capabilities} ${styles.reveal}`} id="work">
         <div className={styles.expertisesContainer}>
           <div className={styles.bentoHeader}>
             <h2 className={styles.sectionTitle}>{lang === 'fr' ? 'Portfolio & Expertises' : 'Portfolio & Expertise'}</h2>
@@ -64,7 +80,6 @@ export default function Home() {
           <div className={styles.projectsBentoGrid}>
             {data.expertises.flatMap((exp: any) => 
               exp.projects.map((proj: any, idx: number) => {
-                // Récupérer le média commun correspondant
                 const mediaExp = common.expertises_media.find((m: any) => m.id === exp.id);
                 const media = mediaExp ? mediaExp.projects[idx] : {};
                 return { ...proj, ...media, category: exp.title, categoryId: exp.id };
@@ -72,7 +87,8 @@ export default function Home() {
             ).map((proj: any, index: number) => (
               <div 
                 key={index} 
-                className={`${styles.projectCard} ${proj.youtubeId || proj.instagramId || proj.linkedinId ? styles.largeCard : styles.smallCard}`}
+                className={`${styles.projectCard} ${styles.reveal} ${proj.youtubeId || proj.instagramId || proj.linkedinId ? styles.largeCard : styles.smallCard}`}
+                style={{ transitionDelay: `${(index % 3) * 0.1}s` }}
               >
                 <div className={styles.cardHeader}>
                   <span className={`${styles.categoryTag} ${styles[`tag${proj.categoryId}`]}`}>
@@ -165,7 +181,7 @@ export default function Home() {
       </section>
 
       {/* 2.5 WEB DEVELOPMENT SECTION */}
-      <section className={styles.devSection}>
+      <section className={`${styles.devSection} ${styles.reveal}`}>
         <div className={styles.devContainer}>
           <div className={styles.devHeader}>
             <span className={styles.devTag}>Web Development</span>
@@ -195,7 +211,7 @@ export default function Home() {
       </section>
 
       {/* 3. ABOUT ACTION */}
-      <section className={styles.aboutAction}>
+      <section className={`${styles.aboutAction} ${styles.reveal}`}>
         <div className={styles.aboutGrid}>
           <div 
             className={styles.aboutPhoto}
@@ -253,7 +269,7 @@ export default function Home() {
       </section>
 
       {/* 4. CONTACT */}
-      <section className={styles.contactSection} id="contact">
+      <section className={`${styles.contactSection} ${styles.reveal}`} id="contact">
         <span className={styles.kicker} style={{textAlign: 'center', display: 'block', margin: '0 auto 2rem auto'}}>Contact</span>
         <h2 className={styles.title} style={{textAlign: 'center'}}>{data.contact.title.split('Parlons-en')[0]} <br/> <span className={styles.accent}>{data.contact.title.includes('Parlons-en') ? 'Parlons-en.' : "Let's talk."}</span></h2>
         <a href="mailto:paulharrer@hotmail.com" className={styles.bigMail}>
