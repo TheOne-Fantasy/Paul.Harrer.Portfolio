@@ -37,22 +37,27 @@ export default function Home() {
       <Navbar />
 
       {/* 1. HERO */}
-      <section className={`${styles.hero} ${styles.reveal} ${styles.revealVisible}`}>
+      <section className={styles.hero}>
         <div className={styles.heroGrid}>
           <div className={styles.heroMain}>
-            <span className={styles.kicker}>{data.hero.kicker}</span>
-            <h1 className={styles.title}>
+            <span className={`${styles.kicker} ${styles.animateFadeInUp} ${styles.delay1}`}>{data.hero.kicker}</span>
+            <h1 className={`${styles.title} ${styles.animateFadeInUp} ${styles.delay2}`}>
               {data.hero.title}
             </h1>
-            <p className={styles.subtitle}>{data.hero.subtitle}</p>
+            <p className={`${styles.subtitle} ${styles.animateFadeInUp} ${styles.delay3}`}>{data.hero.subtitle}</p>
           </div>
           
           <div className={styles.bentoPhotos}>
             {common.bento.map((item: BentoItem, index: number) => (
               <div 
                 key={item.id} 
-                className={`${styles[`bentoItem${index + 1}`]} ${styles.reveal}`}
-                style={{ position: 'relative', overflow: 'hidden', transitionDelay: `${index * 0.1}s` }}
+                className={`${styles[`bentoItem${index + 1}`]} ${styles.animateFadeInUp}`}
+                style={{ 
+                  position: 'relative', 
+                  overflow: 'hidden', 
+                  animationDelay: `${0.4 + (index * 0.1)}s`,
+                  opacity: 0
+                }}
               >
                 <Image 
                   src={item.image} 
