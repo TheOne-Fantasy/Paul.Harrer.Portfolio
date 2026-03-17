@@ -97,8 +97,9 @@ export default function Home() {
                   src={client.logo} 
                   alt={client.name} 
                   fill
-                  style={{ objectFit: 'contain' }}
+                  style={{ objectFit: 'contain', padding: '0.8rem' }}
                 />
+                <span className={styles.clientName}>{client.name}</span>
               </div>
             ))}
           </div>
