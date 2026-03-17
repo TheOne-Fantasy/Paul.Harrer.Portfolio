@@ -201,12 +201,12 @@ export default function Home() {
               />
             </div>
             <div className={styles.entrepreneurContent}>
-              <div style={{ position: 'relative', height: '40px', width: '120px', marginBottom: '2rem', background: '#fff', padding: '0.5rem', borderRadius: '8px' }}>
+              <div style={{ position: 'relative', height: '60px', width: '120px', marginBottom: '2rem' }}>
                 <Image 
                   src="/sports_us_travels_logo.jpeg" 
                   alt="Sport Us Travels Logo" 
                   fill
-                  style={{ objectFit: 'contain' }}
+                  style={{ objectFit: 'contain', objectPosition: 'left' }}
                 />
               </div>
               <span className={styles.entrepreneurTag}>{data.entrepreneur.tag}</span>
