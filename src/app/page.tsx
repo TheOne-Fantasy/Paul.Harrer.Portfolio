@@ -188,6 +188,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 2.2 ENTREPRENEUR SECTION */}
+      <section className={`${styles.entrepreneurSection} ${styles.reveal}`}>
+        <div className={styles.entrepreneurContainer}>
+          <div className={styles.entrepreneurCard}>
+            <div className={styles.entrepreneurLogoWrapper}>
+              <div style={{ position: 'relative', height: '100%', width: '100%' }}>
+                <Image 
+                  src="/sports_us_travels_logo.jpeg" 
+                  alt="Sport Us Travels Logo" 
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+            </div>
+            <div className={styles.entrepreneurContent}>
+              <span className={styles.entrepreneurTag}>{data.entrepreneur.tag}</span>
+              <h3>{data.entrepreneur.title}</h3>
+              <p>{data.entrepreneur.text}</p>
+              <a href="https://www.instagram.com/sportsustravels/" target="_blank" rel="noopener noreferrer" className={styles.projectLink} style={{color: '#ff5c35'}}>
+                → Instagram @sportsustravels
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2.5 WEB DEVELOPMENT SECTION */}
       <section className={`${styles.devSection} ${styles.reveal}`}>
         <div className={styles.devContainer}>

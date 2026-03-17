@@ -82,6 +82,11 @@
         { "name": "Association Filet Mignon Padel" }
       ]
     },
+    "entrepreneur": {
+      "title": "Co-fondateur Sport Us Travels",
+      "text": "Agence de voyage spécialisée dans les sports US. Création de l'identité de marque et gestion globale de la stratégie de communication sur les réseaux sociaux.",
+      "tag": "Co-founder & Social Media"
+    },
     "contact": {
       "title": "Une idée ? Un projet ? Parlons-en."
     }
@@ -168,6 +173,11 @@
         { "name": "E. Bloch Law Firm" },
         { "name": "Filet Mignon Padel Association" }
       ]
+    },
+    "entrepreneur": {
+      "title": "Co-founder Sport Us Travels",
+      "text": "Travel agency specialized in US sports. Brand identity creation and global management of social media communication strategy.",
+      "tag": "Co-founder & Social Media"
     },
     "contact": {
       "title": "An idea? A project? Let's talk."

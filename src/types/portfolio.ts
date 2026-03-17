@@ -43,11 +43,18 @@ export interface ContactData {
   title: string;
 }
 
+export interface EntrepreneurData {
+  title: string;
+  text: string;
+  tag: string;
+}
+
 export interface LocalizedData {
   hero: HeroData;
   expertises: ExpertiseData[];
   about: AboutData;
   dev: DevData;
+  entrepreneur: EntrepreneurData;
   contact: ContactData;
 }
 
