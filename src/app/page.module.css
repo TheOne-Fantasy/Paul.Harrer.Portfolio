@@ -305,7 +305,13 @@
 .bentoItem1, .bentoItem2, .bentoItem3, .bentoItem4 {
   border-radius: 24px;
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.bentoItem1:hover, .bentoItem2:hover, .bentoItem3:hover, .bentoItem4:hover {
+  transform: scale(1.02);
 }
 
 .photoPlaceholder {
@@ -368,13 +374,15 @@
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 20px rgba(0,0,0,0.01);
   height: fit-content;
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
 }
 
 .projectCard:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px) scale(1.01);
   box-shadow: 0 20px 40px rgba(0,0,0,0.06);
   border-color: rgba(255, 92, 53, 0.2);
 }
@@ -499,13 +507,15 @@
   grid-template-columns: 1fr 1.5fr;
   gap: 4rem;
   align-items: center;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
   position: relative;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .entrepreneurCard:hover {
-  transform: scale(1.01);
+  transform: scale(1.005);
 }
 
 .entrepreneurPhotoWrapper {
@@ -601,11 +611,13 @@
   border: 1px solid #eee;
   padding: 1.5rem;
   border-radius: 20px;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
 }
 
 .devCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.01);
   background: #fff;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   border-color: #ff5c35;
@@ -646,10 +658,12 @@
   background-position: center;
   border-radius: 40px;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .aboutPhoto:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .aboutContent p {
