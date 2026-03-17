@@ -49,12 +49,17 @@ export interface EntrepreneurData {
   tag: string;
 }
 
+export interface TrustData {
+  title: string;
+}
+
 export interface LocalizedData {
   hero: HeroData;
   expertises: ExpertiseData[];
   about: AboutData;
   dev: DevData;
   entrepreneur: EntrepreneurData;
+  trust: TrustData;
   contact: ContactData;
 }
 

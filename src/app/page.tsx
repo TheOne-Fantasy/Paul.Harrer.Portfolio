@@ -77,6 +77,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 1.5 TRUST BAR */}
+      <section className={`${styles.trustSection} ${styles.reveal}`}>
+        <div className={styles.trustContainer}>
+          <h2 className={styles.trustTitle}>{data.trust.title}</h2>
+          <div className={styles.trustGrid}>
+            {[
+              { name: 'First Team', logo: '/firstteam101_logo.jpeg' },
+              { name: 'Webedia', logo: '/webedia_logo.jpeg' },
+              { name: 'Influx', logo: '/Logo-Influx.jpeg' },
+              { name: 'Winamax', logo: '/winamax_logo.jpeg' },
+              { name: 'Blue Foxes', logo: '/blue_foxes_logo.jpeg' },
+              { name: 'Oh My Goal', logo: '/oh_my_goal_logo.jpeg' },
+              { name: 'Sport Us Travels', logo: '/sports_us_travels_logo.jpeg' },
+              { name: "L'Echappée", logo: '/Logo-Echappee.png' },
+            ].map((client, i) => (
+              <div key={i} className={styles.trustLogoWrapper}>
+                <Image 
+                  src={client.logo} 
+                  alt={client.name} 
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 2. BENTO GRID DYNAMIQUE DES PROJETS */}
       <section className={`${styles.capabilities} ${styles.reveal}`} id="work">
         <div className={styles.expertisesContainer}>

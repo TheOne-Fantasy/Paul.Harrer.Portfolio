@@ -87,6 +87,9 @@
       "text": "Agence de voyage spécialisée dans les sports US. Création de l'identité de marque et gestion globale de la stratégie de communication sur les réseaux sociaux.",
       "tag": "Co-founder & Social Media"
     },
+    "trust": {
+      "title": "Ils m'ont fait confiance"
+    },
     "contact": {
       "title": "Une idée ? Un projet ? Parlons-en."
     }
@@ -178,6 +181,9 @@
       "title": "Co-founder Sport Us Travels",
       "text": "Travel agency specialized in US sports. Brand identity creation and global management of social media communication strategy.",
       "tag": "Co-founder & Social Media"
+    },
+    "trust": {
+      "title": "Trusted by"
     },
     "contact": {
       "title": "An idea? A project? Let's talk."
