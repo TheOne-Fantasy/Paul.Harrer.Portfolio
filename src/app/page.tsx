@@ -192,8 +192,16 @@ export default function Home() {
       <section className={`${styles.entrepreneurSection} ${styles.reveal}`}>
         <div className={styles.entrepreneurContainer}>
           <div className={styles.entrepreneurCard}>
-            <div className={styles.entrepreneurLogoWrapper}>
-              <div style={{ position: 'relative', height: '100%', width: '100%' }}>
+            <div className={styles.entrepreneurPhotoWrapper}>
+              <Image 
+                src="/Photo-SUT-Paul.png" 
+                alt="Paul Harrer - Sport Us Travels" 
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
+            <div className={styles.entrepreneurContent}>
+              <div style={{ position: 'relative', height: '40px', width: '120px', marginBottom: '2rem', background: '#fff', padding: '0.5rem', borderRadius: '8px' }}>
                 <Image 
                   src="/sports_us_travels_logo.jpeg" 
                   alt="Sport Us Travels Logo" 
@@ -201,8 +209,6 @@ export default function Home() {
                   style={{ objectFit: 'contain' }}
                 />
               </div>
-            </div>
-            <div className={styles.entrepreneurContent}>
               <span className={styles.entrepreneurTag}>{data.entrepreneur.tag}</span>
               <h3>{data.entrepreneur.title}</h3>
               <p>{data.entrepreneur.text}</p>

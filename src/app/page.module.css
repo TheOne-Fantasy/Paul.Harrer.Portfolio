@@ -508,16 +508,20 @@
   transform: scale(1.01);
 }
 
-.entrepreneurLogoWrapper {
+.entrepreneurPhotoWrapper {
   position: relative;
-  height: 200px;
+  height: 400px;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
   border-radius: 30px;
-  padding: 2rem;
+  overflow: hidden;
+}
+
+.entrepreneurPhotoWrapper img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.entrepreneurCard:hover .entrepreneurPhotoWrapper img {
+  transform: scale(1.1);
 }
 
 .entrepreneurContent h3 {
@@ -867,8 +871,8 @@
     gap: 2rem;
   }
 
-  .entrepreneurLogoWrapper {
-    height: 120px;
+  .entrepreneurPhotoWrapper {
+    height: 300px;
   }
 
   .aboutContent h2 {
