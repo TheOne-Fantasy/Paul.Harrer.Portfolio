@@ -3,13 +3,13 @@
     "hero": {
       "kicker": "Digital Strategist & Creative Producer",
       "title": "L'expertise terrain au service de vos stratégies digitales.",
-      "subtitle": "10 ans à piloter des audiences (600k+), réaliser des émissions (+2000) et concevoir des stratégies sociales impactantes. Une mission : l'impact."
+      "subtitle": "11 ans à construire des audiences dans le sport, de la ligne éditoriale à la régie. Une marque menée de zéro à 600 000 abonnés, plus de 2000 émissions produites."
     },
     "expertises": [
       {
         "id": 1,
         "title": "Digital Strategy",
-        "description": "Sourcing créateurs, coaching éditorial et performance sociale. Expert Oh My Goal & Winamax.",
+        "description": "Sourcing et coaching de créateurs, avec une lecture constante de la performance sociale. Missions pour Oh My Goal et Winamax.",
         "projects": [
           {
             "name": "Blue Foxes - Oh My Goal",
@@ -47,7 +47,7 @@
       {
         "id": 3,
         "title": "Content Creator",
-        "description": "Expertise éditoriale, incarnation et animation. De la co-fondation de médias spécialisés au consulting omnisport.",
+        "description": "Expertise éditoriale et incarnation à l'antenne. De la co-fondation de médias spécialisés au conseil omnisport.",
         "projects": [
           {
             "name": "Cycling expertise - L'Echappée",
@@ -69,17 +69,32 @@
       "text": "Paul Harrer, 33 ans, basé à Paris (France). Expert en stratégies éditoriales et performance sociale. Je construis des expériences digitales fortes, de la conception à la réalisation technique.",
       "cv": "Télécharger mon CV (PDF)",
       "stats": [
-        { "label": "Vidéos", "value": "2000+" },
-        { "label": "Abonnés", "value": "600k+" },
-        { "label": "Expertise", "value": "10 ans" }
+        {
+          "label": "Vidéos",
+          "value": "2000+"
+        },
+        {
+          "label": "Abonnés",
+          "value": "600k+"
+        },
+        {
+          "label": "Expertise",
+          "value": "11 ans"
+        }
       ]
     },
     "dev": {
       "title": "Je conçois & développe des interfaces sur mesure.",
       "projects": [
-        { "name": "Jeu de Fantasy Cyclisme (+1000 joueurs)" },
-        { "name": "Cabinet d'avocat E. Bloch" },
-        { "name": "Association Filet Mignon Padel" }
+        {
+          "name": "Jeu de Fantasy Cyclisme (+1000 joueurs)"
+        },
+        {
+          "name": "Cabinet d'avocat E. Bloch"
+        },
+        {
+          "name": "Association Filet Mignon Padel"
+        }
       ]
     },
     "entrepreneur": {
@@ -98,13 +113,13 @@
     "hero": {
       "kicker": "Digital Strategist & Creative Producer",
       "title": "Field expertise at the service of your digital strategies.",
-      "subtitle": "10 years managing audiences (600k+), producing shows (+2000) and designing impactful social strategies. One mission: impact."
+      "subtitle": "11 years building sports audiences, from editorial line to live gallery. One brand grown from zero to 600,000 followers, more than 2,000 shows produced."
     },
     "expertises": [
       {
         "id": 1,
         "title": "Digital Strategy",
-        "description": "Creator sourcing, editorial coaching and social performance. Expert for Oh My Goal & Winamax.",
+        "description": "Creator sourcing and coaching, with constant reading of social performance. Work for Oh My Goal and Winamax.",
         "projects": [
           {
             "name": "Blue Foxes - Oh My Goal",
@@ -142,7 +157,7 @@
       {
         "id": 3,
         "title": "Content Creator",
-        "description": "Editorial expertise, on-screen talent and hosting. From co-founding specialized media to multisport consulting.",
+        "description": "Editorial expertise and on-screen hosting. From co-founding specialist media to multisport consulting.",
         "projects": [
           {
             "name": "Cycling expertise - L'Echappée",
@@ -164,17 +179,32 @@
       "text": "Paul Harrer, 33 years old, based in Paris (France). Expert in editorial strategies and social performance. I build strong digital experiences, from conception to technical execution.",
       "cv": "Download my CV (PDF)",
       "stats": [
-        { "label": "Videos", "value": "2000+" },
-        { "label": "Subscribers", "value": "600k+" },
-        { "label": "Experience", "value": "10 years" }
+        {
+          "label": "Videos",
+          "value": "2000+"
+        },
+        {
+          "label": "Subscribers",
+          "value": "600k+"
+        },
+        {
+          "label": "Experience",
+          "value": "11 years"
+        }
       ]
     },
     "dev": {
       "title": "I design & develop custom interfaces.",
       "projects": [
-        { "name": "Cycling Fantasy Game (+1000 players)" },
-        { "name": "E. Bloch Law Firm" },
-        { "name": "Filet Mignon Padel Association" }
+        {
+          "name": "Cycling Fantasy Game (+1000 players)"
+        },
+        {
+          "name": "E. Bloch Law Firm"
+        },
+        {
+          "name": "Filet Mignon Padel Association"
+        }
       ]
     },
     "entrepreneur": {
