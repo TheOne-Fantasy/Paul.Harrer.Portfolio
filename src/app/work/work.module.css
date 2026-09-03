@@ -68,6 +68,31 @@
 
 .featuredEmbed {
   min-width: 0;
+  text-align: center;
+}
+
+.featuredEmbed iframe {
+  width: 100%;
+  max-width: 400px;
+  height: 640px;
+  border: 1px solid var(--secondary);
+  border-radius: 16px;
+  background: #fff;
+  display: block;
+  margin: 0 auto;
+}
+
+.fallbackLink {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fallbackLink:hover {
+  color: var(--accent);
 }
 
 .featuredTitle {
