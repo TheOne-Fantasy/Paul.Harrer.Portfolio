@@ -1,4 +1,5 @@
 'use client';
+import { useEffect } from 'react';
 import Navbar from './Navbar';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from '../app/work/work.module.css';
@@ -9,15 +10,23 @@ interface Piece {
   text: string;
 }
 
+const REEL_URL = 'https://www.instagram.com/reel/CoxY6espxHX/';
+
 const COPY = {
   fr: {
     back: 'Retour au portfolio',
     kicker: 'Showreel',
     title: 'Montage et narration au format court.',
     intro:
-      "Trois montages réalisés à partir d'images de compétition, pour montrer comment je repère un moment et comment je l'emballe pour les réseaux.",
+      "Des montages réalisés à partir d'images de compétition, pour montrer comment je repère un moment et comment je l'emballe pour les réseaux.",
+    publishedLabel: 'Publié',
+    publishedTitle: 'Reel publié sur Instagram',
+    publishedText:
+      "Un montage sorti sur les réseaux, avec ses chiffres visibles. Les trois pièces suivantes sont des travaux de concept.",
+    fallback: 'Voir le reel sur Instagram',
+    conceptHeading: 'Travaux de concept',
     disclaimer:
-      "Ce sont des travaux de concept, réalisés de ma propre initiative. Les marques et fédérations citées ne les ont pas commandés.",
+      "Réalisés de ma propre initiative à partir d'images de diffusion. Les marques et fédérations citées ne les ont pas commandés.",
     badge: 'Travail de concept',
     footer: 'Taux journalier et études de cas complètes sur demande. Écrivez-moi à',
     pieces: [
@@ -43,9 +52,15 @@ const COPY = {
     kicker: 'Showreel',
     title: 'Editing and short-form storytelling.',
     intro:
-      'Three edits built from competition footage, to show how I spot a moment and how I package it for social.',
+      'Edits built from competition footage, to show how I spot a moment and how I package it for social.',
+    publishedLabel: 'Published',
+    publishedTitle: 'Reel published on Instagram',
+    publishedText:
+      'An edit that went out on social, with its numbers in plain sight. The three pieces below are concept work.',
+    fallback: 'View the reel on Instagram',
+    conceptHeading: 'Concept work',
     disclaimer:
-      'These are concept pieces, made on my own initiative. The brands and federations shown did not commission them.',
+      'Made on my own initiative from broadcast footage. The brands and federations shown did not commission them.',
     badge: 'Concept work',
     footer: 'Day rate and full case studies on request. Reach me at',
     pieces: [
@@ -72,6 +87,22 @@ export default function WorkClient() {
   const { lang } = useLanguage();
   const t = COPY[lang] ?? COPY.fr;
 
+  // Le script Instagram transforme le blockquote en lecteur. S'il ne charge pas
+  // (bloqueur, réseau), le blockquote reste un lien cliquable vers le reel.
+  useEffect(() => {
+    const id = 'instagram-embed-script';
+    const existing = document.getElementById(id);
+    if (existing) {
+      (window as unknown as { instgrm?: { Embeds: { process: () => void } } }).instgrm?.Embeds.process();
+      return;
+    }
+    const s = document.createElement('script');
+    s.id = id;
+    s.async = true;
+    s.src = 'https://www.instagram.com/embed.js';
+    document.body.appendChild(s);
+  }, [lang]);
+
   return (
     <main className={styles.main}>
       <Navbar />
@@ -83,6 +114,30 @@ export default function WorkClient() {
         <span className={styles.kicker}>{t.kicker}</span>
         <h1 className={styles.title}>{t.title}</h1>
         <p className={styles.intro}>{t.intro}</p>
+      </div>
+
+      <section className={styles.featured}>
+        <div className={styles.featuredEmbed}>
+          <blockquote
+            className="instagram-media"
+            data-instgrm-permalink={REEL_URL}
+            data-instgrm-version="14"
+            style={{ background: '#FFF', border: 0, margin: '0 auto', maxWidth: 420, width: '100%' }}
+          >
+            <a href={REEL_URL} target="_blank" rel="noopener noreferrer">
+              {t.fallback}
+            </a>
+          </blockquote>
+        </div>
+        <div className={styles.featuredBody}>
+          <span className={`${styles.badge} ${styles.badgeLive}`}>{t.publishedLabel}</span>
+          <h2 className={styles.featuredTitle}>{t.publishedTitle}</h2>
+          <p className={styles.cardText}>{t.publishedText}</p>
+        </div>
+      </section>
+
+      <div className={styles.sectionHead}>
+        <h2 className={styles.sectionTitle}>{t.conceptHeading}</h2>
         <p className={styles.disclaimer}>{t.disclaimer}</p>
       </div>
 
@@ -96,7 +151,7 @@ export default function WorkClient() {
             </div>
             <div className={styles.cardBody}>
               <div className={styles.cardTop}>
-                <h2 className={styles.cardTitle}>{p.title}</h2>
+                <h3 className={styles.cardTitle}>{p.title}</h3>
                 <span className={styles.badge}>{t.badge}</span>
               </div>
               <p className={styles.cardText}>{p.text}</p>
