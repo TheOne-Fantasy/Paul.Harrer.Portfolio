@@ -3,7 +3,7 @@
     "hero": {
       "kicker": "Digital Strategist & Creative Producer",
       "title": "L'expertise terrain au service de vos stratégies digitales.",
-      "subtitle": "10 ans à piloter des audiences (700k+), réaliser des émissions (+2000) et concevoir des stratégies sociales impactantes. Une mission : l'impact."
+      "subtitle": "10 ans à piloter des audiences (600k+), réaliser des émissions (+2000) et concevoir des stratégies sociales impactantes. Une mission : l'impact."
     },
     "expertises": [
       {
@@ -21,7 +21,7 @@
           },
           {
             "name": "First Team - Strategy",
-            "detail": "Architecture digitale (+700K abonnés) et optimisation de la monétisation des audiences."
+            "detail": "Architecture digitale (+600K abonnés) et optimisation de la monétisation des audiences."
           }
         ]
       },
@@ -70,7 +70,7 @@
       "cv": "Télécharger mon CV (PDF)",
       "stats": [
         { "label": "Vidéos", "value": "2000+" },
-        { "label": "Abonnés", "value": "700k+" },
+        { "label": "Abonnés", "value": "600k+" },
         { "label": "Expertise", "value": "10 ans" }
       ]
     },
@@ -98,7 +98,7 @@
     "hero": {
       "kicker": "Digital Strategist & Creative Producer",
       "title": "Field expertise at the service of your digital strategies.",
-      "subtitle": "10 years managing audiences (700k+), producing shows (+2000) and designing impactful social strategies. One mission: impact."
+      "subtitle": "10 years managing audiences (600k+), producing shows (+2000) and designing impactful social strategies. One mission: impact."
     },
     "expertises": [
       {
@@ -116,7 +116,7 @@
           },
           {
             "name": "First Team - Strategy",
-            "detail": "Digital architecture (+700K subscribers) and audience monetization optimization."
+            "detail": "Digital architecture (+600K subscribers) and audience monetization optimization."
           }
         ]
       },
@@ -165,7 +165,7 @@
       "cv": "Download my CV (PDF)",
       "stats": [
         { "label": "Videos", "value": "2000+" },
-        { "label": "Subscribers", "value": "700k+" },
+        { "label": "Subscribers", "value": "600k+" },
         { "label": "Experience", "value": "10 years" }
       ]
     },

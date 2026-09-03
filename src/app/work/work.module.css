@@ -1,0 +1,148 @@
+.main {
+  background: var(--background);
+  min-height: 100vh;
+}
+
+.header {
+  padding: 5rem 1.5rem 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.back {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: color 0.2s ease;
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+.kicker {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.intro {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 6rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--secondary);
+}
+
+.card.wide {
+  grid-column: 1 / -1;
+}
+
+.videoWrap {
+  position: relative;
+  width: 100%;
+  background: #000;
+}
+
+.videoWrap video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.videoWrap.vertical {
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.cardBody {
+  padding: 1.5rem 1.75rem 1.75rem;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.badge {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  border-radius: 100px;
+  border: 1px solid var(--secondary);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.cardText {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.footer {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.footer a {
+  color: var(--foreground);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

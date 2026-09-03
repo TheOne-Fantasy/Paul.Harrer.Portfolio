@@ -136,7 +136,7 @@ export default function EFPage() {
 
         <div className={styles.statsGrid}>
           <div className={styles.statCard}>
-            <span className={styles.statValue}>700K+</span>
+            <span className={styles.statValue}>600K+</span>
             <span className={styles.statLabel}>Subscribers Piloted (First Team)</span>
           </div>
           <div className={styles.statCard}>

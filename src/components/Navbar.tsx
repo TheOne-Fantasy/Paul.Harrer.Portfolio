@@ -65,6 +65,7 @@ export default function Navbar({ activeExpertise }: NavbarProps) {
           <a href="/expertise/content" style={activeExpertise === 'content' ? {color: '#ff5c35'} : {}}>
             Content
           </a>
+          <a href="/work">Showreel</a>
         </div>
 
         <div className={styles.navActions}>
