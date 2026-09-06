@@ -533,6 +533,18 @@
   height: 100%;
 }
 
+.posterWrapper {
+  margin-top: 1rem;
+  position: relative;
+  aspect-ratio: 1080 / 1350;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.posterWrapper img {
+  object-fit: cover;
+}
+
 .instaWrapper, .linkedinWrapper {
   margin-top: 1rem;
   border-radius: 12px;

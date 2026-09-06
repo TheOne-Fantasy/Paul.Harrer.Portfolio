@@ -78,6 +78,7 @@ export interface ProjectMedia {
   linkedinId?: string;
   instagramId?: string;
   youtubeId?: string;
+  heroImage?: string;
 }
 
 export interface ExpertiseMedia {

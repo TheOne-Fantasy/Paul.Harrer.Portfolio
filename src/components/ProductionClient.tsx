@@ -44,16 +44,16 @@ export default function ProductionClient({ allData }: ProductionClientProps) {
           <div className={styles.projectsBentoGrid}>
             {projects.map((proj: ProjectData, index: number) => {
               const media: ProjectMedia = mediaExp?.projects[index] || {};
-              const hasMedia = !!media.youtubeId;
+              const hasMedia = !!(media.youtubeId || media.heroImage);
 
               return (
                 <div key={index} className={`${styles.projectCard} ${hasMedia ? styles.largeCard : ''}`}>
                   <div className={styles.cardHeader}>
                     {media.image && (
                       <div style={{ position: 'relative', height: '28px', width: '80px' }}>
-                        <Image 
-                          src={media.image} 
-                          alt={proj.name} 
+                        <Image
+                          src={media.image}
+                          alt={proj.name}
                           fill
                           style={{ objectFit: 'contain', objectPosition: 'left' }}
                         />
@@ -64,15 +64,26 @@ export default function ProductionClient({ allData }: ProductionClientProps) {
                   <div className={styles.cardBody}>
                     <h4>{proj.name}</h4>
                     <p>{proj.detail}</p>
-                    
-                    {hasMedia && (
+
+                    {media.youtubeId && (
                       <div className={styles.caseStudyMedia} style={{marginTop: '1.5rem'}}>
                         <div className={styles.videoWrapper}>
-                          <iframe 
+                          <iframe
                             width="100%" height="auto" src={`https://www.youtube.com/embed/${media.youtubeId}`}
                             title={proj.name} frameBorder="0" allowFullScreen
                           ></iframe>
                         </div>
+                      </div>
+                    )}
+
+                    {media.heroImage && (
+                      <div className={styles.posterWrapper}>
+                        <Image
+                          src={media.heroImage}
+                          alt={proj.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
                       </div>
                     )}
                   </div>

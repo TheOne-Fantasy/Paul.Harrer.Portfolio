@@ -122,9 +122,9 @@ export default function Home() {
                 return { ...proj, ...media, category: exp.title, categoryId: exp.id };
               })
             ).map((proj: any, index: number) => (
-              <div 
-                key={index} 
-                className={`${styles.projectCard} ${styles.reveal} ${proj.youtubeId || proj.instagramId || proj.linkedinId ? styles.largeCard : styles.smallCard}`}
+              <div
+                key={index}
+                className={`${styles.projectCard} ${styles.reveal} ${proj.youtubeId || proj.instagramId || proj.linkedinId || proj.heroImage ? styles.largeCard : styles.smallCard}`}
                 style={{ transitionDelay: `${(index % 3) * 0.1}s` }}
               >
                 <div className={styles.cardHeader}>
@@ -195,6 +195,17 @@ export default function Home() {
                         allowFullScreen={true}
                         title="Embedded LinkedIn Post"
                       ></iframe>
+                    </div>
+                  )}
+
+                  {proj.heroImage && (
+                    <div className={styles.posterWrapper}>
+                      <Image
+                        src={proj.heroImage}
+                        alt={proj.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
                     </div>
                   )}
                 </div>
