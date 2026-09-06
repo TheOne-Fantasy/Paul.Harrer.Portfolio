@@ -41,10 +41,6 @@
           {
             "name": "Interviews & Formats Longs",
             "detail": "Gestion technique et éditoriale d'entretiens premium."
-          },
-          {
-            "name": "Milan-San Remo, affiche de concept",
-            "detail": "Affiche façon cinéma pour une classique italienne : typographie, montage photo et identité visuelle pensés comme une direction artistique de marque. Travail personnel, non commandé."
           }
         ]
       },
@@ -155,10 +151,6 @@
           {
             "name": "Interviews & Long Form",
             "detail": "Technical and editorial management of premium interviews."
-          },
-          {
-            "name": "Milan-San Remo, concept poster",
-            "detail": "A cinema-style poster for an Italian classic: typography, photo compositing and visual identity, built as a brand art direction exercise. Personal work, not commissioned."
           }
         ]
       },
@@ -290,9 +282,6 @@
           },
           {
             "youtubeId": "eutokTzXWBk"
-          },
-          {
-            "heroImage": "/milan-san-remo-poster.png"
           }
         ]
       },

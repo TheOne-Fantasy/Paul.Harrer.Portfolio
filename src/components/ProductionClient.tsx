@@ -44,7 +44,7 @@ export default function ProductionClient({ allData }: ProductionClientProps) {
           <div className={styles.projectsBentoGrid}>
             {projects.map((proj: ProjectData, index: number) => {
               const media: ProjectMedia = mediaExp?.projects[index] || {};
-              const hasMedia = !!(media.youtubeId || media.heroImage);
+              const hasMedia = !!media.youtubeId;
 
               return (
                 <div key={index} className={`${styles.projectCard} ${hasMedia ? styles.largeCard : ''}`}>
@@ -65,7 +65,7 @@ export default function ProductionClient({ allData }: ProductionClientProps) {
                     <h4>{proj.name}</h4>
                     <p>{proj.detail}</p>
 
-                    {media.youtubeId && (
+                    {hasMedia && (
                       <div className={styles.caseStudyMedia} style={{marginTop: '1.5rem'}}>
                         <div className={styles.videoWrapper}>
                           <iframe
@@ -73,17 +73,6 @@ export default function ProductionClient({ allData }: ProductionClientProps) {
                             title={proj.name} frameBorder="0" allowFullScreen
                           ></iframe>
                         </div>
-                      </div>
-                    )}
-
-                    {media.heroImage && (
-                      <div className={styles.posterWrapper}>
-                        <Image
-                          src={media.heroImage}
-                          alt={proj.name}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
                       </div>
                     )}
                   </div>

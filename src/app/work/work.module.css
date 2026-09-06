@@ -167,6 +167,7 @@
 }
 
 .videoWrap {
+  position: relative;
   width: 100%;
   background: #000;
   aspect-ratio: 9 / 16;

@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Navbar from './Navbar';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from '../app/work/work.module.css';
@@ -7,6 +8,7 @@ interface Piece {
   file: string;
   title: string;
   text: string;
+  image?: string;
 }
 
 const REEL_URL = 'https://www.instagram.com/reel/CoxY6espxHX/';
@@ -44,6 +46,12 @@ const COPY = {
         title: 'World Athletics, Sydney McLaughlin-Levrone',
         text: "Un titre mondial sur 400 m ramené à la seule comparaison qui donne l'échelle : un chrono de 1985 reste le seul plus rapide.",
       },
+      {
+        file: 'milan-san-remo-poster',
+        title: 'Milan-San Remo, affiche de concept',
+        text: 'Une affiche façon cinéma pour une classique italienne : typographie, montage photo et identité visuelle pensés comme une direction artistique de marque.',
+        image: '/milan-san-remo-poster.png',
+      },
     ] as Piece[],
   },
   en: {
@@ -77,6 +85,12 @@ const COPY = {
         file: 'wa-mclaughlin',
         title: 'World Athletics, Sydney McLaughlin-Levrone',
         text: 'A 400m world title reduced to the one comparison that gives it scale: only a mark from 1985 has ever gone faster.',
+      },
+      {
+        file: 'milan-san-remo-poster',
+        title: 'Milan-San Remo, concept poster',
+        text: 'A cinema-style poster for an Italian classic: typography, photo compositing and visual identity, built as a brand art direction exercise.',
+        image: '/milan-san-remo-poster.png',
       },
     ] as Piece[],
   },
@@ -130,9 +144,19 @@ export default function WorkClient() {
         {t.pieces.map((p) => (
           <article key={p.file} className={styles.card}>
             <div className={styles.videoWrap}>
-              <video controls preload="metadata" playsInline>
-                <source src={`/work/${p.file}.mp4`} type="video/mp4" />
-              </video>
+              {p.image ? (
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  fill
+                  style={{ objectFit: 'contain' }}
+                  sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
+                />
+              ) : (
+                <video controls preload="metadata" playsInline>
+                  <source src={`/work/${p.file}.mp4`} type="video/mp4" />
+                </video>
+              )}
             </div>
             <div className={styles.cardBody}>
               <div className={styles.cardTop}>
