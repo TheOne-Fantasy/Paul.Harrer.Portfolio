@@ -36,7 +36,9 @@ export default function StrategyClient({ allData }: StrategyClientProps) {
       <section className={styles.capabilities} id="projects">
         <div className={styles.expertisesContainer}>
           <div className={styles.bentoHeader} style={{textAlign: 'left', marginBottom: '3rem'}}>
-            <h2 className={styles.sectionTitle} style={{textAlign: 'left'}}>Projets & Missions</h2>
+            <h2 className={styles.sectionTitle} style={{textAlign: 'left'}}>
+              {lang === 'fr' ? 'Projets & Missions' : 'Projects & Missions'}
+            </h2>
           </div>
 
           <div className={styles.projectsBentoGrid}>

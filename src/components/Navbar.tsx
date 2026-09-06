@@ -63,7 +63,7 @@ export default function Navbar({ activeExpertise }: NavbarProps) {
             Production
           </a>
           <a href="/expertise/content" style={activeExpertise === 'content' ? {color: '#ff5c35'} : {}}>
-            Content
+            {lang === 'fr' ? 'Contenu' : 'Content'}
           </a>
           <a href="/work">Showreel</a>
         </div>

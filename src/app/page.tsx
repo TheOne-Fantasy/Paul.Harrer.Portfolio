@@ -253,7 +253,7 @@ export default function Home() {
       <section className={`${styles.devSection} ${styles.reveal}`}>
         <div className={styles.devContainer}>
           <div className={styles.devHeader}>
-            <span className={styles.devTag}>Web Development</span>
+            <span className={styles.devTag}>{lang === 'fr' ? 'Développement Web' : 'Web Development'}</span>
             <h3>{data.dev.title}</h3>
           </div>
           <div className={styles.devLinks}>
@@ -330,7 +330,10 @@ export default function Home() {
       {/* 4. CONTACT */}
       <section className={`${styles.contactSection} ${styles.reveal}`} id="contact">
         <span className={styles.kicker} style={{textAlign: 'center', display: 'block', margin: '0 auto 2rem auto'}}>Contact</span>
-        <h2 className={styles.title} style={{textAlign: 'center'}}>{data.contact.title.split('Parlons-en')[0]} <br/> <span className={styles.accent}>{data.contact.title.includes('Parlons-en') ? 'Parlons-en.' : "Let's talk."}</span></h2>
+        <h2 className={styles.title} style={{textAlign: 'center'}}>
+          {lang === 'fr' ? 'Une idée ? Un projet ?' : 'An idea? A project?'} <br/>
+          <span className={styles.accent}>{lang === 'fr' ? 'Parlons-en.' : "Let's talk."}</span>
+        </h2>
         <a href="mailto:paulharrer@hotmail.com" className={styles.bigMail}>
           paulharrer@hotmail.com
         </a>

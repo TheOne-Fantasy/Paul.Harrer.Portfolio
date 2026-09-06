@@ -1,14 +1,14 @@
 {
   "fr": {
     "hero": {
-      "kicker": "Digital Strategist & Creative Producer",
+      "kicker": "Stratège digital & producteur créatif",
       "title": "L'expertise terrain au service de vos stratégies digitales.",
       "subtitle": "11 ans à construire des audiences dans le sport, de la ligne éditoriale à la régie. Une marque menée de zéro à 600 000 abonnés, plus de 2000 émissions produites."
     },
     "expertises": [
       {
         "id": 1,
-        "title": "Digital Strategy",
+        "title": "Stratégie Digitale",
         "description": "Sourcing et coaching de créateurs, avec une lecture constante de la performance sociale. Missions pour Oh My Goal et Winamax.",
         "projects": [
           {
@@ -27,7 +27,7 @@
       },
       {
         "id": 2,
-        "title": "Creative Production",
+        "title": "Production Créative",
         "description": "Producteur, réalisateur et responsable technique : multi-cam, live, captation audio, extérieur, interviews.",
         "projects": [
           {
@@ -46,7 +46,7 @@
       },
       {
         "id": 3,
-        "title": "Content Creator",
+        "title": "Créateur de Contenu",
         "description": "Expertise éditoriale et incarnation à l'antenne. De la co-fondation de médias spécialisés au conseil omnisport.",
         "projects": [
           {
@@ -66,7 +66,7 @@
     ],
     "about": {
       "title": "A propos",
-      "text": "Paul Harrer, 33 ans, basé à Paris (France). Expert en stratégies éditoriales et performance sociale. Je construis des expériences digitales fortes, de la conception à la réalisation technique.",
+      "text": "Paul Harrer, 33 ans, entre Paris et Annecy où il s'installe cet automne. Expert en stratégies éditoriales et performance sociale. Je construis des expériences digitales fortes, de la conception à la réalisation technique.",
       "cv": "Télécharger mon CV (PDF)",
       "stats": [
         {
@@ -100,7 +100,7 @@
     "entrepreneur": {
       "title": "Co-fondateur Sport Us Travels",
       "text": "Agence de voyage spécialisée dans les sports US. Création de l'identité de marque et gestion globale de la stratégie de communication sur les réseaux sociaux.",
-      "tag": "Co-founder & Social Media"
+      "tag": "Cofondateur & Réseaux sociaux"
     },
     "trust": {
       "title": "Ils m'ont fait confiance"
@@ -176,7 +176,7 @@
     ],
     "about": {
       "title": "About",
-      "text": "Paul Harrer, 33 years old, based in Paris (France). Expert in editorial strategies and social performance. I build strong digital experiences, from conception to technical execution.",
+      "text": "Paul Harrer, 33 years old, based between Paris and Annecy, where he's moving this autumn. Expert in editorial strategies and social performance. I build strong digital experiences, from conception to technical execution.",
       "cv": "Download my CV (PDF)",
       "stats": [
         {
