@@ -211,26 +211,6 @@ export default function WorkClient() {
         <p className={styles.disclaimer}>{t.disclaimer}</p>
       </div>
 
-      <h3 className={styles.subHeading}>{t.videoHeading}</h3>
-      <div className={styles.grid}>
-        {t.pieces.map((p) => (
-          <article key={p.file} className={styles.card}>
-            <div className={styles.videoWrap}>
-              <video controls preload="metadata" playsInline>
-                <source src={`/work/${p.file}.mp4`} type="video/mp4" />
-              </video>
-            </div>
-            <div className={styles.cardBody}>
-              <div className={styles.cardTop}>
-                <h3 className={styles.cardTitle}>{p.title}</h3>
-                <span className={styles.badge}>{t.badge}</span>
-              </div>
-              <p className={styles.cardText}>{p.text}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-
       <h3 className={styles.subHeading}>{t.posterHeading}</h3>
       <div className={styles.grid}>
         {t.posters.map((p) => (
@@ -243,6 +223,26 @@ export default function WorkClient() {
                 style={{ objectFit: 'cover' }}
                 sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 25vw"
               />
+            </div>
+            <div className={styles.cardBody}>
+              <div className={styles.cardTop}>
+                <h3 className={styles.cardTitle}>{p.title}</h3>
+                <span className={styles.badge}>{t.badge}</span>
+              </div>
+              <p className={styles.cardText}>{p.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <h3 className={styles.subHeading}>{t.videoHeading}</h3>
+      <div className={styles.grid}>
+        {t.pieces.map((p) => (
+          <article key={p.file} className={styles.card}>
+            <div className={styles.videoWrap}>
+              <video controls preload="metadata" playsInline>
+                <source src={`/work/${p.file}.mp4`} type="video/mp4" />
+              </video>
             </div>
             <div className={styles.cardBody}>
               <div className={styles.cardTop}>
