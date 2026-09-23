@@ -85,7 +85,7 @@ export default function ContentClient({ allData }: ContentClientProps) {
 
       <footer className={styles.footer}>
         <div style={{maxWidth: '1400px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 2rem'}}>
-          <p>© 2026 Paul Harrer. Creative Talent.</p>
+          <p>© 2026 Paul Harrer</p>
           <a href="/" className={styles.projectLink} style={{marginTop: 0}}>← {lang === 'fr' ? "Retour" : "Back"}</a>
         </div>
       </footer>

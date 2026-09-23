@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import StrategyClient from '@/components/StrategyClient';
 
 export const metadata: Metadata = {
-  title: "Stratégie Digitale | Paul Harrer",
+  title: "Stratégie digitale | Paul Harrer",
   description: "Accompagnement éditorial, sourcing créateurs et performance sociale pour médias et marques.",
 };
 

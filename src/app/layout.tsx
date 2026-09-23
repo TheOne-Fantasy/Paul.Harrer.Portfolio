@@ -16,16 +16,16 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://paul-harrer.vercel.app'),
-  title: "Paul Harrer | Digital Strategist & Creative Producer",
-  description: "11 ans d'expertise en stratégies sociales (+600k abonnés) et production créative (+2000 émissions).",
+  title: "Paul Harrer | Stratège digital & producteur créatif",
+  description: "11 ans à construire des audiences dans le sport : un média mené à 600 000 abonnés, plus de 2000 émissions produites.",
   openGraph: {
-    title: "Paul Harrer | Digital Strategist & Creative Producer",
+    title: "Paul Harrer | Stratège digital & producteur créatif",
     description: "Expertise terrain au service de stratégies sociales d'envergure.",
     images: [{ url: '/Photo-Profil.jpg' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Paul Harrer | Digital Strategist",
+    title: "Paul Harrer | Stratège digital & producteur créatif",
     description: "Stratégies sociales et production créative.",
     images: ['/Photo-Profil.jpg'],
   }

@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import ContentClient from '@/components/ContentClient';
 
 export const metadata: Metadata = {
-  title: "Content Creation & Hosting | Paul Harrer",
+  title: "Création de contenu | Paul Harrer",
   description: "Expertise éditoriale, animation d'émissions et création de contenus immersifs.",
 };
 

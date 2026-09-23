@@ -89,8 +89,8 @@ export default function Home() {
               { name: 'Winamax', logo: '/winamax_logo.jpeg' },
               { name: 'Blue Foxes', logo: '/blue_foxes_logo.jpeg' },
               { name: 'Oh My Goal', logo: '/oh_my_goal_logo.jpeg' },
-              { name: 'Sport Us Travels', logo: '/sports_us_travels_logo.jpeg' },
-              { name: "L'Echappée", logo: '/Logo-Echappee.png' },
+              { name: 'Sports US Travels', logo: '/sports_us_travels_logo.jpeg' },
+              { name: "L'Échappée", logo: '/Logo-Echappee.png' },
             ].map((client, i) => (
               <div key={i} className={styles.trustLogoWrapper}>
                 <Image 
@@ -224,7 +224,7 @@ export default function Home() {
             <div className={styles.entrepreneurPhotoWrapper}>
               <Image 
                 src="/Photo-SUT-Paul.png" 
-                alt="Paul Harrer - Sport Us Travels" 
+                alt="Paul Harrer, Sports US Travels" 
                 fill
                 style={{ objectFit: 'cover' }}
               />
@@ -233,7 +233,7 @@ export default function Home() {
               <div style={{ position: 'relative', height: '60px', width: '120px', marginBottom: '2rem' }}>
                 <Image 
                   src="/sports_us_travels_logo.jpeg" 
-                  alt="Sport Us Travels Logo" 
+                  alt="Logo Sports US Travels" 
                   fill
                   style={{ objectFit: 'contain', objectPosition: 'left' }}
                 />
@@ -258,9 +258,9 @@ export default function Home() {
           </div>
           <div className={styles.devLinks}>
             {data.dev.projects.map((p, idx) => (
-               <a key={idx} href={idx === 0 ? "https://theone-fantasy.com/" : idx === 1 ? "https://ebloch-legal.vercel.app/" : "https://filet-mignon-crew.vercel.app/"} target="_blank" rel="noopener noreferrer" className={styles.devCard}>
+               <a key={idx} href={p.url} target="_blank" rel="noopener noreferrer" className={styles.devCard}>
                 <div className={styles.devCardContent}>
-                  <span className={styles.devUrl}>{idx === 0 ? "theone-fantasy.com" : idx === 1 ? "ebloch-legal.vercel.app" : "filet-mignon-crew.vercel.app"}</span>
+                  <span className={styles.devUrl}>{new URL(p.url).hostname.replace(/^www\./, '')}</span>
                   <p>{p.name}</p>
                 </div>
               </a>
@@ -345,7 +345,7 @@ export default function Home() {
       </section>
 
       <footer className={styles.footer}>
-        <p>© 2026 Paul Harrer. Built with Next.js & Strategic Focus.</p>
+        <p>© 2026 Paul Harrer</p>
       </footer>
     </main>
   )

@@ -8,69 +8,69 @@
     "expertises": [
       {
         "id": 1,
-        "title": "Stratégie Digitale",
-        "description": "Sourcing et coaching de créateurs, avec une lecture constante de la performance sociale. Missions pour Oh My Goal et Winamax.",
+        "title": "Stratégie digitale",
+        "description": "Sourcing et coaching de créateurs, avec une lecture constante de la performance sociale. Missions pour Oh My Goal, Cylindrique Consulting et First Team.",
         "projects": [
           {
-            "name": "Blue Foxes - Oh My Goal",
+            "name": "Oh My Goal (Blue Foxes)",
             "detail": "Stratégie éditoriale et sourcing créateurs pour booster l'engagement du média Oh My Goal."
           },
           {
             "name": "Cylindrique Consulting",
-            "detail": "Storytelling & Transformation de marque via formats viraux et SEO.\n\nMission Majeure : Confédération Française de Jiu-Jitsu Brésilien."
+            "detail": "Storytelling et transformation de marque par les formats viraux et le SEO.\n\nMission principale : Confédération Française de Jiu-Jitsu Brésilien."
           },
           {
-            "name": "First Team - Strategy",
-            "detail": "Architecture digitale (+600K abonnés) et optimisation de la monétisation des audiences."
+            "name": "First Team, stratégie",
+            "detail": "Architecture digitale d'un média mené à plus de 600 000 abonnés, et optimisation de la monétisation des audiences."
           }
         ]
       },
       {
         "id": 2,
-        "title": "Production Créative",
+        "title": "Production créative",
         "description": "Producteur, réalisateur et responsable technique : multi-cam, live, captation audio, extérieur, interviews.",
         "projects": [
           {
-            "name": "Réalisation & Régie",
-            "detail": "Réalisation de +2000 émissions (NBA, F1, rugby). Supervision studio, régie, multicam et direct."
+            "name": "Réalisation et régie",
+            "detail": "Plus de 2000 émissions réalisées (NBA, F1, rugby). Supervision studio, régie, multicam et direct."
           },
           {
-            "name": "Production Extérieure",
+            "name": "Production extérieure",
             "detail": "Captation et réalisation de formats dynamiques hors studio pour First Team."
           },
           {
-            "name": "Interviews & Formats Longs",
+            "name": "Interviews et formats longs",
             "detail": "Gestion technique et éditoriale d'entretiens premium."
           }
         ]
       },
       {
         "id": 3,
-        "title": "Créateur de Contenu",
-        "description": "Expertise éditoriale et incarnation à l'antenne. De la co-fondation de médias spécialisés au conseil omnisport.",
+        "title": "Création de contenu",
+        "description": "Expertise éditoriale et incarnation à l'antenne. De la cofondation de médias spécialisés au conseil multisport.",
         "projects": [
           {
-            "name": "Cycling expertise - L'Echappée",
-            "detail": "Co-fondateur et host de L’Echappée, 1er talk digital cyclisme en France."
+            "name": "L'Échappée, expertise cyclisme",
+            "detail": "Cofondateur et animateur de L'Échappée, 1er talk cyclisme sur le digital en France."
           },
           {
-            "name": "Consultant Multisports",
-            "detail": "Consultant NBA, F1 et omnisport pour Winamax TV."
+            "name": "Consultant multisport",
+            "detail": "Consultant NBA, F1 et multisport pour Winamax TV."
           },
           {
-            "name": "Production de Vlog",
+            "name": "Production de vlogs",
             "detail": "Réalisation et incarnation de formats immersifs et storytelling."
           }
         ]
       }
     ],
     "about": {
-      "title": "A propos",
-      "text": "Paul Harrer, 33 ans, entre Paris et Annecy où il s'installe cet automne. Expert en stratégies éditoriales et performance sociale. Je construis des expériences digitales fortes, de la conception à la réalisation technique.",
+      "title": "À propos",
+      "text": "Paul Harrer, 33 ans, entre Paris et Annecy, où je m'installe cet automne. Expert en stratégie éditoriale et en performance sociale, je construis des expériences digitales fortes, de la conception à la réalisation technique.",
       "cv": "Télécharger mon CV (PDF)",
       "stats": [
         {
-          "label": "Vidéos",
+          "label": "Émissions",
           "value": "2000+"
         },
         {
@@ -84,23 +84,22 @@
       ]
     },
     "dev": {
-      "title": "Je conçois & développe des interfaces sur mesure.",
+      "title": "Je conçois et développe des interfaces sur mesure.",
       "projects": [
         {
-          "name": "Jeu de Fantasy Cyclisme (+1000 joueurs)"
+          "name": "TheOne Fantasy, jeu de fantasy cyclisme officiel de L'Échappée (4100+ joueurs)",
+          "url": "https://theone-fantasy.com/"
         },
         {
-          "name": "Cabinet d'avocat E. Bloch"
-        },
-        {
-          "name": "Association Filet Mignon Padel"
+          "name": "Ebloch Legal, cabinet d'avocats à Paris",
+          "url": "https://www.eblochlegal.com/"
         }
       ]
     },
     "entrepreneur": {
-      "title": "Co-fondateur Sport Us Travels",
-      "text": "Agence de voyage spécialisée dans les sports US. Création de l'identité de marque et gestion globale de la stratégie de communication sur les réseaux sociaux.",
-      "tag": "Cofondateur & Réseaux sociaux"
+      "title": "Cofondateur de Sports US Travels",
+      "text": "Agence de voyages spécialisée dans les sports US. Création de l'identité de marque et gestion globale de la stratégie de communication sur les réseaux sociaux.",
+      "tag": "Cofondateur et réseaux sociaux"
     },
     "trust": {
       "title": "Ils m'ont fait confiance"
@@ -119,19 +118,19 @@
       {
         "id": 1,
         "title": "Digital Strategy",
-        "description": "Creator sourcing and coaching, with constant reading of social performance. Work for Oh My Goal and Winamax.",
+        "description": "Creator sourcing and coaching, with constant reading of social performance. Work for Oh My Goal, Cylindrique Consulting and First Team.",
         "projects": [
           {
-            "name": "Blue Foxes - Oh My Goal",
+            "name": "Oh My Goal (Blue Foxes)",
             "detail": "Editorial strategy and creator sourcing to boost engagement for Oh My Goal media."
           },
           {
             "name": "Cylindrique Consulting",
-            "detail": "Storytelling & Brand transformation through viral formats and SEO.\n\nMajor Mission: Confédération Française de Jiu-Jitsu Brésilien."
+            "detail": "Storytelling and brand transformation through viral formats and SEO.\n\nKey mission: Confédération Française de Jiu-Jitsu Brésilien."
           },
           {
-            "name": "First Team - Strategy",
-            "detail": "Digital architecture (+600K subscribers) and audience monetization optimization."
+            "name": "First Team, strategy",
+            "detail": "Digital architecture for a media brand grown past 600,000 followers, and audience monetization."
           }
         ]
       },
@@ -142,7 +141,7 @@
         "projects": [
           {
             "name": "Directing & Gallery",
-            "detail": "Directed +2000 shows (NBA, F1, rugby). Studio supervision, gallery, multicam and live broadcasting."
+            "detail": "More than 2,000 shows directed (NBA, F1, rugby). Studio supervision, gallery, multicam and live."
           },
           {
             "name": "Field Production",
@@ -156,12 +155,12 @@
       },
       {
         "id": 3,
-        "title": "Content Creator",
+        "title": "Content Creation",
         "description": "Editorial expertise and on-screen hosting. From co-founding specialist media to multisport consulting.",
         "projects": [
           {
-            "name": "Cycling expertise - L'Echappée",
-            "detail": "Co-founder and host of L’Echappée, the #1 digital cycling talk show in France."
+            "name": "L'Échappée, cycling expertise",
+            "detail": "Co-founder and host of L'Échappée, the #1 digital cycling talk show in France."
           },
           {
             "name": "Multisport Consultant",
@@ -176,15 +175,15 @@
     ],
     "about": {
       "title": "About",
-      "text": "Paul Harrer, 33 years old, based between Paris and Annecy, where he's moving this autumn. Expert in editorial strategies and social performance. I build strong digital experiences, from conception to technical execution.",
+      "text": "Paul Harrer, 33, based between Paris and Annecy, where I'm moving this autumn. Expert in editorial strategy and social performance, I build strong digital experiences, from concept to technical execution.",
       "cv": "Download my CV (PDF)",
       "stats": [
         {
-          "label": "Videos",
+          "label": "Shows",
           "value": "2000+"
         },
         {
-          "label": "Subscribers",
+          "label": "Followers",
           "value": "600k+"
         },
         {
@@ -197,18 +196,17 @@
       "title": "I design & develop custom interfaces.",
       "projects": [
         {
-          "name": "Cycling Fantasy Game (+1000 players)"
+          "name": "TheOne Fantasy, the official cycling fantasy game of L'Échappée (4,100+ players)",
+          "url": "https://theone-fantasy.com/"
         },
         {
-          "name": "E. Bloch Law Firm"
-        },
-        {
-          "name": "Filet Mignon Padel Association"
+          "name": "Ebloch Legal, law firm in Paris",
+          "url": "https://www.eblochlegal.com/"
         }
       ]
     },
     "entrepreneur": {
-      "title": "Co-founder Sport Us Travels",
+      "title": "Co-founder, Sports US Travels",
       "text": "Travel agency specialized in US sports. Brand identity creation and global management of social media communication strategy.",
       "tag": "Co-founder & Social Media"
     },

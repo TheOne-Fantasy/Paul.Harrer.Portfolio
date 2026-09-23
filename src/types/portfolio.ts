@@ -32,6 +32,7 @@ export interface AboutData {
 
 export interface DevProject {
   name: string;
+  url: string;
 }
 
 export interface DevData {

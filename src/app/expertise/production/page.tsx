@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import ProductionClient from '@/components/ProductionClient';
 
 export const metadata: Metadata = {
-  title: "Production Créative | Paul Harrer",
+  title: "Production créative | Paul Harrer",
   description: "Réalisation multi-cam, live production et supervision technique d'émissions digitales.",
 };
 
