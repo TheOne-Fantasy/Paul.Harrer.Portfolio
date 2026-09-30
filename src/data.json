@@ -222,28 +222,28 @@
       {
         "id": 2,
         "label": "Interview / Wembanyama",
-        "image": "/Capture d’écran 2026-03-11 à 12.04.06.png",
+        "image": "/home/hero-wembanyama.png",
         "x": 50,
         "y": 5
       },
       {
         "id": 3,
         "label": "Basketball and cycling expertise",
-        "image": "/Capture d’écran 2026-03-11 à 12.35.05.png",
+        "image": "/home/hero-basket-cyclisme.png",
         "x": 50,
         "y": 50
       },
       {
         "id": 4,
         "label": "Social Media Strategy",
-        "image": "/Capture d’écran 2026-03-11 à 12.34.17.png",
+        "image": "/home/hero-strategie-social.png",
         "x": 50,
         "y": 50
       },
       {
         "id": 5,
         "label": "Creative Producer",
-        "image": "/Capture d’écran 2026-03-11 à 12.34.43.png",
+        "image": "/home/hero-producteur.png",
         "x": 50,
         "y": 50
       }
@@ -302,7 +302,7 @@
       }
     ],
     "about_media": {
-      "image": "/Capture d’écran 2026-03-11 à 12.47.22.png",
+      "image": "/home/about-paul.png",
       "x": 50,
       "y": 50
     }
