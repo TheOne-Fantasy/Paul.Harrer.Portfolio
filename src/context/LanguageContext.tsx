@@ -1,6 +1,6 @@
 'use client';
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { Language } from '../types/portfolio';
+export type Language = 'fr' | 'en';
 
 interface LanguageContextType {
   lang: Language;
