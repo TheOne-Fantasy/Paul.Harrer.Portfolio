@@ -1,0 +1,169 @@
+.admin {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.adminHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 2rem;
+}
+
+.backButton {
+  background: #fff;
+  color: #111;
+  padding: 0.8rem 1.5rem;
+  border-radius: 100px;
+  border: 1.5px solid #eee;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  background: #f9f9f9;
+  border-color: #ff5c35;
+  color: #ff5c35;
+  transform: translateX(-5px);
+}
+
+.editSection {
+  margin-top: 4rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 3rem;
+}
+
+.inputField {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1.5px solid #e0ddd0;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+.gridEdit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.bentoEdit {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.miniPreview {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  background-color: #eee;
+  flex-shrink: 0;
+  border: 2px solid #ff5c35;
+}
+
+.controls {
+  flex-grow: 1;
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.rangeRow {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.rangeCol {
+  flex: 1;
+}
+
+.statsEditGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1rem;
+}
+
+.rangeInput {
+  width: 100%;
+  accent-color: #ff5c35;
+  cursor: pointer;
+}
+
+.expertisesEditGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.expertiseCardEdit {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 24px;
+  border: 1px solid #e0ddd0;
+}
+
+.projectRowEdit {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  border-left: 3px solid #ff5c35;
+}
+
+.saveBtn {
+  background: #ff5c35;
+  color: #fff;
+  padding: 1.2rem 3rem;
+  border-radius: 100px;
+  border: none;
+  font-weight: 800;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 3rem;
+  width: 100%;
+  box-shadow: 0 10px 20px rgba(255, 92, 53, 0.2);
+}
+
+.saveBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(255, 92, 53, 0.3);
+}
+
+.backLink {
+  display: block;
+  text-align: center;
+  margin-top: 3rem;
+  color: #666;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.backLink:hover {
+  color: #ff5c35;
+  text-decoration: underline;
+}

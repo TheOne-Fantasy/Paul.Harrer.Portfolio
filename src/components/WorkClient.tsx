@@ -1,10 +1,7 @@
 'use client';
-import { useEffect } from 'react';
 import Image from 'next/image';
 import Navbar from './Navbar';
-import useReveal from './useReveal';
 import { useLanguage } from '@/context/LanguageContext';
-import { LINKS } from '@/content/home';
 import styles from '../app/work/work.module.css';
 
 interface Piece {
@@ -33,16 +30,17 @@ const CAN_MINES_VISUALS = [
   '/DA-ASCanMines-Foot/3.png',
 ];
 
-const i = (n: number) => ({ '--i': n }) as React.CSSProperties;
-
 const COPY = {
   fr: {
-    title: 'Montage et graphisme',
+    back: 'Retour au portfolio',
+    kicker: 'Showreel',
+    title: 'Montage, graphisme et narration au format court.',
     intro:
       "Des montages et des visuels pensés pour les réseaux, pour montrer comment je repère un moment et comment je l'habille pour qu'il se partage.",
-    clubTitle: 'AS Can Mines, rouge et or',
+    clubLabel: 'Réalisé pour le club',
+    clubTitle: 'AS Can Mines, une direction artistique rouge et or',
     clubText:
-      "L'identité visuelle des réseaux de l'AS Can Mines, club de football amateur parisien, réalisée pour le club. Le rouge du maillot et l'or du blason sur un fond papier, avec une typo condensée et une écriture manuscrite. Les photos de match sont virées en monochrome rouge, et le système se décline chaque semaine en gabarits réutilisables.",
+      "Identité visuelle des réseaux de l'AS Can Mines, club de football amateur parisien. Le rouge du maillot et l'or du blason posés sur un fond papier, une typo condensée associée à une écriture manuscrite, et les photos de match virées en monochrome rouge. Un système décliné en gabarits réutilisables chaque semaine : annonce de match, score final, classement.",
     paletteLabel: 'Palette',
     clubCaptions: ['Match Day', 'Score final', 'Classement'],
     conceptHeading: 'Travaux de concept',
@@ -50,7 +48,8 @@ const COPY = {
       "Réalisés de ma propre initiative à partir d'images de diffusion et de presse. Les marques, équipes et fédérations citées ne les ont pas commandés.",
     videoHeading: 'Montage vidéo',
     posterHeading: 'Affiches',
-    footer: 'Études de cas complètes sur demande. Écrivez-moi à',
+    badge: 'Travail de concept',
+    footer: 'Taux journalier et études de cas complètes sur demande. Écrivez-moi à',
     pieces: [
       {
         file: 'ef-tdf-victory',
@@ -86,18 +85,21 @@ const COPY = {
       },
       {
         src: '/milan-san-remo-poster.png',
-        title: 'Milan-San Remo',
-        text: "Une affiche façon cinéma pour une classique italienne, où la typographie et le montage photo sont pensés comme une direction artistique de marque.",
+        title: 'Milan-San Remo, affiche de concept',
+        text: 'Une affiche façon cinéma pour une classique italienne : typographie, montage photo et identité visuelle pensés comme une direction artistique de marque.',
       },
     ] as Poster[],
   },
   en: {
-    title: 'Editing and design',
+    back: 'Back to portfolio',
+    kicker: 'Showreel',
+    title: 'Editing, graphic design and short-form storytelling.',
     intro:
       'Edits and visuals built for social, to show how I spot a moment and how I dress it up so it gets shared.',
-    clubTitle: 'AS Can Mines, red and gold',
+    clubLabel: 'Made for the club',
+    clubTitle: 'AS Can Mines, a red and gold art direction',
     clubText:
-      "The social media identity of AS Can Mines, an amateur football club in Paris, made for the club. The red of the kit and the gold of the crest on a paper background, with a condensed typeface and handwritten script. Match photos are toned in red monochrome, and the system runs every week as reusable templates.",
+      "Social media visual identity for AS Can Mines, an amateur football club in Paris. The red of the kit and the gold of the crest on a paper background, a condensed typeface paired with handwritten script, and match photos toned in red monochrome. A system rolled out as reusable weekly templates: matchday, final score, league table.",
     paletteLabel: 'Palette',
     clubCaptions: ['Matchday', 'Final score', 'League table'],
     conceptHeading: 'Concept work',
@@ -105,7 +107,8 @@ const COPY = {
       'Made on my own initiative from broadcast and press images. The brands, teams and federations shown did not commission them.',
     videoHeading: 'Video editing',
     posterHeading: 'Posters',
-    footer: 'Full case studies on request. Reach me at',
+    badge: 'Concept work',
+    footer: 'Day rate and full case studies on request. Reach me at',
     pieces: [
       {
         file: 'ef-tdf-victory',
@@ -141,8 +144,8 @@ const COPY = {
       },
       {
         src: '/milan-san-remo-poster.png',
-        title: 'Milan-San Remo',
-        text: 'A cinema-style poster for an Italian classic, with typography and photo compositing built as a brand art direction.',
+        title: 'Milan-San Remo, concept poster',
+        text: 'A cinema-style poster for an Italian classic: typography, photo compositing and visual identity, built as a brand art direction exercise.',
       },
     ] as Poster[],
   },
@@ -151,35 +154,29 @@ const COPY = {
 export default function WorkClient() {
   const { lang } = useLanguage();
   const t = COPY[lang] ?? COPY.fr;
-  useReveal();
-
-  useEffect(() => {
-    document.documentElement.lang = lang;
-  }, [lang]);
 
   return (
     <main className={styles.main}>
       <Navbar />
 
-      <header className={styles.header}>
-        <h1 className={styles.title} data-reveal>
-          {t.title}
-        </h1>
-        <p className={styles.intro} data-reveal style={i(1)}>
-          {t.intro}
-        </p>
-      </header>
+      <div className={styles.header}>
+        <a href="/" className={styles.back}>
+          &larr; {t.back}
+        </a>
+        <span className={styles.kicker}>{t.kicker}</span>
+        <h1 className={styles.title}>{t.title}</h1>
+        <p className={styles.intro}>{t.intro}</p>
+      </div>
 
-      <section className={styles.club} aria-labelledby="club-title">
-        <h2 className={styles.clubTitle} id="club-title" data-reveal>
-          {t.clubTitle}
-        </h2>
+      <section className={styles.club}>
         <div className={styles.clubHead}>
-          <p className={styles.clubText} data-reveal style={i(1)}>
-            {t.clubText}
-          </p>
-          <div data-reveal style={i(2)}>
-            <p className={styles.paletteLabel}>{t.paletteLabel}</p>
+          <div>
+            <span className={styles.clubBadge}>{t.clubLabel}</span>
+            <h2 className={styles.clubTitle}>{t.clubTitle}</h2>
+            <p className={styles.clubText}>{t.clubText}</p>
+          </div>
+          <div>
+            <span className={styles.paletteLabel}>{t.paletteLabel}</span>
             <ul className={styles.palette}>
               {CAN_MINES_PALETTE.map((c) => (
                 <li key={c.hex}>
@@ -192,78 +189,77 @@ export default function WorkClient() {
           </div>
         </div>
         <div className={styles.clubGrid}>
-          {CAN_MINES_VISUALS.map((src, n) => (
-            <figure key={src} className={styles.clubFigure} data-reveal style={i(n)}>
+          {CAN_MINES_VISUALS.map((src, i) => (
+            <figure key={src} className={styles.clubFigure}>
               <div className={styles.posterWrap}>
                 <Image
                   src={src}
-                  alt={`AS Can Mines, ${t.clubCaptions[n]}`}
+                  alt={`AS Can Mines, ${t.clubCaptions[i]}`}
                   fill
                   style={{ objectFit: 'cover' }}
                   sizes="(max-width: 720px) 100vw, 33vw"
                 />
               </div>
-              <figcaption>{t.clubCaptions[n]}</figcaption>
+              <figcaption>{t.clubCaptions[i]}</figcaption>
             </figure>
           ))}
         </div>
       </section>
 
-      <section className={styles.concept} aria-labelledby="concept-title">
-        <div className={styles.conceptHead}>
-          <h2 className={styles.sectionTitle} id="concept-title" data-reveal>
-            {t.conceptHeading}
-          </h2>
-          <p className={styles.disclaimer} data-reveal style={i(1)}>
-            {t.disclaimer}
-          </p>
-        </div>
+      <div className={styles.sectionHead}>
+        <h2 className={styles.sectionTitle}>{t.conceptHeading}</h2>
+        <p className={styles.disclaimer}>{t.disclaimer}</p>
+      </div>
 
-        <h3 className={styles.subHeading} data-reveal>
-          {t.posterHeading}
-        </h3>
-        <div className={styles.posters}>
-          {t.posters.map((p, n) => (
-            <article key={p.src} className={styles.piece} data-reveal style={i(n)}>
-              <div className={styles.posterWrap}>
-                <Image
-                  src={p.src}
-                  alt={p.title}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 25vw"
-                />
+      <h3 className={styles.subHeading}>{t.posterHeading}</h3>
+      <div className={styles.grid}>
+        {t.posters.map((p) => (
+          <article key={p.src} className={styles.card}>
+            <div className={styles.posterWrap}>
+              <Image
+                src={p.src}
+                alt={p.title}
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 25vw"
+              />
+            </div>
+            <div className={styles.cardBody}>
+              <div className={styles.cardTop}>
+                <h3 className={styles.cardTitle}>{p.title}</h3>
+                <span className={styles.badge}>{t.badge}</span>
               </div>
-              <h4 className={styles.pieceTitle}>{p.title}</h4>
-              <p className={styles.pieceText}>{p.text}</p>
-            </article>
-          ))}
-        </div>
+              <p className={styles.cardText}>{p.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
 
-        <h3 className={styles.subHeading} data-reveal>
-          {t.videoHeading}
-        </h3>
-        <div className={styles.videos}>
-          {t.pieces.map((p, n) => (
-            <article key={p.file} className={styles.piece} data-reveal style={i(n)}>
-              <div className={styles.videoWrap}>
-                <video controls preload="none" playsInline poster={`/work/${p.file}.jpg`}>
-                  <source src={`/work/${p.file}.mp4`} type="video/mp4" />
-                </video>
+      <h3 className={styles.subHeading}>{t.videoHeading}</h3>
+      <div className={styles.grid}>
+        {t.pieces.map((p) => (
+          <article key={p.file} className={styles.card}>
+            <div className={styles.videoWrap}>
+              <video controls preload="metadata" playsInline>
+                <source src={`/work/${p.file}.mp4`} type="video/mp4" />
+              </video>
+            </div>
+            <div className={styles.cardBody}>
+              <div className={styles.cardTop}>
+                <h3 className={styles.cardTitle}>{p.title}</h3>
+                <span className={styles.badge}>{t.badge}</span>
               </div>
-              <h4 className={styles.pieceTitle}>{p.title}</h4>
-              <p className={styles.pieceText}>{p.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+              <p className={styles.cardText}>{p.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
 
-      <footer className={styles.footer}>
+      <div className={styles.footer}>
         <p>
-          {t.footer}{' '}
-          <a href={`mailto:${LINKS.email}`}>{LINKS.email}</a>.
+          {t.footer} <a href="mailto:paulharrer@hotmail.com">paulharrer@hotmail.com</a>.
         </p>
-      </footer>
+      </div>
     </main>
   );
 }

@@ -1,38 +1,33 @@
 import type { Metadata } from "next";
-import { Anton, Work_Sans } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import SmoothScroll from "@/components/SmoothScroll";
 
-const anton = Anton({
-  variable: "--font-anton",
-  weight: "400",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const workSans = Work_Sans({
-  variable: "--font-work-sans",
-  weight: ["400", "600"],
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-const description =
-  "Cofondateur du média sport de First Team, mené de zéro à plus de 600 000 abonnés, avec plus de 2 000 émissions réalisées. Animateur de L'Échappée, commentateur NFL pour DAZN.";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://paul-harrer.vercel.app'),
-  title: "Paul Harrer | Contenu, social media et production sport",
-  description,
+  title: "Paul Harrer | Stratège digital & producteur créatif",
+  description: "11 ans à construire des audiences dans le sport : un média mené à 600 000 abonnés, plus de 2000 émissions produites.",
   openGraph: {
-    title: "Paul Harrer | Contenu, social media et production sport",
-    description,
-    images: [{ url: '/media/wembanyama-plateau.jpg' }],
+    title: "Paul Harrer | Stratège digital & producteur créatif",
+    description: "Expertise terrain au service de stratégies sociales d'envergure.",
+    images: [{ url: '/Photo-Profil.jpg' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Paul Harrer | Contenu, social media et production sport",
-    description,
-    images: ['/media/wembanyama-plateau.jpg'],
+    title: "Paul Harrer | Stratège digital & producteur créatif",
+    description: "Stratégies sociales et production créative.",
+    images: ['/Photo-Profil.jpg'],
   }
 };
 
@@ -42,12 +37,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${anton.variable} ${workSans.variable}`} suppressHydrationWarning>
-      <head>
-        {/* Active les entrées animées seulement quand le script tourne. */}
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
-      </head>
-      <body>
+    <html lang="fr">
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <LanguageProvider>
           <SmoothScroll>
             {children}

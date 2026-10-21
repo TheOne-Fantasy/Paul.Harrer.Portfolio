@@ -5,20 +5,6 @@
   --ef-white: #FFFFFF;
 }
 
-/* Anciennes marges globales des <section>, gardées pour cette page seulement,
-   à priorité faible pour que les classes de la page les surchargent. */
-.main :where(section) {
-  padding: 8rem 4rem;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .main :where(section) {
-    padding: 4rem 1.5rem;
-  }
-}
-
 .main {
   background-color: var(--ef-white);
   color: var(--ef-black);
