@@ -133,7 +133,7 @@ export const STAGES: Stage[] = [
   {
     id: 'redacteur', year: 2021.1, when: '2021', kind: 'Col de 1re catégorie',
     name: 'Rédacteur en chef',
-    detail: 'À partir de 2021, je deviens rédacteur en chef de First Team, puis responsable du digital à la tête des community managers. Chaque compte a sa ligne éditoriale, pensée pour sa cible.',
+    detail: 'À partir de 2021, je deviens rédacteur en chef de First Team, puis responsable du digital à la tête des community managers. Chaque compte a sa ligne éditoriale, pensée pour sa cible. Je suis aussi en lien avec les sponsors, pour les placements de produits et le suivi des livrables et des KPI.',
     icon: LOGOS.firstTeam,
     photos: [
       { src: '/media/wembanyama-plateau.jpg', alt: 'Interview de Victor Wembanyama pour First Team', position: '50% 25%' },

@@ -452,20 +452,21 @@ export function Odometer({ value, delay, run = true }: { value: string; delay: n
     el.removeAttribute('data-armed');
   }, [run]);
 
-  const chars = [...value];
-  const before = chars.map((_, i) => chars.slice(0, i).filter((c) => /\d/.test(c)).length);
+  // Les chiffres sont de vrais caractères, invisibles sous leur rouleau ; le reste du texte
+  // (« ans », « M+ », les espaces) est lu d'un bloc. Le texte de la page reste « 8 ans ».
+  const parts = value.match(/\d|\D+/g) ?? [value];
+  let digits = 0;
   return (
     <span ref={box} className={styles.odometer} style={{ '--odo-delay': `${delay}ms` } as CSSProperties}>
-      <span className={styles.srOnly}>{value}</span>
-      <span aria-hidden="true">
-        {chars.map((c, i) =>
-          /\d/.test(c) ? (
-            <span key={i} className={styles.roller} style={{ '--d': c, '--k': before[i] } as CSSProperties} />
-          ) : (
-            <span key={i} className={styles.glyph}>{c}</span>
-          ),
-        )}
-      </span>
+      {parts.map((c, i) =>
+        /\d/.test(c) ? (
+          <span key={i} className={styles.roller} style={{ '--d': c, '--k': digits++ } as CSSProperties}>
+            <span className={styles.realDigit}>{c}</span>
+          </span>
+        ) : (
+          <span key={i} className={styles.glyph}>{c}</span>
+        ),
+      )}
     </span>
   );
 }

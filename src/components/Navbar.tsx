@@ -2,14 +2,11 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from '../app/page.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { Language } from '@/types/portfolio';
 
-interface NavbarProps {
-  activeExpertise?: string;
-}
-
-export default function Navbar({ activeExpertise }: NavbarProps) {
+export default function Navbar() {
   const { lang, setLang } = useLanguage();
   const [showContact, setShowContact] = useState(false);
   const [copied, setCopy] = useState(false);
@@ -56,16 +53,7 @@ export default function Navbar({ activeExpertise }: NavbarProps) {
         </div>
         
         <div className={styles.navLinks}>
-          <a href="/expertise/strategie" style={activeExpertise === 'strategie' ? {color: '#ff5c35'} : {}}>
-            {lang === 'fr' ? 'Stratégie' : 'Strategy'}
-          </a>
-          <a href="/expertise/production" style={activeExpertise === 'production' ? {color: '#ff5c35'} : {}}>
-            Production
-          </a>
-          <a href="/expertise/content" style={activeExpertise === 'content' ? {color: '#ff5c35'} : {}}>
-            {lang === 'fr' ? 'Contenu' : 'Content'}
-          </a>
-          <a href="/work">Showreel</a>
+          <Link href="/">{lang === 'fr' ? 'Parcours' : 'Journey'}</Link>
         </div>
 
         <div className={styles.navActions}>
@@ -101,7 +89,7 @@ export default function Navbar({ activeExpertise }: NavbarProps) {
                   </button>
                 </div>
                 <div className={styles.dropdownSeparator}></div>
-                <a href="https://www.linkedin.com/in/paul-harrer-b8759982/" target="_blank" rel="noopener noreferrer" className={styles.dropdownItem}>
+                <a href="https://www.linkedin.com/in/pharrer/" target="_blank" rel="noopener noreferrer" className={styles.dropdownItem}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                   LinkedIn
                 </a>

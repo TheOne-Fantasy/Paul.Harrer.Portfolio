@@ -25,7 +25,7 @@ const EN: Record<string, Words> = {
     when: '2017',
     kind: 'Category 4 climb',
     name: 'First Team',
-    detail: 'In 2017, I co-found First Team’s sports media, at Webedia then Influx. Everything has to be built: I am journalist, director, video editor and community manager at once.',
+    detail: 'In 2017, I co-found First Team’s sports outlet, at Webedia then Influx. Everything has to be built: I am journalist, director, video editor and community manager at once.',
     alts: ['The First Day Show set, First Team’s NBA show', 'From the First Day Show, First Team’s NBA show'],
   },
   'sports-us-travels': {
@@ -59,7 +59,7 @@ const EN: Record<string, Words> = {
     when: '2021',
     kind: 'Category 1 climb',
     name: 'Editor-in-chief',
-    detail: 'From 2021, I become First Team’s editor-in-chief, then head of digital leading the community managers. Each account has its own editorial line, built for its audience.',
+    detail: 'From 2021, I become First Team’s editor-in-chief, then head of digital leading the community managers. Each account has its own editorial line, built for its audience. I also work with the sponsors, on product placements and on tracking deliverables and KPIs.',
     alts: ['Interviewing Victor Wembanyama for First Team', 'From the interview with Zaccharie Risacher, for First Team'],
     links: ['Zaccharie Risacher, the interview, on YouTube'],
   },
@@ -100,7 +100,7 @@ const EN: Record<string, Words> = {
     detail: 'Since October 2025, as a freelancer with Cylindrique, I build the content strategy and art direction of two national sports federations, including the Confédération Française de Jiu-Jitsu Brésilien.',
     alts: ['The CFJJB’s media strategy guide, online'],
     figures: [
-      { value: '86', label: 'pages of guide for the CFJJB' },
+      { value: '86', label: 'page strategy guide for the CFJJB' },
       { value: '2', label: 'charters, visual and editorial' },
       { value: '90', label: 'day roadmap' },
     ],

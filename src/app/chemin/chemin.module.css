@@ -484,9 +484,17 @@
    bande de 0 à 9 deux fois, dessinée par le style (une ligne par chiffre). À l'arrêt, la
    bande montre la valeur dans sa seconde moitié ; armée, elle attend sur 0, puis roule
    jusqu'à la valeur, les rouleaux l'un après l'autre. */
-.odometer > span[aria-hidden] {
+.odometer {
   display: inline-flex;
   white-space: pre;
+}
+
+.roller { position: relative; }
+
+.realDigit {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
 }
 
 .roller,
@@ -1474,6 +1482,17 @@
   .reel { width: calc(50% - 8px); }
   .reel:nth-child(2) { margin-top: 40px; }
   .cvCard { width: min(240px, 62%); justify-self: center; }
+}
+
+/* Le lien Showreel de la barre disparaît sur téléphone (il est repris en bas de page), et la
+   barre se resserre pour que le nom ne touche pas CV. */
+@media (max-width: 720px) {
+  .barWork { display: none; }
+  .bar a { margin-left: 14px; font-size: 15px; }
+  .who { gap: 8px; }
+  .avatar { width: 32px; height: 32px; }
+  .whoText { transform: translateX(-40px); }
+  .whoName { font-size: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

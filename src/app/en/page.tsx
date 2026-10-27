@@ -3,7 +3,7 @@ import FirstScreen from '../chemin/FirstScreen';
 
 // La version anglaise de l'accueil.
 const title = 'Paul Harrer | Content and social media in sport';
-const description = 'Co-founder of First Team’s sports media, grown from zero to 600,000+ followers, with 2,000+ shows produced. Host of L’Échappée, NFL commentator on DAZN.';
+const description = 'Co-founder of First Team’s sports outlet, grown from zero to 600,000+ followers, with 2,000+ shows produced. Host of L’Échappée, NFL commentator on DAZN.';
 
 export const metadata: Metadata = {
   title,
