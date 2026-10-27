@@ -181,6 +181,12 @@ export default function Defile({ children }: { children: ReactNode }) {
     el.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
     el.focus({ preventScroll: true });
   };
+  // Sur téléphone et tablette, l'étape s'ouvrirait sous le profil puis reviendrait plus bas
+  // dans la page : un clic mène directement à elle. Sur ordinateur, elle s'ouvre sur place.
+  const open = (i: number) => {
+    if (window.matchMedia('(max-width: 1099px)').matches) goTo(i);
+    else select(i);
+  };
   // Le nom dans la barre ramène à la présentation, en haut de page.
   const goHome = () => {
     select(null);
@@ -256,7 +262,7 @@ export default function Defile({ children }: { children: ReactNode }) {
       <div ref={hero} className={`${styles.hero} ${selected !== null ? styles.hasStage : ''}`}>
         <div className={styles.identity}>
           {children}
-          <button type="button" className={styles.start} onClick={() => select(0)}>
+          <button type="button" className={styles.start} onClick={() => open(0)}>
             {t.start}
           </button>
         </div>
@@ -265,7 +271,7 @@ export default function Defile({ children }: { children: ReactNode }) {
         ) : (
           <StageView key={selected} stage={stages[selected]} index={selected} from={from} onSelect={select} />
         )}
-        <Profile selected={selected} onSelect={select} />
+        <Profile selected={selected} onSelect={open} />
       </div>
 
       <div className={styles.etapes}>

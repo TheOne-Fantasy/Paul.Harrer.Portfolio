@@ -625,6 +625,8 @@
 
 .hit { fill: transparent; }
 
+.pointIcon { display: none; }
+
 .leader {
   stroke: var(--ink);
   stroke-opacity: 0.55;
@@ -910,6 +912,9 @@
   .leader,
   .yearText,
   .finalText { display: none; }
+
+  .pointIcon { display: inline; }
+  .hasIcon .point { display: none; }
 
   /* Le profil est réduit : le cycliste grandit pour rester lisible. */
   .riderSize { transform: scale(2.4); }

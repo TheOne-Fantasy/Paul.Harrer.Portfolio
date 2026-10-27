@@ -251,7 +251,7 @@ export default function Profile({ selected, onSelect }: { selected: number | nul
           return (
             <g
               key={s.name}
-              className={`${styles.marker} ${on ? styles.on : ''}`}
+              className={`${styles.marker} ${on ? styles.on : ''} ${s.icon ? styles.hasIcon : ''}`}
               style={{ '--delay': `${0.35 + ((px - LEFT) / (geo.right - LEFT)) * 1.4}s` } as CSSProperties}
               role="button"
               tabIndex={0}
@@ -268,6 +268,10 @@ export default function Profile({ selected, onSelect }: { selected: number | nul
               <rect x={px - 12} y={base - 20} width="24" height={py - base + 32} className={styles.hit} />
               <line x1={px} y1={py - 8} x2={px} y2={base - 20} className={styles.leader} />
               <circle cx={px} cy={py} r="5" className={styles.point} />
+              {/* Sur téléphone, les noms sont cachés : le logo se pose sur le point de passage. */}
+              {s.icon && (
+                <image href={s.icon.src} x={px - 22} y={py - 22} width={44} height={44} clipPath="url(#chip)" className={styles.pointIcon} />
+              )}
               <g className={styles.label}>
                 <rect x={labelLeft - 6} y={base - 26} width={gap + textW + 12} height="34" className={styles.hit} />
                 {s.icon && <Icon logo={s.icon} left={start ? px + 8 : px - 8 - CHIP} base={base} />}

@@ -122,7 +122,6 @@ export const STAGES: Stage[] = [
     photos: [
       { src: '/media/plateau-echappee.jpg', alt: "Sur le plateau de L’Échappée", position: '50% 30%' },
       { src: '/media/video/echappee-awards.jpg', video: '/media/video/echappee-awards.mp4', duration: 12, alt: 'À l’antenne des awards 2026 de L’Échappée' },
-      { src: '/media/video/clutch-consultant.jpg', video: '/media/video/clutch-consultant.mp4', duration: 12, alt: 'Consultant NBA dans Clutch, sur Winamax' },
     ],
     links: [
       youtube("La preview de la saison 2026 de L’Échappée", 'gBDeZCXNuIw'),

@@ -52,7 +52,7 @@ const EN: Record<string, Words> = {
     kind: 'Intermediate sprint',
     name: 'L’Échappée and Clutch',
     detail: 'The same year, I co-found and host L’Échappée with Winamax, the first cycling talk show on French digital media, from the Grand Tours to the Classics. I also become an NBA analyst on Clutch.',
-    alts: ['On the L’Échappée set', 'On air for L’Échappée’s 2026 awards', 'NBA analyst on Clutch, on Winamax'],
+    alts: ['On the L’Échappée set', 'On air for L’Échappée’s 2026 awards'],
     links: ['L’Échappée’s 2026 season preview, on YouTube', 'L’Échappée’s 2026 awards, on YouTube', 'Clutch, France vs Germany, on YouTube'],
   },
   redacteur: {
