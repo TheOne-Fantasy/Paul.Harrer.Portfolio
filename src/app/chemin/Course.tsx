@@ -121,6 +121,7 @@ export function Bar({
       </button>
       <nav>
         <a href="/CV-PaulHarrer-VC.pdf" target="_blank" rel="noopener noreferrer">{t.cv}</a>
+        <a href={t.carHref} className={styles.barWork}>{t.car}</a>
         <a href={contact}>{t.contact}</a>
         {alt && (
           <a href={alt} hrefLang={t.other.code} lang={t.other.code} aria-label={t.other.label}>
@@ -381,6 +382,35 @@ export function Clip({ photo, onTop, active, clip }: { photo: Photo; onTop: bool
       onPlay={() => onTop && setPlaying(true)}
       onPause={() => onTop && setPlaying(false)}
     />
+  );
+}
+
+// Un reel vertical, dans un cadre de téléphone aux coins arrondis, avec ses deux boutons et
+// sa légende (le texte de la photo, ou children). Il joue sans le son tant qu'active est
+// vrai ; label pose une étiquette dans le coin du cadre.
+export function Reel({
+  photo,
+  active,
+  order,
+  label,
+  children,
+}: {
+  photo: Photo;
+  active: boolean;
+  order: number;
+  label?: string;
+  children?: ReactNode;
+}) {
+  const clip = useClip();
+  return (
+    <figure className={`${styles.reel} ${styles.rise}`} style={rise(1 + order)}>
+      <div className={styles.reelFrame}>
+        <Clip photo={photo} onTop active={active} clip={clip} />
+        {label && <span className={styles.reelLabel}>{label}</span>}
+        <ClipControls clip={clip} />
+      </div>
+      <figcaption className={styles.caption}>{children ?? photo.alt}</figcaption>
+    </figure>
   );
 }
 

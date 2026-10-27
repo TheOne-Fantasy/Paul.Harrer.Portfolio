@@ -1173,6 +1173,7 @@
 
 .etape .stageTitle,
 .car .stageTitle,
+.vsConcepts .stageTitle,
 .arrivee .stageTitle {
   font-size: clamp(44px, 5.2vw, 84px);
   margin-bottom: 18px;
@@ -1425,6 +1426,7 @@
   :global(.js) .etape:not(.seen) .settle,
   :global(.js) .lastKm:not(.seen) .lastKmTitle,
   :global(.js) .car:not(.seen) .rise,
+  :global(.js) .vsConcepts:not(.seen) .rise,
   :global(.js) .arrivee:not(.seen) .finishLine,
   :global(.js) .arrivee:not(.seen) .rise,
   :global(.js) .arrivee:not(.seen) .signature {
@@ -1478,14 +1480,215 @@
   .arriveeBody { grid-template-columns: minmax(0, 1fr); row-gap: 64px; }
 
   .car { grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
+  .conceptReels { flex-direction: column; align-items: center; gap: 40px; }
+  .conceptReels .reel { width: min(300px, 84%); }
+  .conceptReels > .reel:nth-child(n) { margin-top: 0; }
   .reels { justify-content: center; }
   .reel { width: calc(50% - 8px); }
   .reel:nth-child(2) { margin-top: 40px; }
   .cvCard { width: min(240px, 62%); justify-self: center; }
 }
 
-/* Le lien Showreel de la barre disparaît sur téléphone (il est repris en bas de page), et la
-   barre se resserre pour que le nom ne touche pas CV. */
+/* La route vue du dessus (essai) : elle serpente entre le texte et les photos des étapes,
+   de la sortie du premier écran jusqu'à la ligne d'arrivée, sous le contenu. Bas-côtés
+   clairs, bitume plus sombre que la page, ligne médiane en pointillés, et la ligne jaune de
+   ce que le coureur a déjà roulé. */
+.roadCourse {
+  position: relative;
+}
+
+.roadCourse > :not(svg) {
+  position: relative;
+  z-index: 1;
+}
+
+.road2d {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.roadEdge,
+.roadTar,
+.roadDash,
+.roadTrail {
+  fill: none;
+}
+
+.roadEdge { stroke: rgba(241, 239, 232, 0.45); stroke-width: 58; }
+.roadTar { stroke: #222221; stroke-width: 52; }
+.roadDash { stroke: rgba(241, 239, 232, 0.7); stroke-width: 3; stroke-dasharray: 18 16; }
+.roadTrail { stroke: var(--accent); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 0 100000; }
+.roadStart { fill: var(--ink); }
+
+.topWheel { fill: #111111; }
+.topFrame { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; }
+.topArm { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; }
+.topLeg { fill: #151514; transform-box: fill-box; transform-origin: center; }
+.topJersey { fill: var(--accent); }
+.topHelmet { fill: var(--ink); }
+
+[data-moving] .topLegL { animation: pedal 0.36s ease-in-out infinite; }
+[data-moving] .topLegR { animation: pedal 0.36s ease-in-out -0.18s infinite; }
+
+@keyframes pedal {
+  50% { transform: translateY(-2.2px); }
+}
+
+/* Sous la voiture suiveuse de l'accueil, le bouton qui mène à sa page. */
+.carMore {
+  display: inline-block;
+  margin-top: 28px;
+  text-decoration: none;
+}
+
+/* La page de la voiture suiveuse : un titre peint en jaune comme les derniers kilomètres,
+   puis les blocs de l'accueil (outils et reels, étapes en pile) et les travaux de concept. */
+.vsHead {
+  padding: calc(var(--bar-h) + clamp(48px, 10vh, 112px)) var(--inline) clamp(16px, 3vh, 40px);
+}
+
+.vsTitle {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: var(--name-size);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--accent);
+  filter: url(#peintureFine);
+  animation: paint 1.1s var(--ease-in-out) 0.15s both;
+  margin-bottom: 28px;
+}
+
+.vsLede {
+  font-size: clamp(18px, 1.4vw, 20px);
+  line-height: 1.5;
+  max-width: 52ch;
+}
+
+.vsIntro {
+  margin: 14px 0 18px;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 58ch;
+}
+
+.vsConcepts {
+  padding: clamp(56px, 11vh, 112px) var(--inline) 0;
+}
+
+.vsConcepts .stageDetail {
+  max-width: 62ch;
+}
+
+.vsSub,
+.vsPosterTitle {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 2.6vw, 40px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.vsPosterTitle {
+  font-size: clamp(20px, 1.6vw, 24px);
+  color: var(--accent);
+}
+
+.vsSub {
+  margin: 44px 0 24px;
+}
+
+.vsBlock {
+  padding-left: var(--inline);
+  padding-right: var(--inline);
+}
+
+.vsBlock .vsSub {
+  margin-top: 0;
+}
+
+/* Les montages de concept : trois téléphones en rangée, décalés en hauteur. */
+.conceptReels {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(20px, 3vw, 48px);
+}
+
+.conceptReels .reel {
+  width: clamp(180px, 22vw, 320px);
+}
+
+.reel .caption {
+  white-space: normal;
+}
+
+.conceptReels .reel:nth-child(3) {
+  margin-top: 24px;
+}
+
+.reelTitle {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.reelLabel {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 5;
+  font-size: 13px;
+  font-weight: 700;
+  color: #f1efe8;
+  background: rgba(26, 26, 25, 0.82);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+/* La palette de l'AS Can Mines : une pastille par couleur, son nom et son code. */
+.palette {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+  margin-top: 28px;
+}
+
+.palette li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.swatchHex {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Le texte de l'affiche du dessus change avec elle. */
+.vsPoster {
+  animation: bandNameIn 0.35s var(--ease-out) both;
+}
+
+.vsPoster .stageDetail {
+  margin-top: 14px;
+}
+
+/* Le lien vers la voiture suiveuse disparaît de la barre sur téléphone (il est repris en bas
+   de page), et la barre se resserre pour que le nom ne touche pas CV. */
 @media (max-width: 720px) {
   .barWork { display: none; }
   .bar a { margin-left: 14px; font-size: 15px; }
@@ -1503,6 +1706,7 @@
   .spokes,
   .lastKmFlag::after,
   .lastKmTitle,
+  .vsTitle,
   .finishLine,
   .bandOn .bandRoute,
   .bandStop[aria-current] img,
@@ -1515,7 +1719,9 @@
   .speed { display: none; }
   .finish,
   .bandOn .bandStop,
+  .vsPoster,
   .bandName { animation: fadeOnly 0.3s ease both; }
+  .topLeg { animation: none; }
   .band { transform: none; }
   .marker,
   .rise,

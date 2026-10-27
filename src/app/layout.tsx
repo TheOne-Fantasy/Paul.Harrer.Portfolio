@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { LanguageProvider } from "@/context/LanguageContext";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const geistSans = Geist({
@@ -40,11 +39,9 @@ export default function RootLayout({
     // La page parcours marque <html> d'une classe « js » avant l'hydratation : écart voulu.
     <html lang="fr" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <LanguageProvider>
-          <SmoothScroll>
-            {children}
-          </SmoothScroll>
-        </LanguageProvider>
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

@@ -1,10 +1,12 @@
 'use client';
 import { Fragment, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import Image from 'next/image';
-import { END, FINAL, PROFILE, START, STAGES, type Photo, type Stage } from '@/content/chemin';
-import { Bar, Clip, ClipControls, EMAIL, LogoRow, Odometer, paulPhotos, PhotoStack, rise, StageView, useClip, useStage } from './Course';
+import { END, FINAL, PROFILE, START, STAGES, type Stage } from '@/content/chemin';
+import Arrivee from './Arrivee';
+import { Bar, LogoRow, Odometer, paulPhotos, PhotoStack, Reel, rise, StageView, useStage } from './Course';
 import { useLang } from './Lang';
 import Profile, { altAt, Cyclist } from './Profile';
+import Route from './Route';
 import styles from './chemin.module.css';
 
 // Sur le bandeau, les étapes sont espacées régulièrement, un pas par étape, pour que
@@ -30,15 +32,14 @@ const bandFinal = `${slot(FINAL) * 1000},100 ${bandYears
 // La première étape des derniers kilomètres, annoncée par la flamme rouge.
 const LAST_KM = STAGES.findIndex((s) => s.year > FINAL);
 
-const LINKEDIN = 'https://www.linkedin.com/in/pharrer/';
-
 const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // La version qui défile. Le premier écran marche comme dans la version de départ : un clic
 // sur une étape l'ouvre sur place. Dessous, les étapes se lisent l'une après l'autre ; une
 // fois le premier écran passé, le profil se résume en un bandeau sous la barre, où le
 // coureur avance au fil de la lecture.
-export default function Defile({ children }: { children: ReactNode }) {
+// Avec road (en essai), une route vue du dessus serpente entre les étapes jusqu'à l'arrivée.
+export default function Defile({ children, road = false }: { children: ReactNode; road?: boolean }) {
   const { lang, stages, side, t } = useLang();
   const [paulShot, setPaulShot] = useState(0);
   const [scrolled, setScrolled] = useState(false);
@@ -48,15 +49,13 @@ export default function Defile({ children }: { children: ReactNode }) {
   const [reached, setReached] = useState<number | null>(null);  // la dernière où est passé le coureur
   const [seen, setSeen] = useState(() => STAGES.map(() => false));
   const [lastKmSeen, setLastKmSeen] = useState(false);
-  const [finishSeen, setFinishSeen] = useState(false);
   const [sideSeen, setSideSeen] = useState(false);
   const [sideOn, setSideOn] = useState(false); // la voiture suiveuse est à l'écran : ses reels jouent
-  const [copied, setCopied] = useState(false);
   const hero = useRef<HTMLDivElement>(null);
   const sections = useRef<(HTMLElement | null)[]>([]);
   const lastKm = useRef<HTMLDivElement>(null);
-  const finish = useRef<HTMLElement>(null);
   const car = useRef<HTMLElement>(null);
+  const course = useRef<HTMLDivElement>(null);
   const rider = useRef<HTMLSpanElement>(null);
   const tilt = useRef<SVGGElement>(null);
   const ridden = useRef<SVGRectElement>(null);
@@ -146,15 +145,14 @@ export default function Defile({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  // Une étape, l'annonce des derniers kilomètres, la voiture suiveuse ou l'arrivée entre en
-  // scène la première fois qu'elle apparaît à l'écran.
+  // Une étape, l'annonce des derniers kilomètres ou la voiture suiveuse entre en scène la
+  // première fois qu'elle apparaît à l'écran.
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
           if (!e.isIntersecting) return;
           if (e.target === lastKm.current) setLastKmSeen(true);
-          else if (e.target === finish.current) setFinishSeen(true);
           else if (e.target === car.current) setSideSeen(true);
           else {
             const i = sections.current.indexOf(e.target as HTMLElement);
@@ -165,7 +163,7 @@ export default function Defile({ children }: { children: ReactNode }) {
       },
       { rootMargin: '0px 0px -15% 0px' },
     );
-    [...sections.current, lastKm.current, car.current, finish.current].forEach((el) => el && io.observe(el));
+    [...sections.current, lastKm.current, car.current].forEach((el) => el && io.observe(el));
     // Les reels jouent tant que le quart de la voiture suiveuse au moins est à l'écran.
     const shown = new IntersectionObserver(([e]) => setSideOn(e.isIntersecting), { threshold: 0.25 });
     if (car.current) shown.observe(car.current);
@@ -194,16 +192,6 @@ export default function Defile({ children }: { children: ReactNode }) {
   };
   const current = reached === null ? null : stages[reached];
   const inFinal = reached !== null && reached >= LAST_KM;
-  // Copier l'adresse, pour qui n'écrit pas depuis une messagerie installée.
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(EMAIL);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2200);
-    } catch {
-      window.location.href = `mailto:${EMAIL}`;
-    }
-  };
 
   return (
     <>
@@ -274,11 +262,13 @@ export default function Defile({ children }: { children: ReactNode }) {
         <Profile selected={selected} onSelect={open} />
       </div>
 
+      <div ref={course} className={road ? styles.roadCourse : undefined}>
+      {road && <Route course={course} />}
       <div className={styles.etapes}>
         {STAGES.map((s, i) => (
           <Fragment key={s.id}>
             {i === LAST_KM && (
-              <div ref={lastKm} className={`${styles.lastKm} ${lastKmSeen ? styles.seen : ''}`}>
+              <div ref={lastKm} data-road="titre" className={`${styles.lastKm} ${lastKmSeen ? styles.seen : ''}`}>
                 <span className={styles.lastKmFlag} aria-hidden="true" />
                 <h2 className={styles.lastKmTitle}>{t.lastKm}</h2>
               </div>
@@ -298,7 +288,7 @@ export default function Defile({ children }: { children: ReactNode }) {
 
       {/* À côté des étapes, la voiture suiveuse : les outils de montage, et deux reels qui en
           sortent, en lecture tant qu'elle est à l'écran. */}
-      <aside ref={car} className={`${styles.car} ${sideSeen ? styles.seen : ''}`} aria-labelledby="voiture-suiveuse">
+      <aside ref={car} data-road="allee" className={`${styles.car} ${sideSeen ? styles.seen : ''}`} aria-labelledby="voiture-suiveuse">
         <div className={styles.carText}>
           <h2 id="voiture-suiveuse" className={`${styles.stageTitle} ${styles.rise}`} style={rise(0)}>{side.title}</h2>
           <p className={`${styles.stageDetail} ${styles.rise}`} style={rise(1)}>{side.lede}</p>
@@ -306,6 +296,9 @@ export default function Defile({ children }: { children: ReactNode }) {
             <p key={text} className={`${styles.carParagraph} ${styles.rise}`} style={rise(2 + i)}>{text}</p>
           ))}
           <p className={`${styles.caption} ${styles.rise}`} style={rise(2 + side.paragraphs.length)}>{side.tools}</p>
+          <a className={`${styles.start} ${styles.carMore} ${styles.rise}`} style={rise(3 + side.paragraphs.length)} href={t.carHref}>
+            {t.carMore}
+          </a>
         </div>
         <div className={styles.reels}>
           {side.reels.map((r, i) => (
@@ -314,42 +307,8 @@ export default function Defile({ children }: { children: ReactNode }) {
         </div>
       </aside>
 
-      {/* L'arrivée : la ligne à damier se déroule, le contact entre, le CV attend sur la
-          route comme une feuille posée, et le nom revient, peint en grand, pour finir. */}
-      <footer ref={finish} id="contact" className={`${styles.arrivee} ${finishSeen ? styles.seen : ''}`}>
-        <svg className={styles.finishLine} aria-hidden="true">
-          <defs>
-            <pattern id="damierArrivee" width="16" height="16" patternUnits="userSpaceOnUse">
-              <rect width="16" height="16" className={styles.checkLight} />
-              <rect width="8" height="8" className={styles.checkDark} />
-              <rect x="8" y="8" width="8" height="8" className={styles.checkDark} />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#damierArrivee)" />
-        </svg>
-        <div className={styles.arriveeBody}>
-          <div>
-            <h2 className={`${styles.stageTitle} ${styles.rise}`} style={rise(0)}>{t.contact}</h2>
-            <p className={`${styles.arriveeLede} ${styles.rise}`} style={rise(1)}>{t.contactLede}</p>
-            <a className={`${styles.email} ${styles.rise}`} style={rise(2)} href={`mailto:${EMAIL}`}>{EMAIL}</a>
-            <div className={`${styles.arriveeActions} ${styles.rise}`} style={rise(3)}>
-              <a className={styles.start} href={`mailto:${EMAIL}`}>{t.write}</a>
-              <button type="button" className={styles.textButton} onClick={copy}>
-                {copied ? t.copied : t.copy}
-              </button>
-              <a className={styles.textButton} href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <span className={styles.srOnly} role="status">{copied ? t.copied : ''}</span>
-            </div>
-          </div>
-          <a className={`${styles.cvCard} ${styles.rise}`} style={rise(2)} href="/CV-PaulHarrer-VC.pdf" target="_blank" rel="noopener noreferrer">
-            <span className={styles.cvSheet}>
-              <Image src="/media/cv-apercu.jpg" alt={t.cvAlt} fill sizes="(max-width: 720px) 60vw, 280px" />
-            </span>
-            <span className={styles.cvLabel}>{t.cvLabel}</span>
-          </a>
-        </div>
-        <p className={`${styles.signature} ${styles.painted}`} aria-hidden="true">Paul Harrer</p>
-      </footer>
+      <Arrivee links={[{ href: t.carHref, label: t.car }]} />
+      </div>
     </>
   );
 }
@@ -376,7 +335,7 @@ function StageSection({
   const extras = (stage.links?.length ?? 0) + logos.length > 0;
 
   return (
-    <article ref={sectionRef} tabIndex={-1} className={`${styles.etape} ${flip ? styles.flip : ''} ${seen ? styles.seen : ''}`}>
+    <article ref={sectionRef} tabIndex={-1} data-road="allee" className={`${styles.etape} ${flip ? styles.flip : ''} ${seen ? styles.seen : ''}`}>
       <div className={styles.etapeText}>
         <h2 className={`${styles.stageTitle} ${styles.rise}`} style={rise(0)}>{stage.name}</h2>
         <p className={`${styles.stageDetail} ${styles.rise}`} style={rise(1)}>{stage.detail}</p>
@@ -408,20 +367,5 @@ function StageSection({
         </figure>
       )}
     </article>
-  );
-}
-
-// Un reel vertical, dans un cadre de téléphone aux coins arrondis, avec ses deux boutons et
-// sa légende. Il joue sans le son tant qu'active est vrai.
-function Reel({ photo, active, order }: { photo: Photo; active: boolean; order: number }) {
-  const clip = useClip();
-  return (
-    <figure className={`${styles.reel} ${styles.rise}`} style={rise(1 + order)}>
-      <div className={styles.reelFrame}>
-        <Clip photo={photo} onTop active={active} clip={clip} />
-        <ClipControls clip={clip} />
-      </div>
-      <figcaption className={styles.caption}>{photo.alt}</figcaption>
-    </figure>
   );
 }
