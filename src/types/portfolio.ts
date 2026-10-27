@@ -15,7 +15,21 @@ export interface ExpertiseData {
   id: number;
   title: string;
   description: string;
+  // Preuve chiffrée et points forts montrés sur la porte d'entrée de l'accueil.
+  proof: { value: string; label: string };
+  highlights: string[];
+  // Contenu propre à la page de l'expertise.
+  figures: { value: string; label: string }[];
+  steps?: { title: string; items: string[] };
+  gallery?: { title: string; text: string; items: GalleryItem[] };
+  tools?: string[];
   projects: ProjectData[];
+}
+
+export interface GalleryItem {
+  caption: string;
+  src?: string;
+  instagramId?: string;
 }
 
 export interface StatData {
@@ -30,24 +44,34 @@ export interface AboutData {
   stats: StatData[];
 }
 
-export interface DevProject {
+export interface SideItem {
   name: string;
+  text: string;
   url: string;
+  label: string;
 }
 
-export interface DevData {
+export interface SideData {
   title: string;
-  projects: DevProject[];
+  subtitle: string;
+  items: SideItem[];
+}
+
+export interface TerrainData {
+  title: string;
+  text: string;
+  link: string;
+  items: { name: string; detail: string }[];
+}
+
+export interface DoorsData {
+  title: string;
+  subtitle: string;
+  link: string;
 }
 
 export interface ContactData {
   title: string;
-}
-
-export interface EntrepreneurData {
-  title: string;
-  text: string;
-  tag: string;
 }
 
 export interface TrustData {
@@ -58,8 +82,9 @@ export interface LocalizedData {
   hero: HeroData;
   expertises: ExpertiseData[];
   about: AboutData;
-  dev: DevData;
-  entrepreneur: EntrepreneurData;
+  doors: DoorsData;
+  terrain: TerrainData;
+  side: SideData;
   trust: TrustData;
   contact: ContactData;
 }
@@ -76,6 +101,8 @@ export interface ProjectMedia {
   link?: string;
   image?: string;
   subImage?: string;
+  photo?: string;
+  logos?: { src: string; name: string }[];
   linkedinId?: string;
   instagramId?: string;
   youtubeId?: string;
@@ -83,6 +110,7 @@ export interface ProjectMedia {
 
 export interface ExpertiseMedia {
   id: number;
+  hero?: { image: string; x: number; y: number };
   projects: ProjectMedia[];
 }
 

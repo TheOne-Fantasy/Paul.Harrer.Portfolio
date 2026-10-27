@@ -566,78 +566,172 @@
   object-fit: contain;
 }
 
-/* ENTREPRENEUR SECTION */
-.entrepreneurSection {
-  padding: 4rem 2rem 0 2rem;
-  background: #fff;
+/* SUR LE TERRAIN : bande des compétitions couvertes */
+.terrainSection {
+  padding: 4rem 2rem;
 }
 
-.entrepreneurContainer {
+.terrainContainer {
   max-width: 1400px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
 }
 
-.entrepreneurCard {
+.terrainHeader {
+  flex-shrink: 0;
+  max-width: 300px;
+}
+
+.terrainTitle {
+  font-size: 1.5rem;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.terrainHeader p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.terrainGrid {
+  list-style: none;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.terrainItem {
   background: #111;
   color: #fff;
-  border-radius: 40px;
-  padding: 4rem;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.terrainItem:hover {
+  transform: translateY(-5px);
+}
+
+.terrainItem strong {
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.terrainItem span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ff5c35;
+}
+
+/* TROIS PORTES D'ENTRÉE : une carte par métier */
+.doorsGrid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 4rem;
-  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.doorCard {
+  background: #fff;
+  border-radius: 24px;
+  border: 1px solid #eee;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
-  position: relative;
-  will-change: transform;
+  will-change: transform, box-shadow;
   backface-visibility: hidden;
 }
 
-.entrepreneurCard:hover {
-  transform: scale(1.005);
+.doorCard:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  border-color: rgba(255, 92, 53, 0.2);
 }
 
-.entrepreneurPhotoWrapper {
-  position: relative;
-  height: 400px;
+.doorFigure {
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  letter-spacing: -0.06em;
+  line-height: 1;
+  margin-top: 2rem;
+}
+
+.doorLabel {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.doorList {
+  list-style: none;
   width: 100%;
-  border-radius: 30px;
-  overflow: hidden;
+  border-top: 1px solid #eee;
+  padding-top: 1.2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 }
 
-.entrepreneurPhotoWrapper img {
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+.doorList li {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  padding-left: 1rem;
+  position: relative;
 }
 
-.entrepreneurCard:hover .entrepreneurPhotoWrapper img {
-  transform: scale(1.1);
+.doorList li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ff5c35;
 }
 
-.entrepreneurContent h3 {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+.doorCard .projectLink {
+  margin-top: auto;
 }
 
-.entrepreneurContent p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #aaa;
-  margin-bottom: 2rem;
-}
-
-.entrepreneurTag {
-  display: inline-block;
-  font-size: 0.7rem;
+.sideLabel {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #ff5c35;
-  border: 1px solid rgba(255, 92, 53, 0.3);
-  padding: 0.5rem 1rem;
-  border-radius: 100px;
-  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+@media (max-width: 1100px) {
+  .terrainContainer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .terrainHeader {
+    max-width: none;
+  }
+
+  .terrainGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .doorsGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* WEB DEV SECTION */
@@ -858,6 +952,259 @@
   color: #888;
 }
 
+/* PAGES D'EXPERTISE : en-tête avec photo et chiffres */
+.expertiseHeroGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.expertiseHeroPhoto {
+  position: relative;
+  height: 560px;
+  border-radius: 32px;
+  overflow: hidden;
+  background: var(--secondary);
+}
+
+.figuresRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.figuresRow dt {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: #111;
+}
+
+.figuresRow dd {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/* Frise d'évolution */
+.stepsSection {
+  padding-top: 0 !important;
+}
+
+.steps {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.steps li {
+  flex: 1;
+  background: #111;
+  color: #fff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  position: relative;
+}
+
+.steps li:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: #ff5c35;
+  color: #fff;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Galerie de terrain */
+.gallerySection {
+  padding-top: 0 !important;
+}
+
+.galleryHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.galleryTitle {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  flex-shrink: 0;
+}
+
+.galleryHeader p {
+  max-width: 620px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.galleryItem {
+  margin: 0;
+}
+
+.galleryPhoto,
+.galleryEmbed {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--secondary);
+}
+
+.galleryPhoto img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.galleryItem:hover .galleryPhoto img {
+  transform: scale(1.05);
+}
+
+.galleryEmbed {
+  background: #fff;
+  border: 1px solid #eee;
+}
+
+.galleryEmbed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.galleryItem figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #111;
+}
+
+/* Cartes : photo et logos */
+.cardPhoto {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  background: var(--secondary);
+}
+
+.logoRow {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.logoRow li {
+  position: relative;
+  height: 70px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+}
+
+.logoRow li img {
+  padding: 0.6rem;
+}
+
+/* Outils */
+.toolsSection {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
+.tools {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tools li {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 100px;
+  padding: 0.6rem 1.1rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 968px) {
+  .expertiseHeroGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .expertiseHeroPhoto {
+    height: 380px;
+  }
+
+  .galleryHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps {
+    flex-direction: column;
+  }
+
+  .steps li:not(:last-child)::after {
+    content: '↓';
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -0.85rem;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .figuresRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
 /* MEDIA QUERIES - TOUT À LA FIN */
 @media (max-width: 968px) {
   .caseStudyItem {
@@ -956,16 +1303,6 @@
     height: 400px;
     border-radius: 20px;
     background-position: top center !important;
-  }
-
-  .entrepreneurCard {
-    grid-template-columns: 1fr;
-    padding: 2rem;
-    gap: 2rem;
-  }
-
-  .entrepreneurPhotoWrapper {
-    height: 300px;
   }
 
   .aboutContent h2 {

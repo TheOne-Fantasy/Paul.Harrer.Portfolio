@@ -16,17 +16,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://paul-harrer.vercel.app'),
-  title: "Paul Harrer | Stratège digital & producteur créatif",
-  description: "11 ans à construire des audiences dans le sport : un média mené à 600 000 abonnés, plus de 2000 émissions produites.",
+  title: "Paul Harrer | Contenu et social media dans le sport",
+  description: "Cofondateur du média sport de First Team, mené de zéro à plus de 600 000 abonnés, avec plus de 2 000 émissions réalisées. Animateur de L'Échappée, commentateur NFL sur DAZN.",
   openGraph: {
-    title: "Paul Harrer | Stratège digital & producteur créatif",
-    description: "Expertise terrain au service de stratégies sociales d'envergure.",
+    title: "Paul Harrer | Contenu et social media dans le sport",
+    description: "Cofondateur du média sport de First Team, mené de zéro à plus de 600 000 abonnés, avec plus de 2 000 émissions réalisées.",
     images: [{ url: '/Photo-Profil.jpg' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Paul Harrer | Stratège digital & producteur créatif",
-    description: "Stratégies sociales et production créative.",
+    title: "Paul Harrer | Contenu et social media dans le sport",
+    description: "Cofondateur du média sport de First Team, mené de zéro à plus de 600 000 abonnés.",
     images: ['/Photo-Profil.jpg'],
   }
 };
@@ -37,7 +37,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    // La page parcours marque <html> d'une classe « js » avant l'hydratation : écart voulu.
+    <html lang="fr" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <LanguageProvider>
           <SmoothScroll>

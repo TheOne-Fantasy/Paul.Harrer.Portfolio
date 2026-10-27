@@ -1,38 +1,80 @@
 {
   "fr": {
     "hero": {
-      "kicker": "Stratège digital & producteur créatif",
-      "title": "L'expertise terrain au service de vos stratégies digitales.",
-      "subtitle": "11 ans à construire des audiences dans le sport, de la ligne éditoriale à la régie. Une marque menée de zéro à 600 000 abonnés, plus de 2000 émissions produites."
+      "kicker": "Contenu et social media dans le sport",
+      "title": "Je construis des audiences sportives avec du contenu.",
+      "subtitle": "Cofondateur du média sport de First Team, mené de zéro à plus de 600 000 abonnés, avec plus de 2 000 émissions réalisées. Aujourd'hui, j'anime L'Échappée et je commente la NFL sur DAZN."
     },
     "expertises": [
       {
         "id": 1,
-        "title": "Stratégie digitale",
-        "description": "Sourcing et coaching de créateurs, avec une lecture constante de la performance sociale. Missions pour Oh My Goal, Cylindrique Consulting et First Team.",
+        "title": "Social media et stratégie",
+        "description": "Construire et animer une audience sur les réseaux, du planning de publication à la stratégie éditoriale.",
         "projects": [
           {
             "name": "Oh My Goal (Blue Foxes)",
-            "detail": "Stratégie éditoriale et sourcing créateurs pour booster l'engagement du média Oh My Goal."
+            "detail": "Content strategist et influence manager : stratégie éditoriale par le sourcing et le coaching de créateurs pour le média Oh My Goal."
           },
           {
             "name": "Cylindrique Consulting",
-            "detail": "Storytelling et transformation de marque par les formats viraux et le SEO.\n\nMissions pour deux fédérations sportives nationales, dont la Confédération Française de Jiu-Jitsu Brésilien."
+            "detail": "Stratégie de contenu et direction artistique pour deux fédérations sportives nationales, dont la Confédération Française de Jiu-Jitsu Brésilien : un guide de 86 pages, avec sa charte artistique et éditoriale."
           },
           {
-            "name": "First Team, stratégie",
-            "detail": "Architecture digitale d'un média mené à plus de 600 000 abonnés, et optimisation de la monétisation des audiences."
+            "name": "First Team, social media",
+            "detail": "Cofondateur du média : community manager, puis social media manager, puis responsable du digital à la tête des community managers. Instagram, TikTok, X, Facebook et YouTube menés de zéro à plus de 600 000 abonnés cumulés."
           }
+        ],
+        "proof": {
+          "value": "600 000",
+          "label": "abonnés cumulés, partis de zéro, sur cinq plateformes"
+        },
+        "highlights": [
+          "First Team : community manager, puis social media manager, puis responsable du digital",
+          "Oh My Goal (Blue Foxes) : sourcing et coaching de créateurs",
+          "Cylindrique : stratégie de contenu et DA pour deux fédérations nationales"
+        ],
+        "figures": [
+          {
+            "value": "600 000",
+            "label": "abonnés cumulés, partis de zéro"
+          },
+          {
+            "value": "5",
+            "label": "plateformes : Instagram, TikTok, X, Facebook, YouTube"
+          },
+          {
+            "value": "86",
+            "label": "pages de guide pour deux fédérations nationales"
+          }
+        ],
+        "steps": {
+          "title": "Chez First Team, de janvier 2017 à septembre 2025",
+          "items": [
+            "Community manager",
+            "Social media manager",
+            "Responsable du digital, à la tête des community managers"
+          ]
+        },
+        "tools": [
+          "Canva",
+          "Figma",
+          "Metricool",
+          "VidIQ",
+          "Midjourney"
         ]
       },
       {
         "id": 2,
-        "title": "Production créative",
-        "description": "Producteur, réalisateur et responsable technique : multi-cam, live, captation audio, extérieur, interviews.",
+        "title": "Production et terrain",
+        "description": "Producteur et réalisateur : plus de 2 000 émissions en studio, en multicam et en extérieur, et de grandes compétitions couvertes avec First Team.",
         "projects": [
           {
-            "name": "Réalisation et régie",
-            "detail": "Plus de 2000 émissions réalisées (NBA, F1, rugby). Supervision studio, régie, multicam et direct."
+            "name": "Émissions lancées sur FT Sports",
+            "detail": "Sur FT Sports, la petite sœur de First Team (aujourd'hui Offense), j'ai lancé et produit les émissions omnisports : Roue Libre, Les Pistonnés, Bureau Ovale."
+          },
+          {
+            "name": "Réalisation en studio",
+            "detail": "Plus de 2 000 émissions et contenus longs et courts réalisés en studio, en multicam et en extérieur (NBA, F1, rugby), du tournage au montage."
           },
           {
             "name": "Production extérieure",
@@ -40,26 +82,121 @@
           },
           {
             "name": "Interviews et formats longs",
-            "detail": "Gestion technique et éditoriale d'entretiens premium."
+            "detail": "Gestion technique et éditoriale d'entretiens longs, de Rudy Gobert à Los Angeles à Zaccharie Risacher."
           }
+        ],
+        "proof": {
+          "value": "2 000+",
+          "label": "émissions réalisées, du tournage au montage"
+        },
+        "highlights": [
+          "Émissions lancées sur FT Sports : Roue Libre, Les Pistonnés, Bureau Ovale",
+          "Coupes du monde de basket, EuroBasket, finales de Top 14, WEC",
+          "Entretiens : Victor Wembanyama, Zaccharie Risacher"
+        ],
+        "figures": [
+          {
+            "value": "2 000+",
+            "label": "émissions réalisées, du tournage au montage"
+          },
+          {
+            "value": "3",
+            "label": "émissions lancées sur FT Sports"
+          },
+          {
+            "value": "2",
+            "label": "Coupes du monde de basket couvertes"
+          }
+        ],
+        "gallery": {
+          "title": "Sur le terrain",
+          "text": "Deux Coupes du monde de basket, deux EuroBasket, des finales de Top 14 et le WEC au Qatar et à Bahreïn avec First Team. Mais aussi le All-Star Game NBA à Cleveland, et le cyclisme de Paris-Roubaix au Tour de France.",
+          "items": [
+            {
+              "caption": "Coupe du monde de basket 2023, Manille",
+              "src": "/media/terrain-cdm-2023-manille.jpg"
+            },
+            {
+              "caption": "EuroBasket 2022, Berlin",
+              "instagramId": "Cir8QYxIuQc"
+            },
+            {
+              "caption": "WEC, paddock d'Alpine Endurance Team",
+              "src": "/media/wec-paddock-alpine.jpg"
+            },
+            {
+              "caption": "All-Star Game NBA 2022, Cleveland",
+              "src": "/media/terrain-all-star-2022-cleveland.jpg"
+            },
+            {
+              "caption": "Paris-Roubaix, secteur pavé de Tilloy",
+              "src": "/media/terrain-paris-roubaix.jpg"
+            },
+            {
+              "caption": "Tour de France",
+              "src": "/media/terrain-tour-de-france.jpg"
+            },
+            {
+              "caption": "Coupe du monde de basket 2023, avec l'équipe First Team",
+              "src": "/media/terrain-cdm-2023-equipe.jpg"
+            },
+            {
+              "caption": "Tournage chez les Sixers, Philadelphie",
+              "src": "/media/nba-interview-philadelphie.jpg"
+            }
+          ]
+        },
+        "tools": [
+          "Sony FX3 et FX30",
+          "Blackmagic",
+          "Premiere Pro",
+          "Final Cut",
+          "CapCut"
         ]
       },
       {
         "id": 3,
         "title": "Création de contenu",
-        "description": "Expertise éditoriale et incarnation à l'antenne. De la cofondation de médias spécialisés au conseil multisport.",
+        "description": "Éditorial et incarnation à l'antenne, du talk cyclisme au commentaire NFL.",
         "projects": [
           {
             "name": "L'Échappée, expertise cyclisme",
-            "detail": "Cofondateur et animateur de L'Échappée, 1er talk cyclisme sur le digital en France."
+            "detail": "Cofondateur et animateur de L'Échappée, 1er talk cyclisme du digital français, avec Winamax depuis 2020. Elle prend la suite de Roue Libre, la première émission que j'ai fondée."
+          },
+          {
+            "name": "Commentateur NFL, DAZN",
+            "detail": "Je commente la NFL pour DAZN le dimanche soir, depuis septembre 2026."
           },
           {
             "name": "Consultant multisport",
-            "detail": "Consultant NBA, F1 et multisport pour Winamax TV."
+            "detail": "Consultant NBA chez First Team et dans Clutch sur Winamax, avec un peu de F1 et de foot US."
           },
           {
             "name": "Production de vlogs",
-            "detail": "Réalisation et incarnation de formats immersifs et storytelling."
+            "detail": "Réalisation et incarnation de vlogs, comme celui du WEC au Qatar pour FT Sports."
+          }
+        ],
+        "proof": {
+          "value": "1er",
+          "label": "talk cyclisme du digital français : L'Échappée, depuis 2020"
+        },
+        "highlights": [
+          "L'Échappée : cofondateur et animateur, avec Winamax",
+          "DAZN : commentateur NFL depuis septembre 2026",
+          "Consultant NBA chez First Team et dans Clutch sur Winamax"
+        ],
+        "figures": [
+          {
+            "value": "1er",
+            "label": "talk cyclisme du digital français"
+          },
+          {
+            "value": "2020",
+            "label": "lancement de L'Échappée, avec Winamax"
+          },
+          {
+            "value": "NFL",
+            "label": "commentée le dimanche soir sur DAZN"
           }
         ]
       }
@@ -83,65 +220,155 @@
         }
       ]
     },
-    "dev": {
-      "title": "Je conçois et développe des interfaces sur mesure.",
-      "projects": [
-        {
-          "name": "TheOne Fantasy, jeu de fantasy cyclisme officiel de L'Échappée (4100+ joueurs)",
-          "url": "https://theone-fantasy.com/"
-        },
-        {
-          "name": "Ebloch Legal, cabinet d'avocats à Paris",
-          "url": "https://www.eblochlegal.com/"
-        }
-      ]
-    },
-    "entrepreneur": {
-      "title": "Cofondateur de Sports US Travels",
-      "text": "Agence de voyages spécialisée dans les sports US. Création de l'identité de marque et gestion globale de la stratégie de communication sur les réseaux sociaux.",
-      "tag": "Cofondateur et réseaux sociaux"
-    },
     "trust": {
       "title": "Ils m'ont fait confiance"
     },
     "contact": {
       "title": "Une idée ? Un projet ? Parlons-en."
+    },
+    "doors": {
+      "title": "Trois métiers",
+      "subtitle": "Un métier par page, pour aller droit à ce qui vous intéresse.",
+      "link": "Voir le détail"
+    },
+    "terrain": {
+      "title": "Sur le terrain",
+      "text": "Les grandes compétitions que j'ai couvertes.",
+      "link": "Voir la production",
+      "items": [
+        {
+          "name": "Coupe du monde de basket",
+          "detail": "Deux éditions, dont Manille 2023"
+        },
+        {
+          "name": "EuroBasket",
+          "detail": "Deux éditions, dont Berlin 2022"
+        },
+        {
+          "name": "Top 14",
+          "detail": "Finales"
+        },
+        {
+          "name": "WEC",
+          "detail": "Qatar et Bahreïn"
+        },
+        {
+          "name": "All-Star Game NBA",
+          "detail": "Cleveland 2022"
+        },
+        {
+          "name": "Cyclisme",
+          "detail": "Paris-Roubaix, Tour de France"
+        }
+      ]
+    },
+    "side": {
+      "title": "À côté",
+      "subtitle": "Des projets menés en parallèle, de l'entrepreneuriat au code.",
+      "items": [
+        {
+          "name": "Sports US Travels",
+          "text": "L'agence de voyages sports US que j'ai cofondée et fait vivre pendant huit ans : communication digitale et encadrement sur place.",
+          "url": "https://www.instagram.com/sportsustravels/",
+          "label": "@sportsustravels"
+        },
+        {
+          "name": "The One Fantasy Cycling",
+          "text": "Un jeu de pronostics cyclistes conçu et développé avec Claude, lancé en février 2026 puis vendu. 4 160 inscrits, 86 % d'activation.",
+          "url": "https://theone-fantasy.com/",
+          "label": "theone-fantasy.com"
+        },
+        {
+          "name": "Ebloch Legal",
+          "text": "Le site d'un cabinet d'avocats parisien, conçu et développé en Next.js.",
+          "url": "https://www.eblochlegal.com/",
+          "label": "eblochlegal.com"
+        },
+        {
+          "name": "AS Can Mines",
+          "text": "La direction artistique rouge et or des réseaux du club de football amateur.",
+          "url": "/work",
+          "label": "Voir le showreel"
+        }
+      ]
     }
   },
   "en": {
     "hero": {
-      "kicker": "Digital Strategist & Creative Producer",
-      "title": "Field expertise at the service of your digital strategies.",
-      "subtitle": "11 years building sports audiences, from editorial line to live gallery. One brand grown from zero to 600,000 followers, more than 2,000 shows produced."
+      "kicker": "Content and social media in sport",
+      "title": "I build sports audiences with content.",
+      "subtitle": "Co-founder of First Team's sports media, grown from zero to more than 600,000 followers, with over 2,000 shows directed. Today I host L'Échappée and call NFL games on DAZN."
     },
     "expertises": [
       {
         "id": 1,
-        "title": "Digital Strategy",
-        "description": "Creator sourcing and coaching, with constant reading of social performance. Work for Oh My Goal, Cylindrique Consulting and First Team.",
+        "title": "Social Media & Strategy",
+        "description": "Building and running an audience on social, from the publishing schedule to editorial strategy.",
         "projects": [
           {
             "name": "Oh My Goal (Blue Foxes)",
-            "detail": "Editorial strategy and creator sourcing to boost engagement for Oh My Goal media."
+            "detail": "Content strategist and influence manager: editorial strategy through creator sourcing and coaching for Oh My Goal media."
           },
           {
             "name": "Cylindrique Consulting",
-            "detail": "Storytelling and brand transformation through viral formats and SEO.\n\nWork for two national sports federations, including the Confédération Française de Jiu-Jitsu Brésilien."
+            "detail": "Content strategy and art direction for two national sports federations, including the Confédération Française de Jiu-Jitsu Brésilien: an 86-page guide with its art and editorial charter."
           },
           {
-            "name": "First Team, strategy",
-            "detail": "Digital architecture for a media brand grown past 600,000 followers, and audience monetization."
+            "name": "First Team, social media",
+            "detail": "Co-founder of the media: community manager, then social media manager, then head of digital leading the community managers. Instagram, TikTok, X, Facebook and YouTube grown from zero to more than 600,000 combined followers."
           }
+        ],
+        "proof": {
+          "value": "600,000",
+          "label": "combined followers, from zero, across five platforms"
+        },
+        "highlights": [
+          "First Team: community manager, then social media manager, then head of digital",
+          "Oh My Goal (Blue Foxes): creator sourcing and coaching",
+          "Cylindrique: content strategy and art direction for two national federations"
+        ],
+        "figures": [
+          {
+            "value": "600,000",
+            "label": "combined followers, from zero"
+          },
+          {
+            "value": "5",
+            "label": "platforms: Instagram, TikTok, X, Facebook, YouTube"
+          },
+          {
+            "value": "86",
+            "label": "pages of guidelines for two national federations"
+          }
+        ],
+        "steps": {
+          "title": "At First Team, January 2017 to September 2025",
+          "items": [
+            "Community manager",
+            "Social media manager",
+            "Head of digital, leading the community managers"
+          ]
+        },
+        "tools": [
+          "Canva",
+          "Figma",
+          "Metricool",
+          "VidIQ",
+          "Midjourney"
         ]
       },
       {
         "id": 2,
-        "title": "Creative Production",
-        "description": "Producer, director and technical lead: multi-cam, live, audio capture, field production, interviews.",
+        "title": "Production & Field",
+        "description": "Producer and director: more than 2,000 shows in studio, multicam and on location, and major competitions covered with First Team.",
         "projects": [
           {
-            "name": "Directing & Gallery",
-            "detail": "More than 2,000 shows directed (NBA, F1, rugby). Studio supervision, gallery, multicam and live."
+            "name": "Shows launched on FT Sports",
+            "detail": "On FT Sports, First Team's sister channel (now called Offense), I launched and produced the multisport shows: Roue Libre, Les Pistonnés, Bureau Ovale."
+          },
+          {
+            "name": "Studio directing",
+            "detail": "More than 2,000 shows and long- and short-form pieces directed in studio, multicam and on location (NBA, F1, rugby), from shoot to edit."
           },
           {
             "name": "Field Production",
@@ -149,26 +376,121 @@
           },
           {
             "name": "Interviews & Long Form",
-            "detail": "Technical and editorial management of premium interviews."
+            "detail": "Technical and editorial management of long-form interviews, from Rudy Gobert in Los Angeles to Zaccharie Risacher."
           }
+        ],
+        "proof": {
+          "value": "2,000+",
+          "label": "shows directed, from shoot to edit"
+        },
+        "highlights": [
+          "Shows launched on FT Sports: Roue Libre, Les Pistonnés, Bureau Ovale",
+          "Basketball World Cups, EuroBasket, Top 14 finals, WEC",
+          "Interviews: Victor Wembanyama, Zaccharie Risacher"
+        ],
+        "figures": [
+          {
+            "value": "2,000+",
+            "label": "shows directed, from shoot to edit"
+          },
+          {
+            "value": "3",
+            "label": "shows launched on FT Sports"
+          },
+          {
+            "value": "2",
+            "label": "Basketball World Cups covered"
+          }
+        ],
+        "gallery": {
+          "title": "On location",
+          "text": "Two Basketball World Cups, two EuroBaskets, Top 14 finals and the WEC in Qatar and Bahrain with First Team. Plus the NBA All-Star Game in Cleveland, and cycling from Paris-Roubaix to the Tour de France.",
+          "items": [
+            {
+              "caption": "2023 Basketball World Cup, Manila",
+              "src": "/media/terrain-cdm-2023-manille.jpg"
+            },
+            {
+              "caption": "EuroBasket 2022, Berlin",
+              "instagramId": "Cir8QYxIuQc"
+            },
+            {
+              "caption": "WEC, Alpine Endurance Team paddock",
+              "src": "/media/wec-paddock-alpine.jpg"
+            },
+            {
+              "caption": "2022 NBA All-Star Game, Cleveland",
+              "src": "/media/terrain-all-star-2022-cleveland.jpg"
+            },
+            {
+              "caption": "Paris-Roubaix, Tilloy cobbled sector",
+              "src": "/media/terrain-paris-roubaix.jpg"
+            },
+            {
+              "caption": "Tour de France",
+              "src": "/media/terrain-tour-de-france.jpg"
+            },
+            {
+              "caption": "2023 Basketball World Cup, with the First Team crew",
+              "src": "/media/terrain-cdm-2023-equipe.jpg"
+            },
+            {
+              "caption": "Filming with the Sixers, Philadelphia",
+              "src": "/media/nba-interview-philadelphie.jpg"
+            }
+          ]
+        },
+        "tools": [
+          "Sony FX3 & FX30",
+          "Blackmagic",
+          "Premiere Pro",
+          "Final Cut",
+          "CapCut"
         ]
       },
       {
         "id": 3,
         "title": "Content Creation",
-        "description": "Editorial expertise and on-screen hosting. From co-founding specialist media to multisport consulting.",
+        "description": "Editorial work and on-air presence, from cycling talk shows to NFL commentary.",
         "projects": [
           {
             "name": "L'Échappée, cycling expertise",
-            "detail": "Co-founder and host of L'Échappée, the #1 digital cycling talk show in France."
+            "detail": "Co-founder and host of L'Échappée, the #1 digital cycling talk show in France, with Winamax since 2020. It follows Roue Libre, the first show I founded."
+          },
+          {
+            "name": "NFL commentator, DAZN",
+            "detail": "I call NFL games for DAZN on Sunday nights, since September 2026."
           },
           {
             "name": "Multisport Consultant",
-            "detail": "NBA, F1 and multisport consultant for Winamax TV."
+            "detail": "NBA analyst at First Team and on Clutch for Winamax, with some F1 and NFL."
           },
           {
             "name": "Vlog Production",
-            "detail": "Directing and hosting immersive formats and storytelling."
+            "detail": "Directing and hosting vlogs, such as the WEC one in Qatar for FT Sports."
+          }
+        ],
+        "proof": {
+          "value": "#1",
+          "label": "digital cycling talk show in France: L'Échappée, since 2020"
+        },
+        "highlights": [
+          "L'Échappée: co-founder and host, with Winamax",
+          "DAZN: NFL commentator since September 2026",
+          "NBA analyst at First Team and on Clutch for Winamax"
+        ],
+        "figures": [
+          {
+            "value": "#1",
+            "label": "digital cycling talk show in France"
+          },
+          {
+            "value": "2020",
+            "label": "L'Échappée launched, with Winamax"
+          },
+          {
+            "value": "NFL",
+            "label": "called on Sunday nights on DAZN"
           }
         ]
       }
@@ -192,29 +514,77 @@
         }
       ]
     },
-    "dev": {
-      "title": "I design & develop custom interfaces.",
-      "projects": [
-        {
-          "name": "TheOne Fantasy, the official cycling fantasy game of L'Échappée (4,100+ players)",
-          "url": "https://theone-fantasy.com/"
-        },
-        {
-          "name": "Ebloch Legal, law firm in Paris",
-          "url": "https://www.eblochlegal.com/"
-        }
-      ]
-    },
-    "entrepreneur": {
-      "title": "Co-founder, Sports US Travels",
-      "text": "Travel agency specialized in US sports. Brand identity creation and global management of social media communication strategy.",
-      "tag": "Co-founder & Social Media"
-    },
     "trust": {
       "title": "Trusted by"
     },
     "contact": {
       "title": "An idea? A project? Let's talk."
+    },
+    "doors": {
+      "title": "Three areas of expertise",
+      "subtitle": "One page per area, so you can go straight to what you need.",
+      "link": "See the details"
+    },
+    "terrain": {
+      "title": "On location",
+      "text": "Major competitions I've covered.",
+      "link": "See production",
+      "items": [
+        {
+          "name": "Basketball World Cup",
+          "detail": "Two editions, including Manila 2023"
+        },
+        {
+          "name": "EuroBasket",
+          "detail": "Two editions, including Berlin 2022"
+        },
+        {
+          "name": "Top 14",
+          "detail": "Finals"
+        },
+        {
+          "name": "WEC",
+          "detail": "Qatar and Bahrain"
+        },
+        {
+          "name": "NBA All-Star Game",
+          "detail": "Cleveland 2022"
+        },
+        {
+          "name": "Cycling",
+          "detail": "Paris-Roubaix, Tour de France"
+        }
+      ]
+    },
+    "side": {
+      "title": "On the side",
+      "subtitle": "Projects run alongside, from entrepreneurship to code.",
+      "items": [
+        {
+          "name": "Sports US Travels",
+          "text": "The US sports travel agency I co-founded and ran for eight years: digital communication and on-site guidance.",
+          "url": "https://www.instagram.com/sportsustravels/",
+          "label": "@sportsustravels"
+        },
+        {
+          "name": "The One Fantasy Cycling",
+          "text": "A cycling prediction game designed and built with Claude, launched in February 2026 and later sold. 4,160 sign-ups, 86% activation.",
+          "url": "https://theone-fantasy.com/",
+          "label": "theone-fantasy.com"
+        },
+        {
+          "name": "Ebloch Legal",
+          "text": "The website of a Paris law firm, designed and built in Next.js.",
+          "url": "https://www.eblochlegal.com/",
+          "label": "eblochlegal.com"
+        },
+        {
+          "name": "AS Can Mines",
+          "text": "The red and gold social media art direction of the amateur football club.",
+          "url": "/work",
+          "label": "See the showreel"
+        }
+      ]
     }
   },
   "common": {
@@ -266,11 +636,32 @@
             "image": "/firstteam101_logo.jpeg",
             "instagramId": "CoxY6espxHX"
           }
-        ]
+        ],
+        "hero": {
+          "image": "/media/tournage-basket.jpg",
+          "x": 50,
+          "y": 40
+        }
       },
       {
         "id": 2,
         "projects": [
+          {
+            "logos": [
+              {
+                "src": "/media/logo-roue-libre.png",
+                "name": "Roue Libre"
+              },
+              {
+                "src": "/media/logo-les-pistonnes.png",
+                "name": "Les Pistonnés"
+              },
+              {
+                "src": "/media/logo-bureau-ovale.png",
+                "name": "Bureau Ovale"
+              }
+            ]
+          },
           {
             "image": "/firstteam101_logo.jpeg",
             "youtubeId": "DZuwGFZNKWY"
@@ -279,17 +670,25 @@
             "youtubeId": "XClB8WCHz2Q"
           },
           {
-            "youtubeId": "eutokTzXWBk"
+            "youtubeId": "eutokTzXWBk",
+            "photo": "/media/interview-gobert-los-angeles.jpg"
           }
-        ]
+        ],
+        "hero": {
+          "image": "/media/first-day-show-plateau.jpg",
+          "x": 50,
+          "y": 50
+        }
       },
       {
         "id": 3,
         "projects": [
           {
             "image": "/Logo-Echappee.png",
-            "youtubeId": "gBDeZCXNuIw"
+            "youtubeId": "gBDeZCXNuIw",
+            "subImage": "/media/logo-roue-libre.png"
           },
+          {},
           {
             "image": "/winamax_logo.jpeg",
             "youtubeId": "2wefUwOdr88"
@@ -298,7 +697,12 @@
             "image": "/firstteam101_logo.jpeg",
             "youtubeId": "w5dXFuLqQzI"
           }
-        ]
+        ],
+        "hero": {
+          "image": "/media/plateau-cyclisme.jpg",
+          "x": 50,
+          "y": 60
+        }
       }
     ],
     "about_media": {
