@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <FirstScreen variant="asphalte" scroll alt="/en" />;
+  return <FirstScreen variant="asphalte" scroll road alt="/en" />;
 }

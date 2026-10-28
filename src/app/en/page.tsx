@@ -14,5 +14,5 @@ export const metadata: Metadata = {
 };
 
 export default function HomeEnglish() {
-  return <FirstScreen variant="asphalte" scroll lang="en" alt="/" />;
+  return <FirstScreen variant="asphalte" scroll road lang="en" alt="/" />;
 }

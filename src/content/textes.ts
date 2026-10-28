@@ -1,8 +1,8 @@
 // Les mots de l'interface du parcours, en français et en anglais. Les textes des étapes sont
 // dans chemin.ts et chemin-en.ts.
 const fr = {
-  lede: 'Je construis des audiences sportives avec du contenu. Onze ans de parcours, de Basket USA à mes missions en indépendant.',
-  tagline: 'Je construis des audiences sportives avec du contenu.',
+  lede: 'Onze ans dans le sport digital. J’ai cofondé le média sport de First Team et mené ses comptes de zéro à plus de 600\u00a0000 abonnés.',
+  tagline: 'Contenu et social media dans le sport, depuis 2014.',
   start: 'Prendre le départ',
   home: 'Revenir à la présentation de Paul Harrer',
   cv: 'CV',
@@ -29,6 +29,7 @@ const fr = {
   play: 'Lecture',
   profile: 'Profil du parcours, de 2015 à aujourd’hui',
   lastKm: 'Les derniers kilomètres',
+  finish: 'On fait la prochaine étape ensemble\u00a0?',
   contactLede: 'Écrivez-moi, en français ou en anglais.',
   write: 'M’écrire',
   copy: 'Copier l’adresse',
@@ -38,8 +39,8 @@ const fr = {
 };
 
 const en: typeof fr = {
-  lede: 'I build sports audiences with content. Eleven years on the road, from Basket USA to my freelance work.',
-  tagline: 'I build sports audiences with content.',
+  lede: 'Eleven years in sports media. I co-founded First Team’s sports outlet and grew its accounts from zero to more than 600,000 followers.',
+  tagline: 'Sports content and social media, since 2014.',
   start: 'Take the start',
   home: 'Back to Paul Harrer’s introduction',
   cv: 'CV',
@@ -66,6 +67,7 @@ const en: typeof fr = {
   play: 'Play',
   profile: 'Route profile, from 2015 to today',
   lastKm: 'The final kilometres',
+  finish: 'Shall we ride the next stage together?',
   contactLede: 'Write to me, in English or in French.',
   write: 'Email me',
   copy: 'Copy the address',

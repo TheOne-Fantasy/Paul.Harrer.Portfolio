@@ -38,7 +38,8 @@ const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matc
 // sur une étape l'ouvre sur place. Dessous, les étapes se lisent l'une après l'autre ; une
 // fois le premier écran passé, le profil se résume en un bandeau sous la barre, où le
 // coureur avance au fil de la lecture.
-// Avec road (en essai), une route vue du dessus serpente entre les étapes jusqu'à l'arrivée.
+// Avec road, une route vue du dessus serpente entre les étapes jusqu'à l'arrivée ; sur
+// ordinateur, son coureur remplace celui du bandeau.
 export default function Defile({ children, road = false }: { children: ReactNode; road?: boolean }) {
   const { lang, stages, side, t } = useLang();
   const [paulShot, setPaulShot] = useState(0);
@@ -196,7 +197,7 @@ export default function Defile({ children, road = false }: { children: ReactNode
   return (
     <>
       <Bar riding={selected !== null || scrolled} onHome={goHome} contact="#contact">
-        <nav className={`${styles.band} ${scrolled ? styles.bandOn : ''} ${inFinal ? styles.inFinal : ''}`} aria-label={t.route}>
+        <nav className={`${styles.band} ${scrolled ? styles.bandOn : ''} ${inFinal ? styles.inFinal : ''} ${road ? styles.bandRoad : ''}`} aria-label={t.route}>
           <p key={reached} className={styles.bandName}>
             {current?.icon && <Image src={current.icon.src} alt="" width={24} height={24} />}
             <span>{current?.name}</span>
@@ -286,17 +287,14 @@ export default function Defile({ children, road = false }: { children: ReactNode
         ))}
       </div>
 
-      {/* À côté des étapes, la voiture suiveuse : les outils de montage, et deux reels qui en
-          sortent, en lecture tant qu'elle est à l'écran. */}
+      {/* À côté des étapes, la voiture suiveuse : ce qu'on trouve sur sa page, et deux reels
+          sortis des outils de montage, en lecture tant qu'elle est à l'écran. */}
       <aside ref={car} data-road="allee" className={`${styles.car} ${sideSeen ? styles.seen : ''}`} aria-labelledby="voiture-suiveuse">
         <div className={styles.carText}>
           <h2 id="voiture-suiveuse" className={`${styles.stageTitle} ${styles.rise}`} style={rise(0)}>{side.title}</h2>
           <p className={`${styles.stageDetail} ${styles.rise}`} style={rise(1)}>{side.lede}</p>
-          {side.paragraphs.map((text, i) => (
-            <p key={text} className={`${styles.carParagraph} ${styles.rise}`} style={rise(2 + i)}>{text}</p>
-          ))}
-          <p className={`${styles.caption} ${styles.rise}`} style={rise(2 + side.paragraphs.length)}>{side.tools}</p>
-          <a className={`${styles.start} ${styles.carMore} ${styles.rise}`} style={rise(3 + side.paragraphs.length)} href={t.carHref}>
+          <p className={`${styles.carParagraph} ${styles.rise}`} style={rise(2)}>{side.note}</p>
+          <a className={`${styles.start} ${styles.carMore} ${styles.rise}`} style={rise(3)} href={t.carHref}>
             {t.carMore}
           </a>
         </div>

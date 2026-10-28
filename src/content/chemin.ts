@@ -83,7 +83,7 @@ export const STAGES: Stage[] = [
   {
     id: 'first-team', year: 2017, when: '2017', kind: 'Côte de 4e catégorie',
     name: 'First Team',
-    detail: "En 2017, je cofonde le média sport de First Team, chez Webedia puis Influx. Tout est à construire : j’y suis à la fois journaliste, réalisateur, monteur et community manager.",
+    detail: 'En 2017, je cofonde le média sport de First Team, chez Webedia puis Influx. Au début, j’écris les sujets, je réalise les émissions, je les monte et je les publie.',
     icon: LOGOS.firstTeam,
     photos: [
       { src: '/media/first-day-show-plateau.jpg', alt: "Le plateau du First Day Show, l’émission NBA de First Team" },
@@ -94,20 +94,20 @@ export const STAGES: Stage[] = [
   {
     id: 'sports-us-travels', year: 2018, when: 'Août 2017 à août 2025', kind: 'Côte de 3e catégorie',
     name: 'Sports US Travels',
-    detail: "D’août 2017 à août 2025, je cofonde et fais vivre Sports US Travels, une agence de voyages autour des sports américains. Je tiens sa communication digitale et j’encadre les voyageurs sur place.",
+    detail: 'D’août 2017 à août 2025, je cofonde Sports US Travels, une agence qui emmène des fans voir la NBA, la NFL, la MLB et la NHL aux États-Unis. Je tiens sa communication digitale et j’accompagne les groupes sur place.',
     icon: LOGOS.sut,
-    photos: [{ src: '/media/sports-us-travels-associes.jpg', alt: 'Avec mes deux associés de Sports US Travels', whole: true }],
+    photos: [{ src: '/media/video/sut-new-york.jpg', video: '/media/video/sut-new-york.mp4', duration: 14, alt: 'Un séjour Sports US Travels à New York, au Madison Square Garden' }],
     links: [{ label: '@sportsustravels, sur Instagram', href: 'https://www.instagram.com/sportsustravels/' }],
     figures: [
       { value: '8 ans', label: "d’agence, d’août 2017 à août 2025" },
-      { value: '4', label: 'ligues : NBA, NFL, MLB et NHL' },
+      { value: '4', label: 'ligues américaines' },
     ],
     row: 2, anchor: 'start',
   },
   {
     id: 'ft-sports', year: 2020, when: '2020', kind: 'Col de 2e catégorie',
     name: 'Émissions FT Sports',
-    detail: 'En 2020, je lance Roue Libre, ma première émission, puis Les Pistonnés et Bureau Ovale sur FT Sports, la petite sœur de First Team.',
+    detail: 'En 2020, je lance sur FT Sports, la petite sœur de First Team, ma première émission\u00a0: Roue Libre, sur le cyclisme. Suivent Les Pistonnés, sur le sport auto, et Bureau Ovale. Je les produis et je les réalise.',
     icon: LOGOS.fts,
     logos: [LOGOS.rouelibre, LOGOS.pistonnes, LOGOS.bureauOvale],
     photos: [{ src: '/media/plateau-cyclisme.jpg', alt: 'Le plateau de Roue Libre' }],
@@ -116,7 +116,7 @@ export const STAGES: Stage[] = [
   {
     id: 'echappee', year: 2020.55, when: '2020', kind: 'Sprint intermédiaire',
     name: "L’Échappée et Clutch",
-    detail: "La même année, je cofonde et j’anime L’Échappée avec Winamax, le premier talk cyclisme du digital français, des Grands Tours aux Classiques. Je deviens aussi consultant NBA dans Clutch.",
+    detail: "La même année, je cofonde avec Winamax L’Échappée, le premier talk cyclisme du digital français, que j’anime depuis, des Grands Tours aux Classiques. Je deviens aussi consultant NBA dans Clutch, sur Winamax.",
     icon: LOGOS.echappee,
     logos: [LOGOS.echappee, LOGOS.clutch],
     photos: [
@@ -133,7 +133,7 @@ export const STAGES: Stage[] = [
   {
     id: 'redacteur', year: 2021.1, when: '2021', kind: 'Col de 1re catégorie',
     name: 'Rédacteur en chef',
-    detail: 'À partir de 2021, je deviens rédacteur en chef de First Team, puis responsable du digital à la tête des community managers. Chaque compte a sa ligne éditoriale, pensée pour sa cible. Je suis aussi en lien avec les sponsors, pour les placements de produits et le suivi des livrables et des KPI.',
+    detail: 'À partir de 2021, je deviens rédacteur en chef de First Team, puis responsable du digital. J’encadre les community managers et je fixe qui publie quoi, et quand, avec une ligne éditoriale propre à chaque compte. Je suis aussi le contact des sponsors pour les placements de produits, des livrables jusqu’au bilan des KPI.',
     icon: LOGOS.firstTeam,
     photos: [
       { src: '/media/wembanyama-plateau.jpg', alt: 'Interview de Victor Wembanyama pour First Team', position: '50% 25%' },
@@ -163,7 +163,7 @@ export const STAGES: Stage[] = [
   {
     id: '600k', year: 2025.4, when: '2025', kind: 'Col hors catégorie',
     name: '600 000 abonnés',
-    detail: "En 2025, avec l’équipe, les comptes de First Team dépassent les 600 000 abonnés cumulés sur Instagram, TikTok, X, Facebook et YouTube. Ils partaient de zéro.",
+    detail: "En 2025, les comptes Instagram, TikTok, X, Facebook et YouTube de First Team, partis de zéro, dépassent ensemble les 600\u00a0000 abonnés. C’est le travail de toute l’équipe, en huit ans.",
     icon: LOGOS.firstTeam,
     photos: [
       { src: '/media/tournage-basket.jpg', alt: "Tournage au bord d’un terrain de basket", position: '30% 50%' },
@@ -196,7 +196,7 @@ export const STAGES: Stage[] = [
   {
     id: 'oh-my-goal', year: 2025.95, when: 'Décembre 2025 à août 2026', kind: 'Montée finale',
     name: 'Oh My Goal',
-    detail: 'De décembre 2025 à août 2026, je suis Content Strategist et Influence Manager pour Oh My Goal (Blue Foxes). La stratégie éditoriale passe par le recrutement et le coaching de créateurs.',
+    detail: 'De décembre 2025 à août 2026, je suis Content Strategist et Influence Manager pour Oh My Goal (Blue Foxes). Je recrute des créateurs et je les coache sur leurs formats, qui portent la ligne éditoriale du média.',
     icon: LOGOS.ohMyGoal,
     logos: [LOGOS.ohMyGoal, LOGOS.blueFoxes],
     photos: [{ src: '/media/omg-post-linkedin.jpg', alt: 'Mon post LinkedIn sur le deal adidas décroché par un créateur accompagné', position: '50% 0%' }],
@@ -223,18 +223,20 @@ export const STAGES: Stage[] = [
   {
     id: 'dazn', year: 2026.7, when: 'Depuis septembre 2026', kind: 'Dernier kilomètre',
     name: 'DAZN',
-    detail: "Depuis septembre 2026, je suis commentateur omnisport pour DAZN, avec la NFL le dimanche soir. Et toujours L’Échappée.",
+    detail: "Depuis septembre 2026, je suis commentateur omnisport pour DAZN, avec la NFL le dimanche soir. Je continue d’animer L’Échappée.",
     icon: LOGOS.dazn,
     photos: [{ src: '/media/dazn-nfl.jpg', alt: 'La NFL, que je commente le dimanche soir sur DAZN', position: '53% 40%', badge: LOGOS.dazn }],
     row: 4, anchor: 'end',
   },
 ];
 
-// À côté des étapes : les outils de montage que Paul construit avec l'IA, et deux reels
-// de L'Échappée qui en sortent (fournis par Paul le 27/10/2026).
+// À côté des étapes : la voiture suiveuse, résumée sur l'accueil (demande de Paul du
+// 27/10/2026), avec les outils de montage que Paul construit avec l'IA et deux reels de
+// L'Échappée qui en sortent.
 export interface Side {
   title: string;
-  lede: string;
+  lede: string;       // ce qu'on trouve dans la voiture suiveuse, repris en tête de sa page
+  note: string;       // sous les reels, dans la voiture suiveuse de l'accueil
   paragraphs: string[];
   tools: string;
   reels: Photo[];
@@ -242,7 +244,8 @@ export interface Side {
 
 export const SIDE: Side = {
   title: 'Dans la voiture suiveuse',
-  lede: 'À côté des étapes, les outils de montage que je construis avec l’IA.',
+  lede: 'On y trouve mes outils de montage par IA, des affiches de concept pour Decathlon CMA CGM et Milan-San Remo, la couverture imaginée d’une victoire d’EF Pro Cycling sur le Tour et l’identité des réseaux de l’AS Can Mines.',
+  note: 'Ces deux reels de L’Échappée sortent de mon outil de montage, codé avec Claude.',
   paragraphs: [
     'Le premier, construit avec Claude, transforme un extrait de plateau en reel vertical monté et habillé en code\u00a0: recadrage sur le visage, zooms calés sur les pauses, sous-titres mot à mot et cartes synchronisées sur la parole. Ces deux reels de L’Échappée en sortent.',
     'Le second découpe des plans de match en clips verticaux et carrés, sous-titrés, avec quatre looks au choix.',

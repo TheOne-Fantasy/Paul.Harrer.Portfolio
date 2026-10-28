@@ -1317,8 +1317,65 @@
   display: block;
   width: 100%;
   height: 16px;
-  margin-bottom: clamp(56px, 10vh, 96px);
   animation: draw 1s var(--ease-in-out) both;
+}
+
+/* Le coureur de l'arrivée longe la ligne à damier quand elle se déroule, roues qui tournent,
+   et freine jusqu'au bout. Arrêté, il lève les bras et lance un éventail de confettis. */
+.finishWrap {
+  position: relative;
+  padding-top: 92px;
+  margin-bottom: clamp(96px, 16vh, 160px);
+}
+
+.winner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  opacity: 0;
+}
+
+.winner svg {
+  display: block;
+  width: 80px;
+  height: 92px;
+  overflow: visible;
+}
+
+.seen .winner {
+  opacity: 1;
+  transform: translateX(calc(100cqi - 80px));
+  transition: transform 1.7s var(--ease-out), opacity 0.3s ease;
+}
+
+.winner[data-moving] {
+  --speed: 0.9;
+}
+
+.confetti {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+}
+
+.confetti i {
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  border-radius: 1px;
+  background: var(--c);
+  opacity: 0;
+}
+
+.winner[data-finish] .confetti i {
+  animation: burst 1.4s var(--ease-out) var(--d) both;
+}
+
+@keyframes burst {
+  0% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(0.6); }
+  55% { opacity: 1; transform: translate(var(--x), var(--y)) rotate(calc(var(--r) * 0.6)) scale(1); }
+  100% { opacity: 0; transform: translate(calc(var(--x) * 1.15), calc(var(--y) + 70px)) rotate(var(--r)) scale(1); }
 }
 
 .arriveeBody {
@@ -1480,16 +1537,13 @@
   .arriveeBody { grid-template-columns: minmax(0, 1fr); row-gap: 64px; }
 
   .car { grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
-  .conceptReels { flex-direction: column; align-items: center; gap: 40px; }
-  .conceptReels .reel { width: min(300px, 84%); }
-  .conceptReels > .reel:nth-child(n) { margin-top: 0; }
   .reels { justify-content: center; }
   .reel { width: calc(50% - 8px); }
   .reel:nth-child(2) { margin-top: 40px; }
   .cvCard { width: min(240px, 62%); justify-self: center; }
 }
 
-/* La route vue du dessus (essai) : elle serpente entre le texte et les photos des étapes,
+/* La route vue du dessus : elle serpente entre le texte et les photos des étapes,
    de la sortie du premier écran jusqu'à la ligne d'arrivée, sous le contenu. Bas-côtés
    clairs, bitume plus sombre que la page, ligne médiane en pointillés, et la ligne jaune de
    ce que le coureur a déjà roulé. */
@@ -1500,6 +1554,14 @@
 .roadCourse > :not(svg) {
   position: relative;
   z-index: 1;
+}
+
+/* Le titre des derniers kilomètres passe sur deux lignes pour laisser une voie large à la
+   route sur sa droite, et le coureur de la route remplace celui du bandeau. La route n'est
+   tracée que sur ordinateur. */
+@media (min-width: 1100px) {
+  .roadCourse .lastKmTitle { max-width: 7em; }
+  .bandRoad .bandRider { display: none; }
 }
 
 .road2d {
@@ -1564,16 +1626,10 @@
 }
 
 .vsLede {
+  margin-bottom: 18px;
   font-size: clamp(18px, 1.4vw, 20px);
   line-height: 1.5;
-  max-width: 52ch;
-}
-
-.vsIntro {
-  margin: 14px 0 18px;
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 58ch;
+  max-width: 62ch;
 }
 
 .vsConcepts {
@@ -1611,24 +1667,79 @@
   margin-top: 0;
 }
 
-/* Les montages de concept : trois téléphones en rangée, décalés en hauteur. */
-.conceptReels {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: clamp(20px, 3vw, 48px);
+/* Les affiches de concept, toutes à la suite, chacune avec son titre et son texte. */
+.posters,
+.efRow {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: 40px clamp(20px, 2.6vw, 44px);
 }
 
-.conceptReels .reel {
-  width: clamp(180px, 22vw, 320px);
+.posterFrame {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--fill);
 }
 
+.posterFrame img {
+  object-fit: cover;
+}
+
+.posters .vsPosterTitle {
+  margin-top: 20px;
+}
+
+.posterText {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* Le projet EF : ses quatre pièces en rangée, de la ligne d'arrivée à l'annonce de la
+   recrue. Le reel, plus haut que large, prend une colonne plus étroite pour que les quatre
+   cadres aient la même hauteur. */
+.efProject .stageDetail {
+  max-width: 62ch;
+  margin-bottom: 40px;
+}
+
+.efRow {
+  grid-template-columns: 1fr 1fr 0.7fr 1fr;
+}
+
+.efFigure {
+  margin: 0;
+}
+
+.efFigure .stack {
+  height: auto;
+  width: 100%;
+}
+
+.efFigure .caption,
 .reel .caption {
+  margin-top: 16px;
   white-space: normal;
 }
 
-.conceptReels .reel:nth-child(3) {
-  margin-top: 24px;
+.efReel .reel {
+  width: 100%;
+}
+
+/* Tablette : deux colonnes ; téléphone : une seule, centrée. */
+@media (max-width: 1099px) {
+  .posters,
+  .efRow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .posters,
+  .efRow { grid-template-columns: minmax(0, 1fr); max-width: 400px; margin-inline: auto; }
 }
 
 .reelTitle {
@@ -1678,15 +1789,6 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Le texte de l'affiche du dessus change avec elle. */
-.vsPoster {
-  animation: bandNameIn 0.35s var(--ease-out) both;
-}
-
-.vsPoster .stageDetail {
-  margin-top: 14px;
-}
-
 /* Le lien vers la voiture suiveuse disparaît de la barre sur téléphone (il est repris en bas
    de page), et la barre se resserre pour que le nom ne touche pas CV. */
 @media (max-width: 720px) {
@@ -1719,9 +1821,10 @@
   .speed { display: none; }
   .finish,
   .bandOn .bandStop,
-  .vsPoster,
   .bandName { animation: fadeOnly 0.3s ease both; }
   .topLeg { animation: none; }
+  .seen .winner { transition: none; }
+  .confetti { display: none; }
   .band { transform: none; }
   .marker,
   .rise,

@@ -61,7 +61,7 @@ export function Shell({
 // L'accueil, avec le premier écran commun aux deux pistes d'identité : « route » (livre de
 // route imprimé) ou « asphalte » (nom peint sur la chaussée). Avec scroll, les étapes se
 // lisent aussi en défilant sous le premier écran, avec road une route vue du dessus entre
-// elles (en essai). lang choisit la langue de la page, alt donne l'adresse de la même page
+// elles. lang choisit la langue de la page, alt donne l'adresse de la même page
 // dans l'autre langue.
 export default function FirstScreen({
   variant,
