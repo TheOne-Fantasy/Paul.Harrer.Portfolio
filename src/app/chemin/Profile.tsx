@@ -93,7 +93,7 @@ export function Cyclist({ tilt }: { tilt?: Ref<SVGGElement> }) {
         <path d="M-9 -5.5L-1 -5.5L-4 -14ZM-4 -14L6 -14L-1 -5.5M6 -14L9 -5.5M6 -14L8 -16.5M-4 -16L2 -11L-1 -5.5" className={styles.frame} />
         <path d="M-4 -16L5 -21.5" className={styles.jersey} />
         <path d="M5 -21.5L8 -16.5" className={`${styles.frame} ${styles.armsDown}`} />
-        <path d="M5 -21.5L8.5 -27L10.5 -32.5M4 -21L3.5 -27.5L5 -33" className={`${styles.frame} ${styles.armsUp}`} />
+        <path d="M5 -21.5L7 -28L8 -34M5 -21.5L9.5 -27L12.5 -32" className={`${styles.frame} ${styles.armsUp}`} />
         <circle cx={7.6} cy={-24.2} r={2.6} className={styles.head} />
       </g>
     </g>
