@@ -1305,7 +1305,7 @@
   margin-top: 14px;
 }
 
-/* L'arrivée : la ligne à damier, le contact et le CV, puis le nom peint sur toute la
+/* L'arrivée : le bout de la route, le contact et le CV, puis le nom peint sur toute la
    largeur. Le conteneur donne sa largeur au nom (cqi). */
 .arrivee {
   container-type: inline-size;
@@ -1313,69 +1313,10 @@
   scroll-margin-top: calc(var(--bar-h) + var(--band-h));
 }
 
-.finishLine {
-  display: block;
-  width: 100%;
-  height: 16px;
-  animation: draw 1s var(--ease-in-out) both;
-}
-
-/* Le coureur de l'arrivée longe la ligne à damier quand elle se déroule, roues qui tournent,
-   et freine jusqu'au bout. Arrêté, il lève les bras et lance un éventail de confettis. */
-.finishWrap {
-  position: relative;
-  padding-top: 92px;
-  margin-bottom: clamp(96px, 16vh, 160px);
-}
-
-.winner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80px;
-  opacity: 0;
-}
-
-.winner svg {
-  display: block;
-  width: 80px;
-  height: 92px;
-  overflow: visible;
-}
-
-.seen .winner {
-  opacity: 1;
-  transform: translateX(calc(100cqi - 80px));
-  transition: transform 1.7s var(--ease-out), opacity 0.3s ease;
-}
-
-.winner[data-moving] {
-  --speed: 0.9;
-}
-
-.confetti {
-  position: absolute;
-  left: 50%;
-  top: 30%;
-}
-
-.confetti i {
-  position: absolute;
-  width: 6px;
-  height: 10px;
-  border-radius: 1px;
-  background: var(--c);
-  opacity: 0;
-}
-
-.winner[data-finish] .confetti i {
-  animation: burst 1.4s var(--ease-out) var(--d) both;
-}
-
-@keyframes burst {
-  0% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(0.6); }
-  55% { opacity: 1; transform: translate(var(--x), var(--y)) rotate(calc(var(--r) * 0.6)) scale(1); }
-  100% { opacity: 0; transform: translate(calc(var(--x) * 1.15), calc(var(--y) + 70px)) rotate(var(--r)) scale(1); }
+/* Le bout de la route : la dernière ligne droite, l'arche et la ligne (voir Route). */
+.finishZone {
+  height: clamp(240px, 32vh, 320px);
+  margin-bottom: clamp(32px, 6vh, 64px);
 }
 
 .arriveeBody {
@@ -1484,7 +1425,6 @@
   :global(.js) .lastKm:not(.seen) .lastKmTitle,
   :global(.js) .car:not(.seen) .rise,
   :global(.js) .vsConcepts:not(.seen) .rise,
-  :global(.js) .arrivee:not(.seen) .finishLine,
   :global(.js) .arrivee:not(.seen) .rise,
   :global(.js) .arrivee:not(.seen) .signature {
     animation-play-state: paused;
@@ -1593,8 +1533,48 @@
 .topJersey { fill: var(--accent); }
 .topHelmet { fill: var(--ink); }
 
-[data-moving] .topLegL { animation: pedal 0.36s ease-in-out infinite; }
-[data-moving] .topLegR { animation: pedal 0.36s ease-in-out -0.18s infinite; }
+[data-moving]:not([data-finish]) .topLegL { animation: pedal 0.36s ease-in-out infinite; }
+[data-moving]:not([data-finish]) .topLegR { animation: pedal 0.36s ease-in-out -0.18s infinite; }
+
+/* La ligne passée, il se relève, lâche le guidon et lève les bras en V. */
+.topArmsUp,
+.topArmsDown { transition: opacity 0.15s ease; }
+.topArmsUp,
+[data-finish] .topArmsDown { opacity: 0; }
+[data-finish] .topArmsUp { opacity: 1; }
+
+/* L'arrivée vue du dessus : barrières claires, arche jaune avec ses pieds, et quatre
+   gerbes de feux d'artifice qui s'ouvrent l'une après l'autre quand il passe la ligne. */
+.barrier { fill: none; stroke: rgba(241, 239, 232, 0.55); stroke-width: 3; stroke-dasharray: 16 4; }
+.gantryBeam { fill: var(--accent); }
+.gantryFoot { fill: var(--ink); }
+.gantryText {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  fill: var(--on-accent);
+}
+
+.firework {
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+[data-won] .firework {
+  animation: firework 1.2s var(--ease-out) var(--d) both;
+}
+
+@keyframes firework {
+  0% { opacity: 1; transform: scale(0.15); }
+  60% { opacity: 1; }
+  100% { opacity: 0; transform: scale(1.25); }
+}
 
 @keyframes pedal {
   50% { transform: translateY(-2.2px); }
@@ -1809,7 +1789,6 @@
   .lastKmFlag::after,
   .lastKmTitle,
   .vsTitle,
-  .finishLine,
   .bandOn .bandRoute,
   .bandStop[aria-current] img,
   .inFinal .bandFlame::after,
@@ -1823,8 +1802,7 @@
   .bandOn .bandStop,
   .bandName { animation: fadeOnly 0.3s ease both; }
   .topLeg { animation: none; }
-  .seen .winner { transition: none; }
-  .confetti { display: none; }
+  .firework { display: none; }
   .band { transform: none; }
   .marker,
   .rise,

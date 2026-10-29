@@ -5,6 +5,7 @@ import { VOITURE, VOITURE_EN } from '@/content/voiture';
 import Arrivee from './Arrivee';
 import { Bar, PhotoStack, Reel, rise } from './Course';
 import { useLang } from './Lang';
+import Route from './Route';
 import styles from './chemin.module.css';
 
 // Un bloc de la page : il entre en scène la première fois qu'il apparaît (seen), et ses
@@ -41,6 +42,7 @@ export default function Voiture() {
   const [clubRef, clubSeen, clubOn] = useShown<HTMLElement>();
   const [clubShot, setClubShot] = useState(0);
   const [cardShot, setCardShot] = useState(0);
+  const finish = useRef<HTMLDivElement>(null);
 
   return (
     <>
@@ -142,7 +144,11 @@ export default function Voiture() {
         </figure>
       </article>
 
-      <Arrivee links={[{ href: home, label: t.backHome }]} />
+      {/* La page finit comme l'accueil : la dernière ligne droite, et le coureur qui passe la ligne. */}
+      <div ref={finish} className={styles.roadCourse}>
+        <Route course={finish} />
+        <Arrivee links={[{ href: home, label: t.backHome }]} />
+      </div>
     </>
   );
 }
