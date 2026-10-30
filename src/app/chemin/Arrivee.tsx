@@ -12,7 +12,7 @@ const LINKEDIN = 'https://www.linkedin.com/in/pharrer/';
 // feuille posée, et le nom revient, peint en grand, pour finir. links ajoute des liens
 // entre LinkedIn et le CV (la voiture suiveuse depuis l'accueil, par exemple).
 export default function Arrivee({ links }: { links?: { href: string; label: string }[] }) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const finish = useRef<HTMLElement>(null);
   const [seen, setSeen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -61,7 +61,7 @@ export default function Arrivee({ links }: { links?: { href: string; label: stri
             <span className={styles.srOnly} role="status">{copied ? t.copied : ''}</span>
           </div>
         </div>
-        <a className={`${styles.cvCard} ${styles.rise}`} style={rise(2)} href="/CV-PaulHarrer-VC.pdf" target="_blank" rel="noopener noreferrer">
+        <a className={`${styles.cvCard} ${styles.rise}`} style={rise(2)} href={lang === 'en' ? '/CV-PaulHarrer-EN.pdf' : '/CV-PaulHarrer-VC.pdf'} target="_blank" rel="noopener noreferrer">
           <span className={styles.cvSheet}>
             <Image src="/media/cv-apercu.jpg" alt={t.cvAlt} fill sizes="(max-width: 720px) 60vw, 280px" />
           </span>

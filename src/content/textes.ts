@@ -74,7 +74,7 @@ const en: typeof fr = {
   write: 'Email me',
   copy: 'Copy the address',
   copied: 'Address copied',
-  cvLabel: 'My CV in PDF, in French',
+  cvLabel: 'My CV in PDF',
   cvAlt: 'Preview of Paul Harrer’s CV',
 };
 

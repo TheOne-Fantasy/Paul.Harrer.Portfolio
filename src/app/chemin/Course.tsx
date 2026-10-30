@@ -101,7 +101,7 @@ export function Bar({
   contact?: string;
   children?: ReactNode;
 }) {
-  const { t, alt } = useLang();
+  const { t, alt, lang } = useLang();
   return (
     <header className={`${styles.bar} ${riding ? styles.barRiding : ''}`}>
       <button
@@ -120,7 +120,7 @@ export function Bar({
         </span>
       </button>
       <nav>
-        <a href="/CV-PaulHarrer-VC.pdf" target="_blank" rel="noopener noreferrer">{t.cv}</a>
+        <a href={lang === 'en' ? '/CV-PaulHarrer-EN.pdf' : '/CV-PaulHarrer-VC.pdf'} target="_blank" rel="noopener noreferrer">{t.cv}</a>
         <a href={t.carHref} className={styles.barWork}>{t.car}</a>
         <a href={contact}>{t.contact}</a>
         {alt && (
